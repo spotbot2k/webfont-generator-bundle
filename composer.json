@@ -1,5 +1,5 @@
 {
-    "name": "spot/webfont-generator-bundle",
+    "name": "spotbot2k/webfont-generator-bundle",
     "description": "Contao bundle to load and manage local fonts as webfonts",
     "type": "contao-bundle",
     "authors": [
