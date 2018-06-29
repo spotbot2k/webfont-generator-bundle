@@ -1,0 +1,27 @@
+{
+    "name": "spot/webfont-generator-bundle",
+    "description": "Contao bundle to load and manage local fonts as webfonts",
+    "type": "contao-bundle",
+    "authors": [
+        {
+            "name": "Alexander Schwirjow",
+            "email": "alexander@schwirjow.de",
+            "homepage": "https://www.schwirjow.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SPoT\\WebfontGeneratorBundle\\": "src/"
+        },
+        "classmap": [
+            "src/Resources/contao/"
+        ],
+        "exclude-from-classmap": [
+            "src/Resources/contao/config/",
+            "src/Resources/contao/dca/",
+            "src/Resources/contao/languages/",
+            "src/Resources/contao/templates/"
+        ]
+    }
+}
+    

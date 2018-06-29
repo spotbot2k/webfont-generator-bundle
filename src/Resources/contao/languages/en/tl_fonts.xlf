@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <xliff version="1.1">
+        <file datatype="php" original="src/Resources/contao/languages/en/tl_fonts.php" source-language="en">
+            <body>
+                <trans-unit id="tl_fonts.new.0">
+                    <source>New style</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.new.1">
+                    <source>Setup a new style for this font</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.style.0">
+                    <source>Style</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.style.1">
+                    <source>Defines how the font should be styled.</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.stretch.0">
+                    <source>Stretch</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.stretch.1">
+                    <source>Defines how the font should be stretched.</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.weight.0">
+                    <source>Weight</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.weight.1">
+                    <source>Defines the boldness of the font.</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.src_ttf.0">
+                    <source>TrueType Fonts - TTF</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.src_ttf.1">
+                    <source>Firefox 3.5, Google Chrome 4, Opera 10, Safari 3.1, IE9</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.src_otf.0">
+                    <source>OpenType Fonts</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.src_otf.1">
+                    <source>Firefox 3.5, Google Chrome 4, Opera 10, Safari 3.1, IE9</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.src_woff.0">
+                    <source>The Web Open Font Format</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.src_woff.1">
+                    <source>Firefox 3.6, Google Chrome 6, IE9, Opera 11.10, Safari 5.1</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.src_woff_two.0">
+                    <source>The Web Open Font Format</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.src_woff_two.1">
+                    <source>Firefox 35, Google Chrome 36, Opera 23</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.src_svg.0">
+                    <source>SVG Fonts/Shapes</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.src_svg.1">
+                    <source>Safari for iOS below 4.1</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.src_eot.0">
+                    <source>Embedded OpenType Fonts</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.src_eot.1">
+                    <source>IE6-IE8, IE9+ Compat Modes</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.source_legend">
+                    <source>Font source</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.custom_legend">
+                    <source>General font settings</source>
+                </trans-unit>
+            </body>
+        </file>
+    </xliff>
