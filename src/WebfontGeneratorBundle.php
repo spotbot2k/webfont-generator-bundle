@@ -10,6 +10,6 @@ namespace SPoT\WebfontGeneratorBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class WebfontGeneratorBundle extends Bundle
+class SPoTWebfontGeneratorBundle extends Bundle
 {
 }
