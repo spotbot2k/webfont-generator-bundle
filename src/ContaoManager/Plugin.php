@@ -3,7 +3,7 @@
 namespace SPoT\WebfontGeneratorBundle\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
-use SPoTWebfontGeneratorBundle;
+use SPoT\WebfontGeneratorBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
