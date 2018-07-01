@@ -21,7 +21,7 @@ class Plugin implements BundlePluginInterface
     public function getBundles(ParserInterface $parser)
     {
         return [
-            BundleConfig::create(WebfontGeneratorBundle::class)
+            BundleConfig::create(SPoTWebfontGeneratorBundle::class)
                 ->setLoadAfter([ContaoCoreBundle::class])
                 ->setReplace(['fonts']),
         ];
