@@ -3,7 +3,6 @@
 namespace SPoT\WebfontGeneratorBundle\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
-use SPoT\WebfontGeneratorBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
@@ -21,8 +20,8 @@ class Plugin implements BundlePluginInterface
     public function getBundles(ParserInterface $parser)
     {
         return [
-            BundleConfig::create(SPoTWebfontGeneratorBundle::class)
-                ->setLoadAfter([ContaoCoreBundle::class])
+            BundleConfig::create('SPoT\WebfontGeneratorBundle\SPoTWebfontGeneratorBundle')
+                ->setLoadAfter(['Contao\CoreBundle\ContaoCoreBundle'])
                 ->setReplace(['fonts']),
         ];
     }
