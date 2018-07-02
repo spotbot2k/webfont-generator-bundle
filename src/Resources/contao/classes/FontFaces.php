@@ -45,6 +45,8 @@ class FontFaces extends Backend
 			return;
         }
 
+        print_r($value);
+
         $buffer = '';
 
         foreach ($array as $fontId) {
