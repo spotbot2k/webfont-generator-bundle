@@ -50,16 +50,25 @@ class FontFaces extends Backend
 			return;
         }
 
-        $fonts = array();
-        while ($array->next()) {
-            $fontName = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($array);
-            if ($fontName) {
-                print_r($fontName);
+        $buffer = '';
+        foreach ($array as $fontFace) {
+            $fontName = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontFace);
+            if ($fontName->name) {
+                $buffer .= sprintf("/* %s */", $fontName);
             }
         }
+
+        /*
+        @font-face {
+            font-family: 'Source Sans Pro';
+            font-style: normal;
+            font-weight: 300;
+            src: url(https://fonts.gstatic.com/s/sourcesanspro/v11/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwkxdu3cOWxy40.woff2) format('woff2');
+          }
+          */
         
         $objFile = new \File($this->filePath);
-        $objFile->write("/* webfonts css */\n");
+        $objFile->write($buffer."\n");
         $objFile->close();
         \Message::addInfo(sprintf('%s generated', $this->filePath));
 
