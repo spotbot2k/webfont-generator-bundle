@@ -7,6 +7,7 @@ use Contao\PageModel;
 use Contao\PageRegular;
 use Contao\Backend;
 use Contao\DataContainer;
+use Contao\Image;
 
 class FontFaces extends Backend
 {
@@ -40,8 +41,6 @@ class FontFaces extends Backend
 		while ($objFontFaces->next()) {
 			$return[$objFontFaces->id] = $objFontFaces->weight;
         }
-
-        return array ('a' => 'b');
 
 		return $return;
     }
