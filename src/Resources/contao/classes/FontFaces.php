@@ -21,7 +21,7 @@ class FontFaces extends Backend
         parent::__construct();
         $this->import('BackendUser', 'User');
         $this->import('Files');
-        $this->filePath = TL_ROOT.'/assets/css/webfont-generator.css';
+        $this->filePath = '/assets/css/webfont-generator.css';
     }
 
     public function listFontStyles($row)
@@ -49,8 +49,6 @@ class FontFaces extends Backend
 			\Message::addError(sprintf($GLOBALS['TL_LANG']['ERR']['notWriteable'], $this->filePath));
 			return;
         }
-
-        echo $this->filePath;
         
         $objFile = new \File($this->filePath);
         $objFile->write("/* webfonts css */\n");
