@@ -84,6 +84,8 @@ class FontFaces extends Backend
                 }
             }
         }
+
+        print_r($buffer);
         
         $objFile = new \File($this->filePath);
         $objFile->write($buffer);
