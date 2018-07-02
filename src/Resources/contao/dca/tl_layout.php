@@ -11,6 +11,8 @@ $GLOBALS['TL_DCA']['tl_layout']['fields']['fontfaces'] = array
     'xlabel'                  => array(array('SPoT\\WebfontGeneratorBundle\\FontFaces', 'fontLink')),
     'eval'                    => array('multiple' => true),
     'sql'                     => "blob NULL",
-    'save_callback'           => array('SPoT\\WebfontGeneratorBundle\\FontFaces', 'saveFontFaces'),
+    'save_callback'           => array(
+        array('SPoT\\WebfontGeneratorBundle\\FontFaces', 'saveFontFaces'),
+    ),
     'relation'                => array('type' => 'hasMany', 'load' => 'lazy'),
 );
