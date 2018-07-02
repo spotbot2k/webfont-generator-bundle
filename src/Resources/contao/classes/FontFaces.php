@@ -64,9 +64,4 @@ class FontFaces extends Backend
             $GLOBALS['TL_CSS'][] = $this->filePath.'||static';
         }
     }
-
-    public function fontLink(DataContainer $dc)
-	{
-		return ' <a href="contao/main.php?do=themes&amp;table=tl_font_faces&amp;id=' . $dc->activeRecord->pid . '&amp;popup=1&amp;nb=1&amp;rt=' . REQUEST_TOKEN . '" title="edit" onclick="Backend.openModalIframe({\'title\':\'edit\',\'url\':this.href});return false">' . \Image::getHtml('edit.svg') . '</a>';
-	}
 }
