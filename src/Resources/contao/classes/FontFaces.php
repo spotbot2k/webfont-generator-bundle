@@ -36,9 +36,6 @@ class FontFaces extends Backend
 
     public function saveFontFaces($value)
     {
-        if (empty($value)) {
-			return '';
-		}
         $array = StringUtil::deserialize($value);
         
         if (empty($array) || !\is_array($array)) {
@@ -55,6 +52,9 @@ class FontFaces extends Backend
         $objFile = new \File($this->filePath);
         $objFile->write("/* webfonts css */\n");
         $objFile->close();
+        \Message::addInfo(sprintf('%s generated', $this->filePath));
+
+        return $value;
     }
 
     public function generatePageHook(PageModel $page, LayoutModel $layout, PageRegular $pageRegular)
