@@ -45,14 +45,13 @@ class FontFaces extends Backend
             return $value;
         }
         
-		if (file_exists($this->filePath) && !$this->Files->is_writeable($this->filePath)) {
+		if (file_exists(TL_ROOT.$this->filePath) && !$this->Files->is_writeable($this->filePath)) {
 			\Message::addError(sprintf($GLOBALS['TL_LANG']['ERR']['notWriteable'], $this->filePath));
 			return;
         }
 
         $buffer = '';
 
-        print_r($array);
         foreach ($array as $fontId) {
             $fontFace = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
             if ($fontFace->numRows && $fontFace->name) {
@@ -81,13 +80,11 @@ class FontFaces extends Backend
                         $buffer .= sprintf("@font-face {
                             font-family: '%s';
                             src: %s;
-                          }", $fontFace->name, implode(',', $src));
+                        }", $fontFace->name, implode(',', $src));
                     }
                 }
             }
         }
-
-        print_r($buffer);
         
         $objFile = new \File($this->filePath);
         $objFile->write($buffer);
