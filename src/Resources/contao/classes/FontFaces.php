@@ -38,12 +38,7 @@ class FontFaces extends Backend
     {
         $array = \StringUtil::deserialize($value);
         
-        if (empty($array) || !\is_array($array)) {
-            $this->Files->delete($this->filePath);
-            \Message::addInfo(sprintf('%s deleted', $this->filePath));
-
-            return $value;
-        }
+        $this->Files->delete($this->filePath);
         
 		if (file_exists(TL_ROOT.$this->filePath) && !$this->Files->is_writeable($this->filePath)) {
 			\Message::addError(sprintf($GLOBALS['TL_LANG']['ERR']['notWriteable'], $this->filePath));
@@ -87,7 +82,8 @@ class FontFaces extends Backend
         }
         
         $objFile = new \File($this->filePath);
-        $objFile->write($buffer);
+        $objFile->write('');
+        $objFile->append($buffer);
         $objFile->close();
         \Message::addInfo(sprintf('%s generated', $this->filePath));
 
