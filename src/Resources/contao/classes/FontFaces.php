@@ -31,6 +31,8 @@ class FontFaces extends Backend
 
     public function getFontFaces(DataContainer $dc)
     {
+        print_r($dc->activeRecord);
+        /*
         $intPid = $dc->activeRecord->pid;
 		if (Input::get('act') == 'overrideAll') {
 			$intPid = Input::get('id');
@@ -43,6 +45,7 @@ class FontFaces extends Backend
 		while ($objFontFaces->next()) {
 			$return[$objFontFaces->id] = $objFontFaces->weight;
         }
+        */
 
 		return $return;
     }
