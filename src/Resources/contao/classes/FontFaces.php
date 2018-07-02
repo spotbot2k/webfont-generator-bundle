@@ -32,5 +32,6 @@ class FontFaces extends \Backend
     public function generatePageHook(PageModel $page, LayoutModel $layout, PageRegular $pageRegular)
     {
         // generate css and append it to the combiner
+        print_r($layout->fontfaces);
     }
 }

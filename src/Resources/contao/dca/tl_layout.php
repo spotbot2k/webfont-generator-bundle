@@ -10,12 +10,6 @@ $GLOBALS['TL_DCA']['tl_layout']['fields']['fontfaces'] = array
     'foreignKey'              => 'tl_fonts_faces.name',
     //'options_callback'        => array('FontFaces', 'getFontFaces'),
     'eval'                    => array('multiple' => true),
-    /*
-    'xlabel' => array
-    (
-        array('tl_layout', 'styleSheetLink')
-    ),
-    */
     'sql'                     => "blob NULL",
     'relation'                => array('type' => 'hasMany', 'load' => 'lazy'),
 );
