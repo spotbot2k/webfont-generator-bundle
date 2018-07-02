@@ -42,8 +42,10 @@ class FontFaces extends Backend
             $this->Files->delete($this->filePath);
             \Message::addInfo(sprintf('%s deleted', $this->filePath));
 
-			return $value;
+            return $value;
         }
+
+        echo $this->filePath;
         
 		if (file_exists($this->filePath) && !$this->Files->is_writeable($this->filePath)) {
 			\Message::addError(sprintf($GLOBALS['TL_LANG']['ERR']['notWriteable'], $this->filePath));
@@ -54,8 +56,6 @@ class FontFaces extends Backend
         $objFile->write("/* webfonts css */\n");
         $objFile->close();
         \Message::addInfo(sprintf('%s generated', $this->filePath));
-
-        echo $this->filePath;
 
         return $value;
     }
