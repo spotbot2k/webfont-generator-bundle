@@ -29,27 +29,6 @@ class FontFaces extends Backend
         return $this->User->canEditFieldsOf('tl_fonts_faces') ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.\StringUtil::specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ' : \Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
     }
 
-    public function getFontFaces(DataContainer $dc)
-    {
-        print_r($dc->activeRecord);
-        /*
-        $intPid = $dc->activeRecord->pid;
-		if (Input::get('act') == 'overrideAll') {
-			$intPid = Input::get('id');
-		}
-		$objFontFaces = $this->Database->prepare("SELECT id, name FROM tl_font_faces WHERE pid=?")->execute($intPid);
-		if ($objFontFaces->numRows < 1) {
-			return array();
-		}
-		$return = array();
-		while ($objFontFaces->next()) {
-			$return[$objFontFaces->id] = $objFontFaces->weight;
-        }
-        */
-
-		return $return;
-    }
-
     public function generatePageHook(PageModel $page, LayoutModel $layout, PageRegular $pageRegular)
     {
         // generate css and append it to the combiner

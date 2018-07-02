@@ -8,7 +8,6 @@ $GLOBALS['TL_DCA']['tl_layout']['fields']['fontfaces'] = array
     'exclude'                 => true,
     'inputType'               => 'checkboxWizard',
     'foreignKey'              => 'tl_fonts_faces.name',
-    'options_callback'        => array('SPoT\\WebfontGeneratorBundle\\FontFaces', 'getFontFaces'),
     'xlabel'                  => array(array('SPoT\\WebfontGeneratorBundle\\FontFaces', 'fontLink')),
     'eval'                    => array('multiple' => true),
     'sql'                     => "blob NULL",
