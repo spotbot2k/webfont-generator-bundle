@@ -9,9 +9,9 @@
  * @link       http://github.com/terminal42/contao-countryselect
  */
 
-ClassLoader::addNamespaces(array('SPoT\\WebfontsBundle'));
+ClassLoader::addNamespaces(array('SPoT\\WebfontGeneratorBundle'));
 
 /**
  * Register the classes
  */
-ClassLoader::addClasses(array('SPoT\\WebfontsBundle\\FontFaces' => 'system/modules/webfonts/classes/FontFaces.php'));
+ClassLoader::addClasses(array('SPoT\\WebfontGeneratorBundle\\FontFaces' => 'system/modules/webfonts/classes/FontFaces.php'));

@@ -2,7 +2,7 @@
     "name": "spotbot2k/webfont-generator-bundle",
     "description": "Contao bundle to load and manage local fonts as webfonts",
     "type": "contao-bundle",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "license": "LGPL-3.0+",
     "authors": [
         {
@@ -11,6 +11,10 @@
             "homepage": "https://www.schwirjow.de"
         }
     ],
+    "support":{
+		"issues":"https://github.com/spotbot2k/webfont-generator-bundle/issues",
+		"source":"https://github.com/spotbot2k/webfont-generator-bundle"
+    },
     "autoload": {
         "psr-4": {
             "SPoT\\WebfontGeneratorBundle\\": "src/"

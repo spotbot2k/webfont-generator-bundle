@@ -2,6 +2,10 @@
 
 namespace SPoT\WebfontGeneratorBundle;
 
+use Contao\LayoutModel;
+use Contao\PageModel;
+use Contao\PageRegular;
+
 class FontFaces extends \Backend
 {
     public function __construct()
@@ -25,8 +29,8 @@ class FontFaces extends \Backend
         return array('0' => '1');
     }
 
-    public function generatePageHook()
+    public function generatePageHook(PageModel $page, LayoutModel $layout, PageRegular $pageRegular)
     {
-        return true;
+        // generate css and append it to the combiner
     }
 }
