@@ -36,11 +36,12 @@ class FontFaces extends Backend
 
     public function saveFontFaces($value)
     {
-        $array = StringUtil::deserialize($value);
+        $array = \StringUtil::deserialize($value);
         
         if (empty($array) || !\is_array($array)) {
             $this->Files->delete($this->filePath);
             \Message::addInfo(sprintf('%s deleted', $this->filePath));
+
 			return $value;
         }
         
@@ -53,6 +54,8 @@ class FontFaces extends Backend
         $objFile->write("/* webfonts css */\n");
         $objFile->close();
         \Message::addInfo(sprintf('%s generated', $this->filePath));
+
+        echo $this->filePath;
 
         return $value;
     }
