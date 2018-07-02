@@ -41,6 +41,8 @@ class FontFaces extends Backend
 			$return[$objFontFaces->id] = $objFontFaces->weight;
         }
 
+        return array ('a' => 'b');
+
 		return $return;
     }
 
@@ -54,8 +56,8 @@ class FontFaces extends Backend
         */
     }
 
-    public function styleSheetLink(DataContainer $dc)
+    public function fontLink(DataContainer $dc)
 	{
-		return ' <a href="contao/main.php?do=themes&amp;table=tl_style_sheet&amp;id=' . $dc->activeRecord->pid . '&amp;popup=1&amp;nb=1&amp;rt=' . REQUEST_TOKEN . '" title="' . StringUtil::specialchars($GLOBALS['TL_LANG']['tl_layout']['edit_styles']) . '" onclick="Backend.openModalIframe({\'title\':\''.StringUtil::specialchars(str_replace("'", "\\'", $GLOBALS['TL_LANG']['tl_layout']['edit_styles'])).'\',\'url\':this.href});return false">' . Image::getHtml('edit.svg') . '</a>';
+		return ' <a href="contao/main.php?do=themes&amp;table=tl_font_faces&amp;id=' . $dc->activeRecord->pid . '&amp;popup=1&amp;nb=1&amp;rt=' . REQUEST_TOKEN . '" title="edit" onclick="Backend.openModalIframe({\'title\':\'edit\',\'url\':this.href});return false">' . Image::getHtml('edit.svg') . '</a>';
 	}
 }
