@@ -13,10 +13,15 @@ use Contao\StringUtil;
 
 class FontFaces extends Backend
 {
+
+    private $filePath;
+
     public function __construct()
     {
         parent::__construct();
         $this->import('BackendUser', 'User');
+        $this->import('Files');
+        $this->filePath = TL_ROOT.'/assets/css/webfont-generator.css';
     }
 
     public function listFontStyles($row)
@@ -29,14 +34,36 @@ class FontFaces extends Backend
         return $this->User->canEditFieldsOf('tl_fonts_faces') ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.\StringUtil::specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ' : \Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
     }
 
+    public function saveFontFaces($value)
+    {
+        if (empty($value)) {
+			return '';
+		}
+        $array = StringUtil::deserialize($value);
+        
+        if (empty($array) || !\is_array($array)) {
+            $this->Files->delete($this->filePath);
+			return $value;
+        }
+        
+		if (file_exists($this->filePath) && !$this->Files->is_writeable($this->filePath)) {
+			\Message::addError(sprintf($GLOBALS['TL_LANG']['ERR']['notWriteable'], $this->filePath));
+			return;
+        }
+        
+        $objFile = new \File($this->filePath);
+		$objFile->write("/* webfonts css */\n");
+    }
+
     public function generatePageHook(PageModel $page, LayoutModel $layout, PageRegular $pageRegular)
     {
-        // generate css and append it to the combiner
-        /*
-        if ($layout->fontfaces) {
+        if (file_exists($this->filePath)) {
+            if (!\is_array($GLOBALS['TL_USER_CSS'])) {
+                $GLOBALS['TL_USER_CSS'] = array();
+            }
 
+            $GLOBALS['TL_USER_CSS'][] = $this->filePath;
         }
-        */
     }
 
     public function fontLink(DataContainer $dc)
