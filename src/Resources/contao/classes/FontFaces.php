@@ -43,6 +43,7 @@ class FontFaces extends Backend
         
         if (empty($array) || !\is_array($array)) {
             $this->Files->delete($this->filePath);
+            \Message::addInfo(sprintf('%s deleted', $this->filePath));
 			return $value;
         }
         
@@ -52,7 +53,8 @@ class FontFaces extends Backend
         }
         
         $objFile = new \File($this->filePath);
-		$objFile->write("/* webfonts css */\n");
+        $objFile->write("/* webfonts css */\n");
+        $objFile->close();
     }
 
     public function generatePageHook(PageModel $page, LayoutModel $layout, PageRegular $pageRegular)
