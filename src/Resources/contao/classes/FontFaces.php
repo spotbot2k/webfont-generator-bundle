@@ -51,24 +51,42 @@ class FontFaces extends Backend
         }
 
         $buffer = '';
-        foreach ($array as $fontFace) {
-            $fontName = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontFace);
-            if ($fontName->name) {
-                $buffer .= sprintf("/* %s */", $fontName);
+        foreach ($array as $fontId) {
+            $fontFace = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
+            if ($fontFace->numRows && $fontFace->name) {
+                $fontStyles = $this->Database->prepare('SELECT * FROM tl_fonts WHERE pid = ?')->execute($fontId);
+                while ($fontStyles->next()) {
+                    $src = [];
+                    if ($fontStyles->src_ttf) {
+                        $src[] = sprintf("url(%s) format('truetype')", $fontStyles->src_ttf);
+                    }
+                    if ($fontStyles->src_ttf) {
+                        $src[] = sprintf("url(%s) format('opentype')", $fontStyles->src_otf);
+                    }
+                    if ($fontStyles->src_woff) {
+                        $src[] = sprintf("url(%s) format('woff')", $fontStyles->src_woff);
+                    }
+                    if ($fontStyles->src_woff_two) {
+                        $src[] = sprintf("url(%s) format('woff2')", $fontStyles->src_woff_two);
+                    }
+                    if ($fontStyles->src_svg) {
+                        $src[] = sprintf("url(%s) format('svg')", $fontStyles->src_svg);
+                    }
+                    if ($fontStyles->src_eot) {
+                        $src[] = sprintf("url(%s) format('embedded-opentype')", $fontStyles->src_eot);
+                    }
+                    if (!empty($src)) {
+                        $buffer .= sprintf("@font-face {
+                            font-family: '%s';
+                            src: %s;
+                          }", $fontFace->name, implode(',', $src));
+                    }
+                }
             }
         }
-
-        /*
-        @font-face {
-            font-family: 'Source Sans Pro';
-            font-style: normal;
-            font-weight: 300;
-            src: url(https://fonts.gstatic.com/s/sourcesanspro/v11/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwkxdu3cOWxy40.woff2) format('woff2');
-          }
-          */
         
         $objFile = new \File($this->filePath);
-        $objFile->write($buffer."\n");
+        $objFile->write($buffer);
         $objFile->close();
         \Message::addInfo(sprintf('%s generated', $this->filePath));
 
