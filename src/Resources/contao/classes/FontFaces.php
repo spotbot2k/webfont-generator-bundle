@@ -8,7 +8,8 @@ use Contao\PageRegular;
 use Contao\Backend;
 use Contao\DataContainer;
 use Contao\Image;
-use Symfony\Component\Console\Input;
+use Contao\Input;
+use Contao\StringUtil;
 
 class FontFaces extends Backend
 {
@@ -25,14 +26,14 @@ class FontFaces extends Backend
 
     public function editHeader($row, $href, $label, $title, $icon, $attributes)
     {
-        return $this->User->canEditFieldsOf('tl_fonts_faces') ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ' : Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
+        return $this->User->canEditFieldsOf('tl_fonts_faces') ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.\StringUtil::specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ' : \Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
     }
 
     public function getFontFaces(DataContainer $dc)
     {
         $intPid = $dc->activeRecord->pid;
-		if (Input::get('act') == 'overrideAll') {
-			$intPid = Input::get('id');
+		if (Contao\Input\Input::get('act') == 'overrideAll') {
+			$intPid = Contao\Input\Input::get('id');
 		}
 		$objFontFaces = $this->Database->prepare("SELECT id, name FROM tl_font_faces WHERE pid=?")->execute($intPid);
 		if ($objFontFaces->numRows < 1) {
@@ -58,6 +59,6 @@ class FontFaces extends Backend
 
     public function fontLink(DataContainer $dc)
 	{
-		return ' <a href="contao/main.php?do=themes&amp;table=tl_font_faces&amp;id=' . $dc->activeRecord->pid . '&amp;popup=1&amp;nb=1&amp;rt=' . REQUEST_TOKEN . '" title="edit" onclick="Backend.openModalIframe({\'title\':\'edit\',\'url\':this.href});return false">' . Image::getHtml('edit.svg') . '</a>';
+		return ' <a href="contao/main.php?do=themes&amp;table=tl_font_faces&amp;id=' . $dc->activeRecord->pid . '&amp;popup=1&amp;nb=1&amp;rt=' . REQUEST_TOKEN . '" title="edit" onclick="Backend.openModalIframe({\'title\':\'edit\',\'url\':this.href});return false">' . \Image::getHtml('edit.svg') . '</a>';
 	}
 }
