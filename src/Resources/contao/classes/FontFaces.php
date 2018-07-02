@@ -8,6 +8,7 @@ use Contao\PageRegular;
 use Contao\Backend;
 use Contao\DataContainer;
 use Contao\Image;
+use Symfony\Component\Console\Input;
 
 class FontFaces extends Backend
 {
