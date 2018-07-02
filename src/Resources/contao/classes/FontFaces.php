@@ -49,6 +49,14 @@ class FontFaces extends Backend
 			\Message::addError(sprintf($GLOBALS['TL_LANG']['ERR']['notWriteable'], $this->filePath));
 			return;
         }
+
+        $fonts = array();
+        while ($array->next()) {
+            $fontName = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($array);
+            if ($fontName) {
+                print_r($fontName);
+            }
+        }
         
         $objFile = new \File($this->filePath);
         $objFile->write("/* webfonts css */\n");
