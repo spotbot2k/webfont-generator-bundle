@@ -8,7 +8,7 @@ use Contao\PageRegular;
 use Contao\Backend;
 use Contao\DataContainer;
 use Contao\Image;
-use Contao\Input;
+use Contao\Input as Input;
 use Contao\StringUtil;
 
 class FontFaces extends Backend
@@ -32,8 +32,8 @@ class FontFaces extends Backend
     public function getFontFaces(DataContainer $dc)
     {
         $intPid = $dc->activeRecord->pid;
-		if (Contao\Input\Input::get('act') == 'overrideAll') {
-			$intPid = Contao\Input\Input::get('id');
+		if (Input::get('act') == 'overrideAll') {
+			$intPid = Input::get('id');
 		}
 		$objFontFaces = $this->Database->prepare("SELECT id, name FROM tl_font_faces WHERE pid=?")->execute($intPid);
 		if ($objFontFaces->numRows < 1) {
