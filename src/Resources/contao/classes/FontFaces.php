@@ -60,7 +60,7 @@ class FontFaces extends Backend
 
     public function generatePageHook(PageModel $page, LayoutModel $layout, PageRegular $pageRegular)
     {
-        if (file_exists($this->filePath)) {
+        if (file_exists(TL_ROOT.$this->filePath)) {
             if (!\is_array($GLOBALS['TL_USER_CSS'])) {
                 $GLOBALS['TL_USER_CSS'] = array();
             }
