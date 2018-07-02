@@ -51,6 +51,8 @@ class FontFaces extends Backend
         }
 
         $buffer = '';
+
+        print_r($array);
         foreach ($array as $fontId) {
             $fontFace = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
             if ($fontFace->numRows && $fontFace->name) {
