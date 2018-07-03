@@ -83,12 +83,12 @@ class FontFaces extends Backend
                         $properties .= sprintf("font-stretch:%s;", $fontStyles->stretch);
                     }
                     if ($fontStyles->style) {
-                        $properties .= sprintf("font-stretch:%s;", $fontStyles->style);
+                        $properties .= sprintf("font-style:%s;", $fontStyles->style);
                     }
                     if (!empty($src)) {
                         $fontCss .= sprintf("@font-face{%s;src:%s;%s}", $fontFamily, implode(',', $src), $properties);
-                        if ($fontStyles->use_for) {
-                            $usageCss .= sprintf("%s{%s;}", $fontFamily);
+                        if ($fontStyles->use_for != '') {
+                            $usageCss .= sprintf("%s{%s;}", $fontStyles->use_for, $fontFamily);
                         }
                     }
                 }
