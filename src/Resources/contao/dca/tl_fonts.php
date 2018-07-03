@@ -22,7 +22,9 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
                 'pid' => 'index',
             )
         ),
-        'onsubmit_callback' => array('SPoT\\WebfontGeneratorBundle\\FontFaces', 'updateFontFaces'),
+        'onsubmit_callback' => array(
+            array('SPoT\\WebfontGeneratorBundle\\FontFaces', 'updateFontFaces'),
+        ),
     ),
     // List
     'list' => array
@@ -294,7 +296,7 @@ class tl_fonts extends \Backend
     {
         $fontFace = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
         if ($fontFace->name) {
-            return $fontFace->name;
+            return ' '.$fontFace->name;
         }
 
         return '';

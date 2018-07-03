@@ -22,7 +22,9 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
                 'id' => 'primary',
             ),
         ),
-        'onsubmit_callback' => array('SPoT\\WebfontGeneratorBundle\\FontFaces', 'updateFontFaces'),
+        'onsubmit_callback' => array(
+            array('SPoT\\WebfontGeneratorBundle\\FontFaces', 'updateFontFaces'),
+        ),
     ),
     // List
     'list' => array
@@ -137,10 +139,5 @@ class tl_fonts_faces extends Backend
     public function editHeader($row, $href, $label, $title, $icon, $attributes)
     {
         return $this->User->canEditFieldsOf('tl_fonts_faces') ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ' : Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
-    }
-
-    public function getFontFaces()
-    {
-        return array('0' => '1');
     }
 }

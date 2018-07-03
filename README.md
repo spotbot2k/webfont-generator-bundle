@@ -13,3 +13,4 @@ Helps you to manage your self-hosted webfonts as an alternative to the Google fo
 * Add "use for" field, to assign fonts automaticaly
 * Do more tests to esnure stability
 * Add german and russian translation
+* Allow user to download the css file
