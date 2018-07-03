@@ -35,7 +35,7 @@ class FontFaces extends Backend
 
     public function updateFontFaces(DataContainer $dc)
     {
-        switch ($dc->activeRecord->table) {
+        switch ($dc->table) {
             case 'tl_fonts':
                 $this->saveFontFaces(array($dc->activeRecord->pid));
             break;
