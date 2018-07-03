@@ -35,8 +35,6 @@ class FontFaces extends Backend
 
     public function updateFontFaces($dc)
     {
-        print_r($dc);
-        die();
     }
 
     public function saveFontFaces($value)
