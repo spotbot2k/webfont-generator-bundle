@@ -11,17 +11,18 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
     // Config
     'config' => array
     (
-        'dataContainer'    => 'Table',
-        'enableVersioning' => false,
-        'ctable'           => array('tl_fonts'),
-        'switchToEdit'     => true,
+        'dataContainer'     => 'Table',
+        'enableVersioning'  => false,
+        'ctable'            => array('tl_fonts'),
+        'switchToEdit'      => true,
         'sql' => array
         (
             'keys' => array
             (
                 'id' => 'primary',
             ),
-        )
+        ),
+        //'onsubmit_callback' => array('SPoT\\WebfontGeneratorBundle\\FontFaces', 'saveFontFaces'),
     ),
     // List
     'list' => array

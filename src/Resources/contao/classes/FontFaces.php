@@ -51,9 +51,6 @@ class FontFaces extends Backend
             $fontFace = $this->Database->prepare('SELECT name,fallback FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
             if ($fontFace->numRows && $fontFace->name) {
                 $fontFamily = sprintf("font-family:'%s'", $fontFace->name);
-                if ($fontFace->fallback) {
-                    $fontFamily .= sprintf(", '%s'", $fontFace->fallback);
-                }
                 $fontStyles = $this->Database->prepare('SELECT * FROM tl_fonts WHERE pid = ?')->execute($fontId);
                 while ($fontStyles->next()) {
                     $src = array();
@@ -86,8 +83,11 @@ class FontFaces extends Backend
                         $properties .= sprintf("font-style:%s;", $fontStyles->style);
                     }
                     if (!empty($src)) {
-                        $fontCss .= sprintf("@font-face{%s;src:%s;%s}", $fontFamily, implode(',', $src), $properties);
+                        $fontCss .= sprintf("@font-face{font-family:'%s';src:%s;%s}", $fontFace->name, implode(',', $src), $properties);
                         if ($fontStyles->use_for != '') {
+                            if ($fontFace->fallback) {
+                                $fontFamily .= sprintf(", '%s'", $fontFace->fallback);
+                            }
                             $usageCss .= sprintf("%s{%s;}", $fontStyles->use_for, $fontFamily);
                         }
                     }
