@@ -87,7 +87,7 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
     // Palettes
     'palettes' => array
     (
-        'default'                     => '{title_legend},name'
+        'default'                     => '{title_legend},name,fallback'
     ),
     // Fields
     'fields' => array
@@ -107,8 +107,15 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
             'exclude'   => true,
             'search'    => true,
             'flag'      => 1,
-            'eval'      => array('mandatory' => true, 'unique' => true, 'rgxp' => 'alnum', 'maxlength' => 256),
-            'sql'       => "varchar(256) NULL"
+            'eval'      => array('mandatory' => true, 'unique' => true, 'rgxp' => 'alnum', 'maxlength' => 256, 'class' => 'w50'),
+            'sql'       => "VARCHAR(256) NULL"
+        ),
+        'fallback' => array
+        (
+            'label'     => &$GLOBALS['TL_LANG']['tl_fonts_faces']['fallback'],
+            'inputType' => 'text',
+            'eval'      => array('mandatory' => true, 'maxlength' => 256, 'class' => 'w50'),
+            'sql'       => "VARCHAR(256) default ''"
         ),
     )
 );

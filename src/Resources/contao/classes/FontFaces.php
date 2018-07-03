@@ -6,7 +6,6 @@ use Contao\LayoutModel;
 use Contao\PageModel;
 use Contao\PageRegular;
 use Contao\Backend;
-use Contao\DataContainer;
 use Contao\Image;
 use Contao\Input as Input;
 use Contao\StringUtil;
@@ -34,7 +33,7 @@ class FontFaces extends Backend
         return $this->User->canEditFieldsOf('tl_fonts_faces') ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.\StringUtil::specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ' : \Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
     }
 
-    public function saveFontFaces($value, \DataContainer $dc)
+    public function saveFontFaces($value)
     {
         $array = \StringUtil::deserialize($value);
         
@@ -48,7 +47,7 @@ class FontFaces extends Backend
         $buffer = '';
 
         foreach ($array as $fontId) {
-            $fontFace = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
+            $fontFace = $this->Database->prepare('SELECT name,fallback FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
             if ($fontFace->numRows && $fontFace->name) {
                 $fontStyles = $this->Database->prepare('SELECT * FROM tl_fonts WHERE pid = ?')->execute($fontId);
                 while ($fontStyles->next()) {
@@ -72,7 +71,7 @@ class FontFaces extends Backend
                         $src[] = sprintf("url(%s%s) format('embedded-opentype')", \Environment::get('base'), $fontStyles->src_eot);
                     }
                     if (!empty($src)) {
-                        $buffer .= sprintf("@font-face {font-family: '%s';src: %s;}", $fontFace->name, implode(',', $src));
+                        $buffer .= sprintf("@font-face{font-family:'%s';src:%s;font-weight:%s;}", $fontFace->name, implode(',', $src), $fontStyle->weight);
                     }
                 }
             }
@@ -82,7 +81,6 @@ class FontFaces extends Backend
         $objFile->write('');
         $objFile->append($buffer);
         $objFile->close();
-        \Message::addInfo(sprintf('%s generated', $this->filePath));
 
         return $value;
     }
