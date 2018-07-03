@@ -38,44 +38,41 @@ class FontFaces extends Backend
     {
         $array = \StringUtil::deserialize($value);
         
-        $this->Files->delete($this->filePath);
-        
 		if (file_exists(TL_ROOT.$this->filePath) && !$this->Files->is_writeable($this->filePath)) {
-			\Message::addError(sprintf($GLOBALS['TL_LANG']['ERR']['notWriteable'], $this->filePath));
+            \Message::addError(sprintf($GLOBALS['TL_LANG']['ERR']['notWriteable'], $this->filePath));
+
 			return;
         }
+        $this->Files->delete($this->filePath);
 
         $buffer = '';
 
         foreach ($array as $fontId) {
-            $fontFace = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId)->fetchRow();
-            if ($fontFace['name']) {
-                $fontStyles = $this->Database->prepare('SELECT * FROM tl_fonts WHERE pid = ?')->execute($fontId)->fetchAllAssoc();
-                while ($fontStyle = $fontStyles->fetchRow()) {
+            $fontFace = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
+            if ($fontFace->numRows && $fontFace->name) {
+                $fontStyles = $this->Database->prepare('SELECT * FROM tl_fonts WHERE pid = ?')->execute($fontId);
+                while ($fontStyles->next()) {
                     $src = array();
-                    if ($fontStyle['src_ttf']) {
-                        $src[] = sprintf("url(%s) format('truetype')", $fontStyle['src_ttf']);
+                    if ($fontStyles->src_ttf) {
+                        $src[] = sprintf("url(%s%s) format('truetype')", \Environment::get('base'), $fontStyles->src_ttf);
                     }
-                    if ($fontStyle['src_otf']) {
-                        $src[] = sprintf("url(%s) format('opentype')", $fontStyle['src_otf']);
+                    if ($fontStyles->src_otf) {
+                        $src[] = sprintf("url(%s%s) format('opentype')", \Environment::get('base'), $fontStyles->src_otf);
                     }
-                    if ($fontStyle['src_woff']) {
-                        $src[] = sprintf("url(%s) format('woff')", $fontStyle['src_woff']);
+                    if ($fontStyles->src_woff) {
+                        $src[] = sprintf("url(%s%s) format('woff')", \Environment::get('base'), $fontStyles->src_woff);
                     }
                     if ($fontStyle['src_woff_two']) {
-                        $src[] = sprintf("url(%s) format('woff2')", $fontStyle['src_woff_two']);
+                        $src[] = sprintf("url(%s%s) format('woff2')", \Environment::get('base'), $fontStyles->src_woff_two);
                     }
-                    if ($fontStyle['src_svg']) {
-                        $src[] = sprintf("url(%s) format('svg')", $fontStyle['src_svg']);
+                    if ($fontStyles->src_svg) {
+                        $src[] = sprintf("url(%s%s) format('svg')", \Environment::get('base'), $fontStyles->src_svg);
                     }
                     if ($fontStyle['src_eot']) {
-                        $src[] = sprintf("url(%s) format('embedded-opentype')", $fontStyle['src_eot']);
+                        $src[] = sprintf("url(%s%s) format('embedded-opentype')", \Environment::get('base'), $fontStyles->src_eot);
                     }
                     if (!empty($src)) {
-                        $buffer .= sprintf("@font-face {
-                            font-family: '%s';
-                            src: %s;
-                        }", $fontFace['name'], implode(',', $src));
+                        $buffer .= sprintf("@font-face {font-family: '%s';src: %s;}", \Environment::get('base'), $fontFace->name, implode(',', $src));
                     }
                 }
             }
