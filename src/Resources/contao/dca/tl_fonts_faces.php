@@ -107,14 +107,14 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
             'exclude'   => true,
             'search'    => true,
             'flag'      => 1,
-            'eval'      => array('mandatory' => true, 'unique' => true, 'rgxp' => 'alnum', 'maxlength' => 256, 'class' => 'w50'),
+            'eval'      => array('mandatory' => true, 'unique' => true, 'rgxp' => 'alnum', 'maxlength' => 256, 'tl_class' => 'w50'),
             'sql'       => "VARCHAR(256) NULL"
         ),
         'fallback' => array
         (
             'label'     => &$GLOBALS['TL_LANG']['tl_fonts_faces']['fallback'],
             'inputType' => 'text',
-            'eval'      => array('mandatory' => true, 'maxlength' => 256, 'class' => 'w50'),
+            'eval'      => array('mandatory' => true, 'maxlength' => 256, 'tl_class' => 'w50'),
             'sql'       => "VARCHAR(256) default ''"
         ),
     )
