@@ -4,7 +4,7 @@ namespace SPoT\WebfontGeneratorBundle;
 
 use Contao\Backend;
 
-class FontStyles extends \Backend
+class FontStyles extends Backend
 {
     public function renderStyleLabel($row, $label)
     {
