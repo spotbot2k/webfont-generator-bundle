@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <xliff version="1.1">
+        <file datatype="php" original="src/Resources/contao/languages/en/tl_fonts_faces.php" source-language="en">
+            <body>
+                <trans-unit id="tl_fonts_faces.new.0">
+                    <source>New font face</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.new.1">
+                    <source>Setup a new font face</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.editHeader.0">
+                    <source>Edit font face styles</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.editHeader.1">
+                    <source>Manage avelivable font sources and styles</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.editHeader.0">
+                    <source>Edit font face</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.editHeader.1">
+                    <source>Change general font settings</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.delete.0">
+                    <source>Delete font face</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.delete.1">
+                    <source>Delete font face and all its styles</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.copy.0">
+                    <source>Copy font face</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.copy.1">
+                    <source>Crate a duplicate of this font face</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.show.0">
+                    <source>Info</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.show.1">
+                    <source>Show some more information</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.name.0">
+                    <source>Name</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.name.1">
+                    <source>Please enter the font name.</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.fallback.0">
+                    <source>Fallback</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.fallback.1">
+                    <source>What to use if this font is not avelivable</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.title_legend">
+                    <source>General font settings</source>
+                </trans-unit>
+            </body>
+        </file>
+    </xliff>
