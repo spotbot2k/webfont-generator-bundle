@@ -49,7 +49,7 @@ class FontFaces extends Backend
 
         foreach ($array as $fontId) {
             $fontFace = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId)->fetchRow();
-            if ($fontFace->numRows && $fontFace->name) {
+            if ($fontFace['name']) {
                 $fontStyles = $this->Database->prepare('SELECT * FROM tl_fonts WHERE pid = ?')->execute($fontId)->fetchAllAssoc();
                 while ($fontStyle = $fontStyles->fetchRow()) {
                     $src = array();
