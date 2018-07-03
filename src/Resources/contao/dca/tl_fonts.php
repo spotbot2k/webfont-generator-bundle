@@ -21,7 +21,8 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
                 'id'  => 'primary',
                 'pid' => 'index',
             )
-        )
+        ),
+        'onsubmit_callback' => array('SPoT\\WebfontGeneratorBundle\\FontFaces', 'saveFontFaces'),
     ),
     // List
     'list' => array

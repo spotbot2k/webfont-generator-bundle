@@ -22,7 +22,7 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
                 'id' => 'primary',
             ),
         ),
-        //'onsubmit_callback' => array('SPoT\\WebfontGeneratorBundle\\FontFaces', 'saveFontFaces'),
+        'onsubmit_callback' => array('SPoT\\WebfontGeneratorBundle\\FontFaces', 'updateFontFaces'),
     ),
     // List
     'list' => array
