@@ -44,14 +44,20 @@ class FontFaces extends Backend
         }
         $this->Files->delete($this->filePath);
 
-        $buffer = '';
+        $fontCss = '';
+        $usageCss = '';
 
         foreach ($array as $fontId) {
             $fontFace = $this->Database->prepare('SELECT name,fallback FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
             if ($fontFace->numRows && $fontFace->name) {
+                $fontFamily = sprintf("font-family:'%s'", $fontFace->name);
+                if ($fontFace->fallback) {
+                    $fontFamily .= sprintf(", '%s'", $fontFace->fallback);
+                }
                 $fontStyles = $this->Database->prepare('SELECT * FROM tl_fonts WHERE pid = ?')->execute($fontId);
                 while ($fontStyles->next()) {
                     $src = array();
+                    $properties = '';
                     if ($fontStyles->src_ttf) {
                         $src[] = sprintf("url(%s%s) format('truetype')", \Environment::get('base'), $fontStyles->src_ttf);
                     }
@@ -67,11 +73,23 @@ class FontFaces extends Backend
                     if ($fontStyles->src_svg) {
                         $src[] = sprintf("url(%s%s) format('svg')", \Environment::get('base'), $fontStyles->src_svg);
                     }
-                    if ($fontStyle['src_eot']) {
+                    if ($fontStyles->src_eot) {
                         $src[] = sprintf("url(%s%s) format('embedded-opentype')", \Environment::get('base'), $fontStyles->src_eot);
                     }
+                    if ($fontStyles->weight) {
+                        $properties .= sprintf("font-weight:%s;", $fontStyles->weight);
+                    }
+                    if ($fontStyles->stretch) {
+                        $properties .= sprintf("font-stretch:%s;", $fontStyles->stretch);
+                    }
+                    if ($fontStyles->style) {
+                        $properties .= sprintf("font-stretch:%s;", $fontStyles->style);
+                    }
                     if (!empty($src)) {
-                        $buffer .= sprintf("@font-face{font-family:'%s';src:%s;font-weight:%s;}", $fontFace->name, implode(',', $src), $fontStyle->weight);
+                        $fontCss .= sprintf("@font-face{%s;src:%s;%s}", $fontFamily, implode(',', $src), $properties);
+                        if ($fontStyles->use_for) {
+                            $usageCss .= sprintf("%s{%s;}", $fontFamily);
+                        }
                     }
                 }
             }
@@ -79,7 +97,8 @@ class FontFaces extends Backend
         
         $objFile = new \File($this->filePath);
         $objFile->write('');
-        $objFile->append($buffer);
+        $objFile->append($fontCss);
+        $objFile->append($usageCss);
         $objFile->close();
 
         return $value;

@@ -26,6 +26,12 @@
                 <trans-unit id="tl_fonts.weight.1">
                     <source>Defines the boldness of the font.</source>
                 </trans-unit>
+                <trans-unit id="tl_fonts.use_for.0">
+                    <source>Use for</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.use_for.1">
+                    <source>CSS-Selector of elements to append this font to</source>
+                </trans-unit>
                 <trans-unit id="tl_fonts.src_ttf.0">
                     <source>TrueType Fonts - TTF</source>
                 </trans-unit>

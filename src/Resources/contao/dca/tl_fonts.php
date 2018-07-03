@@ -122,7 +122,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
                 ),
                 'tl_class'            => 'w50 wizard'
             ),
-            'sql'                     => "varchar(255) NOT NULL default ''",
+            'sql'                     => "VARCHAR(255) NOT NULL default ''",
         ),
         'src_otf'                     => array
         (
@@ -139,7 +139,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
                 ),
                 'tl_class'            => 'w50 wizard'
             ),
-            'sql'                     => "varchar(255) NOT NULL default ''",
+            'sql'                     => "VARCHAR(255) NOT NULL default ''",
         ),
         'src_woff'                    => array
         (
@@ -156,7 +156,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
                 ),
                 'tl_class'            => 'w50 wizard'
             ),
-            'sql'                     => "varchar(255) NOT NULL default ''",
+            'sql'                     => "VARCHAR(255) NOT NULL default ''",
         ),
         'src_woff_two'                => array
         (
@@ -190,7 +190,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
                 ),
                 'tl_class'            => 'w50 wizard'
             ),
-            'sql'                     => "varchar(255) NOT NULL default ''",
+            'sql'                     => "VARCHAR(255) NOT NULL default ''",
         ),
         'src_eot'                     => array
         (
@@ -207,35 +207,32 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
                 ),
                 'tl_class'            => 'w50 wizard'
             ),
-            'sql'                     => "varchar(255) NOT NULL default ''",
+            'sql'                     => "VARCHAR(255) NOT NULL default ''",
         ),
         'stretch'                     => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_fonts']['stretch'],
             'inputType'               => 'select',
-            'exclude'                 => true,
             'sorting'                 => true,
             'flag'                    => 1,
             'options'                 => array('normal', 'condensed', 'ultra-condensed', 'extra-condensed', 'semi-condensed', 'expanded', 'semi-expanded', 'extra-expanded', 'ultra-expanded'),
             'eval'                    => array('multiple' => false, 'mandatory' => true, 'tl_class' => 'w50'),
-            'sql'                     => "varchar(16) NOT NULL default ''"
+            'sql'                     => "VARCHAR(16) NOT NULL default ''"
         ),
         'style'                       => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_fonts']['style'],
             'inputType'               => 'select',
-            'exclude'                 => true,
             'sorting'                 => true,
             'flag'                    => 1,
             'options'                 => array('normal', 'italic', 'oblique'),
             'eval'                    => array('multiple' => false, 'mandatory' => true, 'tl_class' => 'w50'),
-            'sql'                     => "varchar(8) NOT NULL default ''"
+            'sql'                     => "VARCHAR(8) NOT NULL default ''"
         ),
         'weight'                      => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_fonts']['weight'],
             'inputType'               => 'select',
-            'exclude'                 => true,
             'sorting'                 => true,
             'flag'                    => 1,
             'options'                 => array(
@@ -252,7 +249,14 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
                 '900'    => 'Black 900',
             ),
             'eval'                    => array('multiple' => false, 'mandatory' => true, 'tl_class' => 'w50'),
-            'sql'                     => "varchar(8) NOT NULL default ''"
+            'sql'                     => "VARCHAR(8) NOT NULL default ''"
+        ),
+        'use_for'                     => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_fonts']['use_for'],
+            'inputType'               => 'text',
+            'eval'                    => array('tl_class' => 'w50'),
+            'sql'                     => "VARCHAR(255) NOT NULL default ''"
         ),
     )
 );
