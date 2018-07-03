@@ -1,5 +1,5 @@
 # Contao 4 Webfont Generator Bundle
-Helps you to manage your self-hosted webfonts as an alternative to the Google fonts API.
+Helps you to manage your self-hosted webfonts as an alternative to the Google fonts API. As a bonus it allows you to quickly switch fonts via GUI.
 
 ## What does work
 * Generate and load font CSS
@@ -8,4 +8,3 @@ Helps you to manage your self-hosted webfonts as an alternative to the Google fo
 ## TODO
 * Do more tests to esnure stability
 * Add german and russian translation
-* Allow user to download the css file

@@ -15,6 +15,9 @@ class FontFaces extends Backend
 
     private $filePath;
 
+    /**
+     * Import back end user and filesystem controller
+     */
     public function __construct()
     {
         parent::__construct();
@@ -23,16 +26,10 @@ class FontFaces extends Backend
         $this->filePath = '/assets/css/webfont-generator.css';
     }
 
-    public function listFontStyles($row)
-    {
-        return '<div class="tl_content_left">'.$row['name']."</div>\n";
-    }
-
-    public function editHeader($row, $href, $label, $title, $icon, $attributes)
-    {
-        return $this->User->canEditFieldsOf('tl_fonts_faces') ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.\StringUtil::specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ' : \Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
-    }
-
+    /**
+     * Regenerate CSS file, depending on curent object
+     * @param DataContainer $dc
+     */
     public function updateFontFaces($dc)
     {
         switch ($dc->table) {
@@ -45,6 +42,11 @@ class FontFaces extends Backend
         }
     }
 
+    /**
+     * Collect data from the database and generate a new CSS file
+     * @param  mixed $value
+     * @return mixed
+     */
     public function saveFontFaces($value)
     {
         $array = \StringUtil::deserialize($value);
@@ -59,6 +61,7 @@ class FontFaces extends Backend
         $fontCss = '';
         $usageCss = '';
 
+        // Iterate selected fonts
         foreach ($array as $fontId) {
             $fontFace = $this->Database->prepare('SELECT name,fallback FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
             if ($fontFace->numRows && $fontFace->name) {
@@ -107,6 +110,7 @@ class FontFaces extends Backend
             }
         }
 
+        // Save generated file
         $objFile = new \File($this->filePath);
         $objFile->write('');
         $objFile->append($fontCss);
@@ -116,6 +120,13 @@ class FontFaces extends Backend
         return $value;
     }
 
+    /**
+     * Append previously generated file to the CSS queue
+     *
+     * @param PageModel   $page
+     * @param LayoutModel $layout
+     * @param PageRegular $pageRegular
+     */
     public function generatePageHook(PageModel $page, LayoutModel $layout, PageRegular $pageRegular)
     {
         if (file_exists(TL_ROOT.$this->filePath)) {

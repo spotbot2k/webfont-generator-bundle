@@ -125,6 +125,9 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
 
 class tl_fonts_faces extends Backend
 {
+    /**
+     * Import the back end user
+     */
     public function __construct()
     {
         parent::__construct();
@@ -135,7 +138,6 @@ class tl_fonts_faces extends Backend
     {
         return '<div class="tl_content_left">'.$row['name']."</div>\n";
     }
-
     public function editHeader($row, $href, $label, $title, $icon, $attributes)
     {
         return $this->User->canEditFieldsOf('tl_fonts_faces') ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ' : Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
