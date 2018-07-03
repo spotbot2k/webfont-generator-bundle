@@ -22,7 +22,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
                 'pid' => 'index',
             )
         ),
-        'onsubmit_callback' => array('SPoT\\WebfontGeneratorBundle\\FontFaces', 'saveFontFaces'),
+        'onsubmit_callback' => array('SPoT\\WebfontGeneratorBundle\\FontFaces', 'updateFontFaces'),
     ),
     // List
     'list' => array
@@ -280,7 +280,7 @@ class tl_fonts extends \Backend
 
         if ($format) {
             $format = implode(', ', $format);
-            $label = sprintf('<span style="color:#b3b3b3;padding-left:3px">[%s]</span> %s', $format, $label);
+            $label = sprintf('<span style="color:#b3b3b3;padding-left:3px">[%s]</span>%s %s', $format, $this->getFontFaceName($row['pid']), $label);
         }
 
         if ($row['style'] !== 'normal') {
@@ -288,5 +288,15 @@ class tl_fonts extends \Backend
         }
 
         return $label;
+    }
+
+    private function getFontFaceName($fontId)
+    {
+        $fontFace = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
+        if ($fontFace->name) {
+            return $fontFace->name;
+        }
+
+        return '';
     }
 }
