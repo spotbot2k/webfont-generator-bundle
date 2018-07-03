@@ -33,7 +33,7 @@ class FontFaces extends Backend
         return $this->User->canEditFieldsOf('tl_fonts_faces') ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.\StringUtil::specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ' : \Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
     }
 
-    public function updateFontFaces(DataContainer $dc)
+    public function updateFontFaces($dc)
     {
         switch ($dc->table) {
             case 'tl_fonts':
