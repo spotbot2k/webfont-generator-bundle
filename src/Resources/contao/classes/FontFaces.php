@@ -59,22 +59,22 @@ class FontFaces extends Backend
                     $src = array();
                     $properties = '';
                     if ($fontStyles->src_ttf) {
-                        $src[] = sprintf("url(%s%s) format('truetype')", \Environment::get('base'), $fontStyles->src_ttf);
+                        $src[] = sprintf("url('%s%s') format('truetype')", \Environment::get('base'), $fontStyles->src_ttf);
                     }
                     if ($fontStyles->src_otf) {
-                        $src[] = sprintf("url(%s%s) format('opentype')", \Environment::get('base'), $fontStyles->src_otf);
+                        $src[] = sprintf("url('%s%s') format('opentype')", \Environment::get('base'), $fontStyles->src_otf);
                     }
                     if ($fontStyles->src_woff) {
-                        $src[] = sprintf("url(%s%s) format('woff')", \Environment::get('base'), $fontStyles->src_woff);
+                        $src[] = sprintf("url('%s%s') format('woff')", \Environment::get('base'), $fontStyles->src_woff);
                     }
                     if ($fontStyle['src_woff_two']) {
-                        $src[] = sprintf("url(%s%s) format('woff2')", \Environment::get('base'), $fontStyles->src_woff_two);
+                        $src[] = sprintf("url('%s%s') format('woff2')", \Environment::get('base'), $fontStyles->src_woff_two);
                     }
                     if ($fontStyles->src_svg) {
-                        $src[] = sprintf("url(%s%s) format('svg')", \Environment::get('base'), $fontStyles->src_svg);
+                        $src[] = sprintf("url('%s%s') format('svg')", \Environment::get('base'), $fontStyles->src_svg);
                     }
                     if ($fontStyles->src_eot) {
-                        $src[] = sprintf("url(%s%s) format('embedded-opentype')", \Environment::get('base'), $fontStyles->src_eot);
+                        $src[] = sprintf("url('%s%s') format('embedded-opentype')", \Environment::get('base'), $fontStyles->src_eot);
                     }
                     if ($fontStyles->weight) {
                         $properties .= sprintf("font-weight:%s;", $fontStyles->weight);
