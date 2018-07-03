@@ -33,8 +33,16 @@ class FontFaces extends Backend
         return $this->User->canEditFieldsOf('tl_fonts_faces') ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.\StringUtil::specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ' : \Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
     }
 
-    public function updateFontFaces($dc)
+    public function updateFontFaces(DataContainer $dc)
     {
+        switch ($dc->activeRecord->table) {
+            case 'tl_fonts':
+                $this->saveFontFaces(array($dc->activeRecord->pid));
+            break;
+            case 'tl_fonts_faces':
+                $this->saveFontFaces(array($dc->activeRecord->id));
+            break;
+        }
     }
 
     public function saveFontFaces($value)
