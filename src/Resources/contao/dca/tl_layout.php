@@ -1,6 +1,6 @@
 <?php
 
-$GLOBALS['TL_DCA']['tl_layout']['palettes']['default'] .= ';{fonts_legend},fontfaces';
+$GLOBALS['TL_DCA']['tl_layout']['palettes']['default'] = str_replace('webfonts;', 'webfonts;{fonts_legend},fontfaces;', $GLOBALS['TL_DCA']['tl_layout']['palettes']['default']);
 
 $GLOBALS['TL_DCA']['tl_layout']['fields']['fontfaces'] = array
 (
