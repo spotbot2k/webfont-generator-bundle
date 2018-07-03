@@ -34,7 +34,7 @@ class FontFaces extends Backend
         return $this->User->canEditFieldsOf('tl_fonts_faces') ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.\StringUtil::specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ' : \Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
     }
 
-    public function saveFontFaces($value)
+    public function saveFontFaces($value, \DataContainer $dc)
     {
         $array = \StringUtil::deserialize($value);
         
@@ -45,39 +45,37 @@ class FontFaces extends Backend
 			return;
         }
 
-        print_r($value);
-
         $buffer = '';
 
         foreach ($array as $fontId) {
-            $fontFace = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
+            $fontFace = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId)->fetchRow();
             if ($fontFace->numRows && $fontFace->name) {
-                $fontStyles = $this->Database->prepare('SELECT * FROM tl_fonts WHERE pid = ?')->execute($fontId);
-                while ($fontStyles->next()) {
-                    $src = [];
-                    if ($fontStyles->src_ttf) {
-                        $src[] = sprintf("url(%s) format('truetype')", $fontStyles->src_ttf);
+                $fontStyles = $this->Database->prepare('SELECT * FROM tl_fonts WHERE pid = ?')->execute($fontId)->fetchAllAssoc();
+                while ($fontStyle = $fontStyles->fetchRow()) {
+                    $src = array();
+                    if ($fontStyle['src_ttf']) {
+                        $src[] = sprintf("url(%s) format('truetype')", $fontStyle['src_ttf']);
                     }
-                    if ($fontStyles->src_ttf) {
-                        $src[] = sprintf("url(%s) format('opentype')", $fontStyles->src_otf);
+                    if ($fontStyle['src_otf']) {
+                        $src[] = sprintf("url(%s) format('opentype')", $fontStyle['src_otf']);
                     }
-                    if ($fontStyles->src_woff) {
-                        $src[] = sprintf("url(%s) format('woff')", $fontStyles->src_woff);
+                    if ($fontStyle['src_woff']) {
+                        $src[] = sprintf("url(%s) format('woff')", $fontStyle['src_woff']);
                     }
-                    if ($fontStyles->src_woff_two) {
-                        $src[] = sprintf("url(%s) format('woff2')", $fontStyles->src_woff_two);
+                    if ($fontStyle['src_woff_two']) {
+                        $src[] = sprintf("url(%s) format('woff2')", $fontStyle['src_woff_two']);
                     }
-                    if ($fontStyles->src_svg) {
-                        $src[] = sprintf("url(%s) format('svg')", $fontStyles->src_svg);
+                    if ($fontStyle['src_svg']) {
+                        $src[] = sprintf("url(%s) format('svg')", $fontStyle['src_svg']);
                     }
-                    if ($fontStyles->src_eot) {
-                        $src[] = sprintf("url(%s) format('embedded-opentype')", $fontStyles->src_eot);
+                    if ($fontStyle['src_eot']) {
+                        $src[] = sprintf("url(%s) format('embedded-opentype')", $fontStyle['src_eot']);
                     }
                     if (!empty($src)) {
                         $buffer .= sprintf("@font-face {
                             font-family: '%s';
                             src: %s;
-                        }", $fontFace->name, implode(',', $src));
+                        }", $fontFace['name'], implode(',', $src));
                     }
                 }
             }
