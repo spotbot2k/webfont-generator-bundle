@@ -72,7 +72,7 @@ class FontFaces extends Backend
                         $src[] = sprintf("url(%s%s) format('embedded-opentype')", \Environment::get('base'), $fontStyles->src_eot);
                     }
                     if (!empty($src)) {
-                        $buffer .= sprintf("@font-face {font-family: '%s';src: %s;}", \Environment::get('base'), $fontFace->name, implode(',', $src));
+                        $buffer .= sprintf("@font-face {font-family: '%s';src: %s;}", $fontFace->name, implode(',', $src));
                     }
                 }
             }
