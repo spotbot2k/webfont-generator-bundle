@@ -5,6 +5,10 @@ Helps you to manage your self-hosted webfonts as an alternative to the Google fo
 * Generate and load font CSS
 * Manage font styles (bold, italic etc.)
 
+## What does not
+* Handle multiple layouts separatly
+* Unload CSS if switched off
+
 ## TODO
 * Do more tests to esnure stability
 * Add german and russian translation

@@ -50,20 +50,20 @@ class FontFaces extends Backend
     public function saveFontFaces($value)
     {
         $array = \StringUtil::deserialize($value);
-        
-        if (file_exists(TL_ROOT.$this->filePath) && !$this->Files->is_writeable($this->filePath)) {
-            \Message::addError(sprintf($GLOBALS['TL_LANG']['ERR']['notWriteable'], $this->filePath));
-
-            return;
-        }
-        $this->Files->delete($this->filePath);
-
         $fontCss = '';
         $usageCss = '';
 
         // Iterate selected fonts
         foreach ($array as $fontId) {
             $fontFace = $this->Database->prepare('SELECT name,fallback FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
+            $fontPath = $this->generateFilePath($fontFace->name);
+            if (file_exists(TL_ROOT.$fontPath) && !$this->Files->is_writeable($fontPath)) {
+                \Message::addError(sprintf($GLOBALS['TL_LANG']['ERR']['notWriteable'], $fontPath));
+    
+                return;
+            }
+            $this->Files->delete($fontPath);
+
             if ($fontFace->numRows && $fontFace->name) {
                 $fontFamily = sprintf("font-family:'%s'", $fontFace->name);
                 $fontStyles = $this->Database->prepare('SELECT * FROM tl_fonts WHERE pid = ?')->execute($fontId);
@@ -108,14 +108,14 @@ class FontFaces extends Backend
                     }
                 }
             }
-        }
 
-        // Save generated file
-        $objFile = new \File($this->filePath);
-        $objFile->write('');
-        $objFile->append($fontCss);
-        $objFile->append($usageCss);
-        $objFile->close();
+            // Save generated file
+            $objFile = new \File($fontPath);
+            $objFile->write('');
+            $objFile->append($fontCss);
+            $objFile->append($usageCss);
+            $objFile->close();
+        }
 
         return $value;
     }
@@ -129,8 +129,33 @@ class FontFaces extends Backend
      */
     public function generatePageHook(PageModel $page, LayoutModel $layout, PageRegular $pageRegular)
     {
-        if (file_exists(TL_ROOT.$this->filePath)) {
-            $GLOBALS['TL_CSS'][] = $this->filePath.'||static';
+        if (!empty($layout->fontfaces)) {
+            $array = \StringUtil::deserialize($layout->fontfaces);
+
+            foreach ($array as $fontId) {
+                $fontName = $this->getFontFaceName($fontId);
+                $fontPath = $this->generateFilePath($fontName);
+                if (file_exists(TL_ROOT.$fontPath)) {
+                    $GLOBALS['TL_CSS'][] = $fontPath.'||static';
+                }
+            }
         }
+    }
+
+    private function getFontFaceName($fontId)
+    {
+        $fontFace = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
+        if ($fontFace->name) {
+            return ' '.$fontFace->name;
+        }
+
+        return '';
+    }
+
+    private function generateFilePath($fontName)
+    {
+        $slug = \StringUtil::generateAlias($fontName);
+
+        return sprintf("/assets/css/webfont-%s", $slug);
     }
 }
