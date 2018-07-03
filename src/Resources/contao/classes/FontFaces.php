@@ -49,10 +49,10 @@ class FontFaces extends Backend
     {
         $array = \StringUtil::deserialize($value);
         
-		if (file_exists(TL_ROOT.$this->filePath) && !$this->Files->is_writeable($this->filePath)) {
+        if (file_exists(TL_ROOT.$this->filePath) && !$this->Files->is_writeable($this->filePath)) {
             \Message::addError(sprintf($GLOBALS['TL_LANG']['ERR']['notWriteable'], $this->filePath));
 
-			return;
+            return;
         }
         $this->Files->delete($this->filePath);
 
@@ -106,7 +106,7 @@ class FontFaces extends Backend
                 }
             }
         }
-        
+
         $objFile = new \File($this->filePath);
         $objFile->write('');
         $objFile->append($fontCss);

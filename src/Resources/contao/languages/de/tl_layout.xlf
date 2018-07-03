@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <xliff version="1.1">
-        <file datatype="php" original="src/Resources/contao/languages/en/tl_fonts.php" source-language="en">
+        <file datatype="php" original="src/Resources/contao/languages/en/tl_fonts.php" source-language="en" target-language="de">
             <body>
                 <trans-unit id="tl_layout.fontfaces.0">
-                    <source>Interne Schriften</source>
+                    <source>Internal fonts</source>
+                    <target>Interne Schriften</target>
                 </trans-unit>
                 <trans-unit id="tl_layout.fontfaces.1">
-                    <source>Integriert die Schriften samt CSS in diesem Layout</source>
+                    <source>Allows you to use your fonts in css</source>
+                    <target>Integriert die Schriften samt CSS in diesem Layout</target>
                 </trans-unit>
                 <trans-unit id="tl_layout.fonts_legend">
-                    <source>Schriften</source>
+                    <source>Fonts</source>
+                    <target>Schriften</target>
                 </trans-unit>
             </body>
         </file>
-    </xliff>
+</xliff>

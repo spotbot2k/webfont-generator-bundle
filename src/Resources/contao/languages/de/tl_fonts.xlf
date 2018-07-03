@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <xliff version="1.1">
-        <file datatype="php" original="src/Resources/contao/languages/en/tl_fonts.php" source-language="en">
+        <file datatype="php" original="src/Resources/contao/languages/en/tl_fonts.php" source-language="en" target-language="de">
             <body>
                 <trans-unit id="tl_fonts.new.0">
                     <source>New style</source>
+                    <target>Neue Schriftstilvariante</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts.new.1">
                     <source>Setup a new style for this font</source>
+                    <target>Neue Schriftstilvariante innerhalb dieser Schriftfamilie</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts.style.0">
                     <source>Style</source>
+                    <target>Schriftstil</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts.style.1">
                     <source>Defines how the font should be styled.</source>
+                    <target>italic/oblique</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts.stretch.0">
                     <source>Stretch</source>
@@ -22,15 +26,19 @@
                 </trans-unit>
                 <trans-unit id="tl_fonts.weight.0">
                     <source>Weight</source>
+                    <target>Schriftgewichtung</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts.weight.1">
                     <source>Defines the boldness of the font.</source>
+                    <target>Wie fett eine Schrift dargestellt wird</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts.use_for.0">
                     <source>Use for</source>
+                    <target>Verwenden für</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts.use_for.1">
                     <source>CSS-Selector of elements to append this font to</source>
+                    <target>CSS-Selector der betroffenen Elemente</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts.src_ttf.0">
                     <source>TrueType Fonts - TTF</source>
@@ -70,9 +78,11 @@
                 </trans-unit>
                 <trans-unit id="tl_fonts.source_legend">
                     <source>Font source</source>
+                    <target>Quellen</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts.custom_legend">
                     <source>General font settings</source>
+                    <target>Allgemeine Einstellungen</target>
                 </trans-unit>
             </body>
         </file>

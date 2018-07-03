@@ -1,57 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <xliff version="1.1">
-        <file datatype="php" original="src/Resources/contao/languages/en/tl_fonts_faces.php" source-language="en">
+        <file datatype="php" original="src/Resources/contao/languages/en/tl_fonts_faces.php" source-language="en" target-language="de">
             <body>
                 <trans-unit id="tl_fonts_faces.new.0">
                     <source>New font face</source>
+                    <target>Neue Schriftfamilie</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.new.1">
                     <source>Setup a new font face</source>
+                    <target>Neue Schriftfamilie hinzufügen</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.editHeader.0">
                     <source>Edit font face styles</source>
+                    <target>Schriftstilvarianten bearbeiten</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.editHeader.1">
-                    <source>Manage avelivable font sources and styles</source>
+                    <source>Schriftstilvariante innerhalb dieser Schriftfamilie bearbeiten</source>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.editHeader.0">
                     <source>Edit font face</source>
+                    <target>Schriftfamilie bearbeiten</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.editHeader.1">
                     <source>Change general font settings</source>
+                    <target>Allgemeine Einstellungen</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.delete.0">
                     <source>Delete font face</source>
+                    <target>Schriftfamilie löschen</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.delete.1">
                     <source>Delete font face and all its styles</source>
+                    <target>Schriftfamilie inclusieve der Varianten löschen</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.copy.0">
                     <source>Copy font face</source>
+                    <target>Schriftfamilie kopieren</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.copy.1">
                     <source>Crate a duplicate of this font face</source>
+                    <target>Eine Kopie dieser Schriftfamilie erstellen</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.show.0">
                     <source>Info</source>
+                    <target>Zusammenfassung</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.show.1">
                     <source>Show some more information</source>
+                    <target>Zusammenfassung anzeigen</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.name.0">
                     <source>Name</source>
+                    <target>Name</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.name.1">
                     <source>Please enter the font name.</source>
+                    <target>Schriftname, die in den CSS-Dateien verwendet wird</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.fallback.0">
                     <source>Fallback</source>
+                    <target>Alternative</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.fallback.1">
                     <source>What to use if this font is not avelivable</source>
+                    <target>Schrift oder Schriftart, die alternativ verwendet werden soll</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.title_legend">
                     <source>General font settings</source>
+                    <target>Allgemeine Einstellungen</target>
                 </trans-unit>
             </body>
         </file>
