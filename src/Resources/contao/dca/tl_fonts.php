@@ -88,7 +88,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
     // Palettes
     'palettes' => array
     (
-        'default'                     => '{source_legend},src_ttf,src_otf,src_woff,src_woff_two,src_svg,src_eot;{custom_legend},weight,stretch,style'
+        'default'                     => '{source_legend},src_ttf,src_otf,src_woff,src_woff_two,src_svg,src_eot;{custom_legend},weight,stretch,style,use_for'
     ),
     // Fields
     'fields' => array
