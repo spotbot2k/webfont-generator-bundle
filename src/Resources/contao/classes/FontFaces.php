@@ -155,6 +155,6 @@ class FontFaces extends Backend
     {
         $slug = \StringUtil::generateAlias($fontName);
 
-        return sprintf("/assets/css/webfont-%s.css", $slug);
+        return sprintf("/bundles/spotwebfontgenerator/css/webfont-%s.css", $slug);
     }
 }
