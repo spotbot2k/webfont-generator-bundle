@@ -12,7 +12,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
     'config' => array
     (
         'dataContainer'    => 'Table',
-        'enableVersioning' => false,
+        'enableVersioning' => true,
         'ptable'           => 'tl_fonts_faces',
         'sql' => array
         (
@@ -49,7 +49,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
                 'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
                 'href'                => 'act=select',
                 'class'               => 'header_edit_all',
-                'attributes'          => 'onclick="Backend.getScrollOffset()" accesskey="e"'
+                'attributes'          => 'onclick="Backend.getScrollOffset()" accesskey="e"',
             )
         ),
         'operations' => array
@@ -58,20 +58,20 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
             (
                 'label'               => &$GLOBALS['TL_LANG']['tl_style_sheet']['edit'],
                 'href'                => 'act=edit',
-                'icon'                => 'edit.gif'
+                'icon'                => 'edit.gif',
             ),
             'copy' => array
             (
                 'label'               => &$GLOBALS['TL_LANG']['tl_style_sheet']['copy'],
                 'href'                => 'act=paste&amp;mode=copy',
-                'icon'                => 'copy.gif'
+                'icon'                => 'copy.gif',
             ),
             'cut' => array
             (
                 'label'               => &$GLOBALS['TL_LANG']['tl_style_sheet']['cut'],
                 'href'                => 'act=paste&amp;mode=cut',
                 'icon'                => 'cut.gif',
-                'attributes'          => 'onclick="Backend.getScrollOffset()"'
+                'attributes'          => 'onclick="Backend.getScrollOffset()"',
             ),
             'delete' => array
             (
@@ -84,7 +84,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
             (
                 'label'               => &$GLOBALS['TL_LANG']['tl_style_sheet']['show'],
                 'href'                => 'act=show',
-                'icon'                => 'show.gif'
+                'icon'                => 'show.gif',
             ),
         )
     ),
@@ -258,6 +258,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_fonts']['use_for'],
             'inputType'               => 'text',
+            'exclude'                 => true,
             'eval'                    => array('tl_class' => 'w50'),
             'sql'                     => "VARCHAR(255) NOT NULL default ''"
         ),
