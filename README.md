@@ -6,8 +6,9 @@ Helps you to manage your self-hosted webfonts as an alternative to the Google fo
 * Manage font styles (bold, italic etc.)
 
 ## What does not
-* Handle multiple layouts separatly
-* Unload CSS if switched off
+* Copy and paste are not fully implemented
+* User premissions not tested
+* Font CSS will be gone on wipe (move to separate folder)
 
 ## TODO
 * Do more tests to esnure stability

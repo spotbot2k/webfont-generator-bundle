@@ -31,9 +31,9 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
     (
         'sorting' => array
         (
-            'mode'                    => 2,
+            'mode'                    => 4,
             'fields'                  => array('weight', 'style'),
-            'panelLayout'             => 'sort,filter;search,limit',
+            'panelLayout'             => 'sort,filter,search,limit',
             'disableGrouping'         => true,
         ),
         'label' => array
