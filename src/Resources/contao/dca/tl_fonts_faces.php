@@ -31,7 +31,7 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
     (
         'sorting' => array
         (
-            'mode'                  => 4,
+            'mode'                  => 5,
             'fields'                => array('name'),
             'panelLayout'           => 'sort,filter;search,limit',
             'child_record_callback' => array('tl_fonts_faces', 'listFontStyles')
