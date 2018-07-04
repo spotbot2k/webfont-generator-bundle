@@ -13,6 +13,7 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
     (
         'dataContainer'    => 'Table',
         'enableVersioning' => false,
+        'ptable'           => 'tl_theme',
         'ctable'           => array('tl_fonts'),
         'switchToEdit'     => true,
         'sql' => array
@@ -31,7 +32,7 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
     (
         'sorting' => array
         (
-            'mode'                  => 5,
+            'mode'                  => 4,
             'fields'                => array('name'),
             'panelLayout'           => 'sort,filter;search,limit',
             'child_record_callback' => array('tl_fonts_faces', 'listFontStyles')
@@ -99,6 +100,12 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
         (
             'sql'                     => "int(10) unsigned NOT NULL auto_increment"
         ),
+        'pid' => array
+		(
+			'foreignKey'              => 'tl_theme.name',
+			'sql'                     => "int(10) unsigned NOT NULL default '0'",
+			'relation'                => array('type' => 'belongsTo', 'load' => 'lazy'),
+		),
         'tstamp' => array
         (
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
