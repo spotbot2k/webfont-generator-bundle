@@ -23,7 +23,6 @@ class FontFaces extends Backend
         parent::__construct();
         $this->import('BackendUser', 'User');
         $this->import('Files');
-        $this->filePath = '/assets/css/webfont-generator.css';
     }
 
     /**
@@ -156,6 +155,6 @@ class FontFaces extends Backend
     {
         $slug = \StringUtil::generateAlias($fontName);
 
-        return sprintf("/assets/css/webfont-%s", $slug);
+        return sprintf("/assets/css/webfont-%s.css", $slug);
     }
 }
