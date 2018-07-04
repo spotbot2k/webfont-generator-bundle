@@ -21,7 +21,6 @@ class FontFaces extends Backend
     public function __construct()
     {
         parent::__construct();
-        System::getContainer()->getParameter('kernel.project_dir');
         $this->import('BackendUser', 'User');
         $this->import('Files');
     }
