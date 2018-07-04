@@ -21,6 +21,7 @@ class FontFaces extends Backend
     public function __construct()
     {
         parent::__construct();
+        System::getContainer()->getParameter('kernel.project_dir');
         $this->import('BackendUser', 'User');
         $this->import('Files');
     }
@@ -56,7 +57,7 @@ class FontFaces extends Backend
         foreach ($array as $fontId) {
             $fontFace = $this->Database->prepare('SELECT name,fallback FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
             $fontPath = $this->generateFilePath($fontFace->name);
-            if (file_exists(TL_ROOT.$fontPath) && !$this->Files->is_writeable($fontPath)) {
+            if (file_exists(TL_ROOT.'/web'.$fontPath) && !$this->Files->is_writeable($fontPath)) {
                 \Message::addError(sprintf($GLOBALS['TL_LANG']['ERR']['notWriteable'], $fontPath));
     
                 return;
@@ -133,8 +134,8 @@ class FontFaces extends Backend
 
             foreach ($array as $fontId) {
                 $fontName = $this->getFontFaceName($fontId);
-                $fontPath = $this->generateFilePath($fontName);
-                if (file_exists(TL_ROOT.$fontPath)) {
+                $fontPath = $this->generateFilePath($fontName, true);
+                if (file_exists(TL_ROOT.'/web'.$fontPath)) {
                     $GLOBALS['TL_CSS'][] = $fontPath.'||static';
                 }
             }
