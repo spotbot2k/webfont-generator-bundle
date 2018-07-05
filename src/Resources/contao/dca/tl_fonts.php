@@ -269,8 +269,12 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
 
 class tl_fonts extends \Backend
 {
-    public function renderStyleLabel($row, $label)
+    public function renderStyleLabel($row, $label = false)
     {
+        if (!$label) {
+            $label = $row['label'];
+        }
+
         if ($row['stretch'] !== 'normal') {
             $label .= ',&nbsp;'.$row['stretch'];
         }
