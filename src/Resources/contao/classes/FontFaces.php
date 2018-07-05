@@ -142,7 +142,7 @@ class FontFaces extends Backend
             foreach ($array as $fontId) {
                 $fontName = $this->getFontFaceName($fontId);
                 $fontPath = $this->generateFilePath($fontName, true);
-                if (file_exists("web/".$fontPath)) {
+                if (file_exists($fontPath)) {
                     $GLOBALS['TL_CSS'][] = $fontPath.'||static';
                 }
             }
