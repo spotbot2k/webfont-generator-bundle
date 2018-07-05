@@ -31,7 +31,7 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
     (
         'sorting' => array
         (
-            'mode'                    => 1,
+            'mode'                    => 2,
             'fields'                  => array('name'),
             'panelLayout'             => 'sort,filter;search,limit',
             'child_record_callback'   => array('tl_fonts_faces', 'listFontVariants')
@@ -65,12 +65,6 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
                 'href'                => 'table=tl_fonts_faces&amp;act=edit',
                 'icon'                => 'header.gif',
                 'button_callback'     => array('tl_fonts_faces', 'editHeader'),
-            ),
-            'copy' => array
-            (
-                'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['copy'],
-                'href'                => 'act=paste&amp;mode=copy',
-                'icon'                => 'copy.gif',
             ),
             'delete' => array
             (
