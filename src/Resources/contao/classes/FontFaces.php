@@ -16,6 +16,7 @@ class FontFaces extends Backend
 {
 
     private $filePath;
+    private $rootDir;
 
     /**
      * Import back end user and filesystem controller
@@ -23,6 +24,7 @@ class FontFaces extends Backend
     public function __construct()
     {
         parent::__construct();
+        $this->rootDir = \System::getContainer()->get('kernel')->getRootDir();
         $this->import('BackendUser', 'User');
         $this->import('Files');
     }
@@ -58,9 +60,9 @@ class FontFaces extends Backend
         foreach ($array as $fontId) {
             $fontFace = $this->Database->prepare('SELECT name,fallback FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
             $fontPath = $this->generateFilePath($fontFace->name);
-            if (file_exists(TL_ROOT.'/web'.$fontPath) && !$this->Files->is_writeable($fontPath)) {
-                \Message::addError(sprintf($GLOBALS['TL_LANG']['ERR']['notWriteable'], $fontPath));
-    
+            if (file_exists($this->rootDir."/web".$fontPath) && !$this->Files->is_writeable($fontPath)) {
+                VarDumper::dump(sprintf('%s not writable', $this->rootDir."/web".$fontPath));
+
                 return;
             }
             $this->Files->delete($fontPath);
@@ -111,11 +113,16 @@ class FontFaces extends Backend
             }
 
             // Save generated file
-            $objFile = new \File($fontPath);
-            $objFile->write('');
-            $objFile->append($fontCss);
-            $objFile->append($usageCss);
-            $objFile->close();
+            try {
+                $objFile = new \File($fontPath);
+                $objFile->write('');
+                $objFile->append($fontCss);
+                $objFile->append($usageCss);
+                $objFile->close();
+            } catch (\Exception $e) {
+                VarDumper::dump(sprintf('%s can not be created', $fontPath));
+                VarDumper::dump($e->getMessage());
+            }
         }
 
         return $value;
@@ -136,7 +143,7 @@ class FontFaces extends Backend
             foreach ($array as $fontId) {
                 $fontName = $this->getFontFaceName($fontId);
                 $fontPath = $this->generateFilePath($fontName, true);
-                if (file_exists(TL_ROOT.'/web'.$fontPath)) {
+                if (file_exists(getcwd().$fontPath)) {
                     $GLOBALS['TL_CSS'][] = $fontPath.'||static';
                 }
             }
