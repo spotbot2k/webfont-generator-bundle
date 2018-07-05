@@ -114,14 +114,13 @@ class FontFaces extends Backend
 
             // Save generated file
             try {
-                $objFile = new \File($fontPath);
+                $objFile = new \File($this->rootDir."/web/".$fontPath);
                 $objFile->write('');
                 $objFile->append($fontCss);
                 $objFile->append($usageCss);
                 $objFile->close();
             } catch (\Exception $e) {
                 VarDumper::dump(sprintf('%s can not be created', $fontPath));
-                VarDumper::dump($e->getMessage());
             }
         }
 
@@ -150,6 +149,12 @@ class FontFaces extends Backend
         }
     }
 
+    /**
+     * Fetch the name of the font by its id
+     *
+     * @param int $fontId
+     * @return String
+     */
     private function getFontFaceName($fontId)
     {
         $fontFace = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
@@ -160,6 +165,12 @@ class FontFaces extends Backend
         return '';
     }
 
+    /**
+     * Generate unique font path
+     *
+     * @param Strign $fontName
+     * @return String
+     */
     private function generateFilePath($fontName)
     {
         $slug = \StringUtil::generateAlias($fontName);

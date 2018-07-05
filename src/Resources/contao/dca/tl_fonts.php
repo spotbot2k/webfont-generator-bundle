@@ -279,6 +279,10 @@ class tl_fonts extends \Backend
             $label .= ',&nbsp;'.$row['stretch'];
         }
 
+        if ($row['weight'] !== 'normal') {
+            $label .= ',&nbsp;'.$row['weight'];
+        }
+
         $format = array();
         if ($row['src_ttf']) $format[] = 'ttf';
         if ($row['src_otf']) $format[] = 'otf';
