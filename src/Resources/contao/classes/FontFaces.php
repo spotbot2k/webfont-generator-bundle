@@ -114,13 +114,13 @@ class FontFaces extends Backend
 
             // Save generated file
             try {
-                $objFile = new \File($this->rootDir."/web/".$fontPath);
+                $objFile = new \File("web/".$fontPath);
                 $objFile->write('');
                 $objFile->append($fontCss);
                 $objFile->append($usageCss);
                 $objFile->close();
             } catch (\Exception $e) {
-                VarDumper::dump(sprintf('%s can not be created', $fontPath));
+                VarDumper::dump(sprintf('%s can not be created', "web/".$fontPath));
             }
         }
 
