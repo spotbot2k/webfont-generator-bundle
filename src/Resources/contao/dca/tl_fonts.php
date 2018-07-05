@@ -33,7 +33,8 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
         (
             'mode'                    => 4,
             'fields'                  => array('weight', 'style'),
-            'headerFields'            => array('tl_fonts_faces.name'),
+            'headerFields'            => array('name'),
+            'child_record_callback'   => array('tl_fonts', 'renderStylelabel'),
             'panelLayout'             => 'sort,filter,search,limit',
             'disableGrouping'         => true,
         ),

@@ -34,7 +34,7 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
             'mode'                    => 1,
             'fields'                  => array('name'),
             'panelLayout'             => 'sort,filter;search,limit',
-            'child_record_callback'   => array('tl_fonts_faces', 'listFontStyles')
+            'child_record_callback'   => array('tl_fonts_faces', 'listFontVariants')
         ),
         'label' => array
         (
@@ -140,7 +140,7 @@ class tl_fonts_faces extends Backend
         $this->import('BackendUser', 'User');
     }
 
-    public function listFontStyles($row)
+    public function listFontVariants($row)
     {
         return '<div class="tl_content_left">'.$row['name']."</div>\n";
     }
