@@ -33,6 +33,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
         (
             'mode'                    => 4,
             'fields'                  => array('weight', 'style'),
+            'headerFields'            => array('tl_fonts_faces.name'),
             'panelLayout'             => 'sort,filter,search,limit',
             'disableGrouping'         => true,
         ),
@@ -50,7 +51,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
                 'href'                => 'act=select',
                 'class'               => 'header_edit_all',
                 'attributes'          => 'onclick="Backend.getScrollOffset()" accesskey="e"',
-            )
+            ),
         ),
         'operations' => array
         (
@@ -78,7 +79,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
                 'label'               => &$GLOBALS['TL_LANG']['tl_style_sheet']['delete'],
                 'href'                => 'act=delete',
                 'icon'                => 'delete.gif',
-                'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
+                'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"',
             ),
             'show' => array
             (
@@ -91,24 +92,24 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
     // Palettes
     'palettes' => array
     (
-        'default'                     => '{source_legend},src_ttf,src_otf,src_woff,src_woff_two,src_svg,src_eot;{custom_legend},weight,stretch,style,use_for'
+        'default'                     => '{source_legend},src_ttf,src_otf,src_woff,src_woff_two,src_svg,src_eot;{custom_legend},weight,stretch,style,use_for',
     ),
     // Fields
     'fields' => array
     (
         'id' => array
         (
-            'sql'                     => "int(10) unsigned NOT NULL auto_increment"
+            'sql'                     => "int(10) unsigned NOT NULL auto_increment",
         ),
         'pid' => array
         (
             'foreignKey'              => 'tl_fonts_faces.name',
             'sql'                     => "int(10) unsigned NOT NULL default '0'",
-            'relation'                => array('type'=>'belongsTo', 'load'=>'eager')
+            'relation'                => array('type'=>'belongsTo', 'load'=>'eager'),
         ),
         'tstamp' => array
         (
-            'sql'                     => "int(10) unsigned NOT NULL default '0'"
+            'sql'                     => "int(10) unsigned NOT NULL default '0'",
         ),
         'src_ttf'                     => array
         (
@@ -123,7 +124,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
                     'filesOnly'       => true,
                     'extensions'      => 'ttf',
                 ),
-                'tl_class'            => 'w50 wizard'
+                'tl_class'            => 'w50 wizard',
             ),
             'sql'                     => "VARCHAR(255) NOT NULL default ''",
         ),
@@ -157,7 +158,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
                     'filesOnly'       => true,
                     'extensions'      => 'woff',
                 ),
-                'tl_class'            => 'w50 wizard'
+                'tl_class'            => 'w50 wizard',
             ),
             'sql'                     => "VARCHAR(255) NOT NULL default ''",
         ),
@@ -174,7 +175,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
                     'filesOnly'       => true,
                     'extensions'      => 'woff2',
                 ),
-                'tl_class'            => 'w50 wizard'
+                'tl_class'            => 'w50 wizard',
             ),
             'sql'                     => "varchar(255) NOT NULL default ''",
         ),
@@ -191,7 +192,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
                     'filesOnly'       => true,
                     'extensions'      => 'svg',
                 ),
-                'tl_class'            => 'w50 wizard'
+                'tl_class'            => 'w50 wizard',
             ),
             'sql'                     => "VARCHAR(255) NOT NULL default ''",
         ),
@@ -208,7 +209,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
                     'filesOnly'       => true,
                     'extensions'      => 'eot',
                 ),
-                'tl_class'            => 'w50 wizard'
+                'tl_class'            => 'w50 wizard',
             ),
             'sql'                     => "VARCHAR(255) NOT NULL default ''",
         ),
@@ -220,7 +221,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
             'flag'                    => 1,
             'options'                 => array('normal', 'condensed', 'ultra-condensed', 'extra-condensed', 'semi-condensed', 'expanded', 'semi-expanded', 'extra-expanded', 'ultra-expanded'),
             'eval'                    => array('multiple' => false, 'mandatory' => true, 'tl_class' => 'w50'),
-            'sql'                     => "VARCHAR(16) NOT NULL default ''"
+            'sql'                     => "VARCHAR(16) NOT NULL default ''",
         ),
         'style'                       => array
         (
@@ -230,7 +231,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
             'flag'                    => 1,
             'options'                 => array('normal', 'italic', 'oblique'),
             'eval'                    => array('multiple' => false, 'mandatory' => true, 'tl_class' => 'w50'),
-            'sql'                     => "VARCHAR(8) NOT NULL default ''"
+            'sql'                     => "VARCHAR(8) NOT NULL default ''",
         ),
         'weight'                      => array
         (
@@ -252,7 +253,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
                 '900'    => 'Black 900',
             ),
             'eval'                    => array('multiple' => false, 'mandatory' => true, 'tl_class' => 'w50'),
-            'sql'                     => "VARCHAR(8) NOT NULL default ''"
+            'sql'                     => "VARCHAR(8) NOT NULL default ''",
         ),
         'use_for'                     => array
         (
@@ -260,7 +261,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array
             'inputType'               => 'text',
             'exclude'                 => true,
             'eval'                    => array('tl_class' => 'w50'),
-            'sql'                     => "VARCHAR(255) NOT NULL default ''"
+            'sql'                     => "VARCHAR(255) NOT NULL default ''",
         ),
     )
 );
