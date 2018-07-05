@@ -25,16 +25,20 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
         'onsubmit_callback' => array(
             array('SPoT\\WebfontGeneratorBundle\\FontFaces', 'updateFontFaces'),
         ),
+        'onload_callback'   => array(
+            array('tl_fonts_faces', 'checkPermission'),
+        ),
     ),
     // List
     'list' => array
     (
         'sorting' => array
         (
-            'mode'                    => 2,
+            'mode'                    => 1,
             'fields'                  => array('name'),
+            'flag'                    => 1,
             'panelLayout'             => 'sort,filter;search,limit',
-            'child_record_callback'   => array('tl_fonts_faces', 'listFontVariants')
+            'child_record_callback'   => array('tl_fonts_faces', 'listFontVariants'),
         ),
         'label' => array
         (
@@ -65,6 +69,12 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
                 'href'                => 'table=tl_fonts_faces&amp;act=edit',
                 'icon'                => 'header.gif',
                 'button_callback'     => array('tl_fonts_faces', 'editHeader'),
+            ),
+            'copy'       => array
+            (
+                'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['copy'],
+                'href'                => 'act=copy',
+                'icon'                => 'copy.gif',
             ),
             'delete' => array
             (
@@ -123,6 +133,12 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
     )
 );
 
+/**
+ * Class tl_fonts_faces
+ * 
+ * @author Alexander Schwirjow <alexander@schwirjow.de>
+ */
+
 class tl_fonts_faces extends Backend
 {
     /**
@@ -132,6 +148,26 @@ class tl_fonts_faces extends Backend
     {
         parent::__construct();
         $this->import('BackendUser', 'User');
+    }
+
+    public function checkPermission()
+    {
+        $container = \System::getContainer();
+        if ($this->User->isAdmin) {
+            return;
+        }
+        if (!$this->User->hasAccess('create', 'tl_fonts_faces')) {
+            $GLOBALS['TL_DCA']['tl_fonts_faces']['config']['closed'] = true;
+        }
+        switch (\Input::get('act')) {
+            case 'delete':
+            case 'deleteAll':
+                if (!$this->User->hasAccess('delete', 'tl_fonts_faces')) {
+                    \System::log(&$GLOBALS['TL_LANG']['tl_fonts_faces']['noPremission'], __METHOD__, TL_ERROR);
+                    \Controller::redirect('contao/main.php?act=error');
+                }
+            break;
+        }
     }
 
     public function listFontVariants($row)
