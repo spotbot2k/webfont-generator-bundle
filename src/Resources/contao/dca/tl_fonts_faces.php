@@ -163,7 +163,7 @@ class tl_fonts_faces extends Backend
             case 'delete':
             case 'deleteAll':
                 if (!$this->User->hasAccess('delete', 'tl_fonts_faces')) {
-                    \System::log(&$GLOBALS['TL_LANG']['tl_fonts_faces']['noPremission'], __METHOD__, TL_ERROR);
+                    \System::log($GLOBALS['TL_LANG']['tl_fonts_faces']['noPremission'], __METHOD__, TL_ERROR);
                     \Controller::redirect('contao/main.php?act=error');
                 }
             break;
