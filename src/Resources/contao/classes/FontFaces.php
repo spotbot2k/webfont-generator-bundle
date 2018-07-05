@@ -10,6 +10,8 @@ use Contao\Image;
 use Contao\Input as Input;
 use Contao\StringUtil;
 
+use Symfony\Component\VarDumper\VarDumper;
+
 class FontFaces extends Backend
 {
 
@@ -155,8 +157,8 @@ class FontFaces extends Backend
     {
         $slug = \StringUtil::generateAlias($fontName);
 
-        dump(sprintf("/bundles/spotwebfontgenerator/css/webfont-%s.css", $slug));
-        dump(getcwd());
+        VarDumper::dump(sprintf("/bundles/spotwebfontgenerator/css/webfont-%s.css", $slug));
+        VarDumper::dump(getcwd());
 
         return sprintf("/bundles/spotwebfontgenerator/css/webfont-%s.css", $slug);
     }
