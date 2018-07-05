@@ -276,11 +276,11 @@ class tl_fonts extends \Backend
         }
 
         if ($row['stretch'] !== 'normal') {
-            $label .= ',&nbsp;'.$row['stretch'];
+            $label .= '&nbsp;|&nbsp;'.$row['stretch'];
         }
 
         if ($row['weight'] !== 'normal') {
-            $label .= ',&nbsp;'.$row['weight'];
+            $label .= '&nbsp;|&nbsp;'.$row['weight'];
         }
 
         $format = array();
