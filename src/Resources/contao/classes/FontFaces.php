@@ -60,8 +60,8 @@ class FontFaces extends Backend
         foreach ($array as $fontId) {
             $fontFace = $this->Database->prepare('SELECT name,fallback FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
             $fontPath = $this->generateFilePath($fontFace->name);
-            if (file_exists($this->rootDir."/web".$fontPath) && !$this->Files->is_writeable($fontPath)) {
-                VarDumper::dump(sprintf('%s not writable', $this->rootDir."/web".$fontPath));
+            if (file_exists($this->rootDir."/web/".$fontPath) && !$this->Files->is_writeable($fontPath)) {
+                VarDumper::dump(sprintf('%s not writable', $this->rootDir."/web/".$fontPath));
 
                 return;
             }
@@ -143,7 +143,7 @@ class FontFaces extends Backend
             foreach ($array as $fontId) {
                 $fontName = $this->getFontFaceName($fontId);
                 $fontPath = $this->generateFilePath($fontName, true);
-                if (file_exists(getcwd().$fontPath)) {
+                if (file_exists($this->rootDir."/web/".$fontPath)) {
                     $GLOBALS['TL_CSS'][] = $fontPath.'||static';
                 }
             }
@@ -164,9 +164,6 @@ class FontFaces extends Backend
     {
         $slug = \StringUtil::generateAlias($fontName);
 
-        VarDumper::dump(sprintf("/bundles/spotwebfontgenerator/css/webfont-%s.css", $slug));
-        VarDumper::dump(getcwd());
-
-        return sprintf("/bundles/spotwebfontgenerator/css/webfont-%s.css", $slug);
+        return sprintf("bundles/spotwebfontgenerator/css/webfont-%s.css", $slug);
     }
 }
