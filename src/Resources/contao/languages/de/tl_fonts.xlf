@@ -16,7 +16,7 @@
                 </trans-unit>
                 <trans-unit id="tl_fonts.style.1">
                     <source>Defines how the font should be styled.</source>
-                    <target>Kursiv</target>
+                    <target>Schrägstellung</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts.stretch.0">
                     <source>Stretch</source>
@@ -24,7 +24,7 @@
                 </trans-unit>
                 <trans-unit id="tl_fonts.stretch.1">
                     <source>Defines how the font should be stretched.</source>
-                    <target>die Breite der einzelnen Zeichen</target>
+                    <target>Die Breite der einzelnen Zeichen</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts.weight.0">
                     <source>Weight</source>
@@ -71,6 +71,7 @@
                 </trans-unit>
                 <trans-unit id="tl_fonts.src_svg.1">
                     <source>Safari for iOS below 4.1</source>
+                    <target>Safari für iOS unter Version 4.1</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts.src_eot.0">
                     <source>Embedded OpenType Fonts</source>
