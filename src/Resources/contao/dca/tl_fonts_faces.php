@@ -138,6 +138,9 @@ class tl_fonts_faces extends Backend
         if (!$this->User->hasAccess('create', 'webfont_generator')) {
             $GLOBALS['TL_DCA']['tl_fonts_faces']['config']['closed'] = true;
         }
+        if (!$this->User->hasAccess('delete', 'webfont_generator')) {
+            $GLOBALS['TL_DCA']['tl_fonts_faces']['config']['notDeletable'] = true;
+        }
         switch (\Input::get('act')) {
             case 'delete':
             case 'deleteAll':

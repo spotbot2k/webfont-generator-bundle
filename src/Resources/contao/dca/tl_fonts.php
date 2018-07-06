@@ -285,6 +285,29 @@ class tl_fonts extends \Backend
         return $label;
     }
 
+    public function checkPermission()
+    {
+        $container = \System::getContainer();
+        if ($this->User->isAdmin) {
+            return;
+        }
+        if (!$this->User->hasAccess('create', 'webfont_generator')) {
+            $GLOBALS['TL_DCA']['tl_fonts']['config']['closed'] = true;
+        }
+        if (!$this->User->hasAccess('delete', 'webfont_generator')) {
+            $GLOBALS['TL_DCA']['tl_fonts']['config']['notDeletable'] = true;
+        }
+        switch (\Input::get('act')) {
+            case 'delete':
+            case 'deleteAll':
+                if (!$this->User->hasAccess('delete', 'webfont_generator')) {
+                    \System::log($GLOBALS['TL_LANG']['tl_fonts_faces']['noPremission'], __METHOD__, TL_ERROR);
+                    \Controller::redirect('contao/main.php?act=error');
+                }
+            break;
+        }
+    }
+
     private function getFontFaceName($fontId)
     {
         $fontFace = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
