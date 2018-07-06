@@ -1,7 +1,7 @@
 <?php
 $header = <<<EOF
-This file is part of Contao.
-(c) Leo Feyer
+This file is part of Contao Webfont Generator Bundle
+@author Alexander Schwirjow
 @license LGPL-3.0-or-later
 EOF;
 return PhpCsFixer\Config::create()

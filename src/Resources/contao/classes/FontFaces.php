@@ -2,19 +2,18 @@
 
 namespace SPoT\WebfontGeneratorBundle;
 
-use Contao\LayoutModel;
-use Contao\PageModel;
-use Contao\PageRegular;
 use Contao\Backend;
 use Contao\Image;
 use Contao\Input as Input;
+use Contao\LayoutModel;
+use Contao\PageModel;
+use Contao\PageRegular;
 use Contao\StringUtil;
 
 use Symfony\Component\VarDumper\VarDumper;
 
 class FontFaces extends Backend
 {
-
     private $filePath;
     private $rootDir;
 

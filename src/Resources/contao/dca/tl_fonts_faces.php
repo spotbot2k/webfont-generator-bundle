@@ -6,19 +6,15 @@
  * @license LGPL-3.0-or-later
  */
 
-$GLOBALS['TL_DCA']['tl_fonts_faces'] = array
-(
+$GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
     // Config
-    'config' => array
-    (
+    'config' => array(
         'dataContainer'               => 'Table',
         'enableVersioning'            => false,
         'ctable'                      => array('tl_fonts'),
         'switchToEdit'                => true,
-        'sql' => array
-        (
-            'keys' => array
-            (
+        'sql' => array(
+            'keys' => array(
                 'id'                  => 'primary',
             ),
         ),
@@ -30,61 +26,50 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
         ),
     ),
     // List
-    'list' => array
-    (
-        'sorting' => array
-        (
+    'list' => array(
+        'sorting' => array(
             'mode'                    => 1,
             'fields'                  => array('name'),
             'flag'                    => 1,
             'panelLayout'             => 'sort,filter;search,limit',
             'child_record_callback'   => array('tl_fonts_faces', 'listFontVariants'),
         ),
-        'label' => array
-        (
+        'label' => array(
             'fields'                  => array('name'),
             'format'                  => '%s',
         ),
-        'global_operations' => array
-        (
-            'all' => array
-            (
+        'global_operations' => array(
+            'all' => array(
                 'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
                 'href'                => 'act=select',
                 'class'               => 'header_edit_all',
                 'attributes'          => 'onclick="Backend.getScrollOffset()" accesskey="e"',
             )
         ),
-        'operations' => array
-        (
-            'edit' => array
-            (
+        'operations' => array(
+            'edit' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['edit'],
                 'href'                => 'table=tl_fonts',
                 'icon'                => 'edit.gif',
             ),
-            'editheader' => array
-            (
+            'editheader' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['editheader'],
                 'href'                => 'table=tl_fonts_faces&amp;act=edit',
                 'icon'                => 'header.gif',
                 'button_callback'     => array('tl_fonts_faces', 'editHeader'),
             ),
-            'copy'       => array
-            (
+            'copy'       => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['copy'],
                 'href'                => 'act=copy',
                 'icon'                => 'copy.gif',
             ),
-            'delete' => array
-            (
+            'delete' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['delete'],
                 'href'                => 'act=delete',
                 'icon'                => 'delete.gif',
                 'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"',
             ),
-            'show' => array
-            (
+            'show' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['show'],
                 'href'                => 'act=show',
                 'icon'                => 'show.gif',
@@ -92,23 +77,18 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
         )
     ),
     // Palettes
-    'palettes' => array
-    (
+    'palettes' => array(
         'default'                     => '{title_legend},name,fallback'
     ),
     // Fields
-    'fields' => array
-    (
-        'id' => array
-        (
+    'fields' => array(
+        'id' => array(
             'sql'                     => "int(10) unsigned NOT NULL auto_increment"
         ),
-        'tstamp' => array
-        (
+        'tstamp' => array(
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
-        'name' => array
-        (
+        'name' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_fonts_faces']['name'],
             'inputType'               => 'text',
             'search'                  => true,
@@ -123,8 +103,7 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
             ),
             'sql'                     => "VARCHAR(256) NULL"
         ),
-        'fallback' => array
-        (
+        'fallback' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_fonts_faces']['fallback'],
             'inputType'               => 'text',
             'eval'                    => array('mandatory' => true, 'maxlength' => 256, 'tl_class' => 'w50'),
@@ -135,7 +114,7 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array
 
 /**
  * Class tl_fonts_faces
- * 
+ *
  * @author Alexander Schwirjow <alexander@schwirjow.de>
  */
 

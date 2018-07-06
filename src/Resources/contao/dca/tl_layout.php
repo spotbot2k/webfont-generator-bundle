@@ -2,8 +2,7 @@
 
 $GLOBALS['TL_DCA']['tl_layout']['palettes']['default'] = str_replace('webfonts;', 'webfonts;{fonts_legend},fontfaces;', $GLOBALS['TL_DCA']['tl_layout']['palettes']['default']);
 
-$GLOBALS['TL_DCA']['tl_layout']['fields']['fontfaces'] = array
-(
+$GLOBALS['TL_DCA']['tl_layout']['fields']['fontfaces'] = array(
     'label'                   => &$GLOBALS['TL_LANG']['tl_layout']['fontfaces'],
     'exclude'                 => true,
     'inputType'               => 'checkboxWizard',
