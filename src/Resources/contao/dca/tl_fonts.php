@@ -305,8 +305,7 @@ class tl_fonts extends \Backend
         }
         if (!$this->User->hasAccess('create', 'webfont_generator')) {
             $GLOBALS['TL_DCA']['tl_fonts']['config']['closed'] = true;
-            unset($GLOBALS['TL_DCA']['tl_fonts']['list']['operations']['copy']);
-            unset($GLOBALS['TL_DCA']['tl_fonts']['list']['operations']['cut']);
+            unset($GLOBALS['TL_DCA']['tl_fonts']['list']['operations']['copy'], $GLOBALS['TL_DCA']['tl_fonts']['list']['operations']['cut']);
         }
         if (!$this->User->hasAccess('delete', 'webfont_generator')) {
             $GLOBALS['TL_DCA']['tl_fonts']['config']['notDeletable'] = true;
