@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <xliff version="1.1">
+        <file datatype="php" original="src/Resources/contao/languages/en/tl_user.php" source-language="en" target-language="de">
+            <body>
+                <trans-unit id="tl_user.webfont_generator.0">
+                    <source>Internal fonts</source>
+                    <target>Interne Schriften</target>
+                </trans-unit>
+                <trans-unit id="tl_user.webfont_generator.1">
+                    <source>Manage webfont generator premissions</source>
+                    <target>Hier können Sie die Schriften-Rechte festlegen.</target>
+                </trans-unit>
+            </body>
+        </file>
+    </xliff>

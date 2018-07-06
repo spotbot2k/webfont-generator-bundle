@@ -96,7 +96,7 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
             'eval'                    => array(
                 'mandatory'           => true,
                 'unique'              => true,
-                'rgxp'                => 'alnum',
+                'rgxp'                => 'alpha',
                 'maxlength'           => 256,
                 'tl_class'            => 'w50',
                 'doNotCopy'           => true,
@@ -106,7 +106,7 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
         'fallback' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_fonts_faces']['fallback'],
             'inputType'               => 'text',
-            'eval'                    => array('mandatory' => true, 'maxlength' => 256, 'tl_class' => 'w50'),
+            'eval'                    => array('mandatory' => false, 'maxlength' => 256, 'tl_class' => 'w50'),
             'sql'                     => "VARCHAR(256) default ''"
         ),
     )
@@ -135,13 +135,13 @@ class tl_fonts_faces extends Backend
         if ($this->User->isAdmin) {
             return;
         }
-        if (!$this->User->hasAccess('create', 'tl_fonts_faces')) {
+        if (!$this->User->hasAccess('create', 'webfont_generator')) {
             $GLOBALS['TL_DCA']['tl_fonts_faces']['config']['closed'] = true;
         }
         switch (\Input::get('act')) {
             case 'delete':
             case 'deleteAll':
-                if (!$this->User->hasAccess('delete', 'tl_fonts_faces')) {
+                if (!$this->User->hasAccess('delete', 'webfont_generator')) {
                     \System::log($GLOBALS['TL_LANG']['tl_fonts_faces']['noPremission'], __METHOD__, TL_ERROR);
                     \Controller::redirect('contao/main.php?act=error');
                 }
