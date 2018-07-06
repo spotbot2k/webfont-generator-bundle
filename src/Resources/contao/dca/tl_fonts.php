@@ -30,8 +30,8 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array(
         'sorting' => array(
             'mode'                    => 4,
             'fields'                  => array('weight'),
-            'flag'                    => 1,
             'headerFields'            => array('name'),
+            'flag'                    => 11,
             'child_record_callback'   => array('tl_fonts', 'renderStylelabel'),
             'panelLayout'             => 'sort,limit',
             'disableGrouping'         => true,
@@ -91,7 +91,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array(
         'pid' => array(
             'foreignKey'              => 'tl_fonts_faces.name',
             'sql'                     => "int(10) unsigned NOT NULL default '0'",
-            'relation'                => array('type'=>'belongsTo', 'load'=>'eager'),
+            'relation'                => array('type'=>'belongsTo', 'load'=>'lazy'),
         ),
         'tstamp' => array(
             'sql'                     => "int(10) unsigned NOT NULL default '0'",
@@ -195,7 +195,6 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array(
         'stretch'                     => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_fonts']['stretch'],
             'inputType'               => 'select',
-            'sorting'                 => true,
             'flag'                    => 1,
             'options'                 => array('normal', 'condensed', 'ultra-condensed', 'extra-condensed', 'semi-condensed', 'expanded', 'semi-expanded', 'extra-expanded', 'ultra-expanded'),
             'eval'                    => array('multiple' => false, 'mandatory' => true, 'tl_class' => 'w50'),
@@ -204,7 +203,6 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array(
         'style'                       => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_fonts']['style'],
             'inputType'               => 'select',
-            'sorting'                 => true,
             'flag'                    => 1,
             'options'                 => array('normal', 'italic', 'oblique'),
             'eval'                    => array('multiple' => false, 'mandatory' => true, 'tl_class' => 'w50'),
