@@ -29,10 +29,11 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array(
     'list' => array(
         'sorting' => array(
             'mode'                    => 4,
-            'fields'                  => array('weight', 'style'),
+            'fields'                  => array('weight'),
+            'flag'                    => 1,
             'headerFields'            => array('name'),
             'child_record_callback'   => array('tl_fonts', 'renderStylelabel'),
-            'panelLayout'             => 'sort,filter,search,limit',
+            'panelLayout'             => 'sort,limit',
             'disableGrouping'         => true,
         ),
         'label' => array(
