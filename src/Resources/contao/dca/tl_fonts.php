@@ -242,6 +242,15 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array(
 
 class tl_fonts extends \Backend
 {
+    /**
+     * Import the back end user
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->import('BackendUser', 'User');
+    }
+
     public function renderStyleLabel($row, $label = false)
     {
         if (!$label) {
@@ -296,6 +305,8 @@ class tl_fonts extends \Backend
         }
         if (!$this->User->hasAccess('create', 'webfont_generator')) {
             $GLOBALS['TL_DCA']['tl_fonts']['config']['closed'] = true;
+            unset($GLOBALS['TL_DCA']['tl_fonts']['list']['operations']['copy']);
+            unset($GLOBALS['TL_DCA']['tl_fonts']['list']['operations']['cut']);
         }
         if (!$this->User->hasAccess('delete', 'webfont_generator')) {
             $GLOBALS['TL_DCA']['tl_fonts']['config']['notDeletable'] = true;
