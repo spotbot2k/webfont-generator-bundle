@@ -13,7 +13,6 @@ As you might know, usage of Google Services is not fully cmplient with the new G
 ## What does not
 * Copy and paste compleate font sets
 * User permissions not tested
-* FOUT (Flash Of Unstyled Text)
 
 ## TODO
 * Unit tests to ensure stability on Contao 4.4, 4.5
