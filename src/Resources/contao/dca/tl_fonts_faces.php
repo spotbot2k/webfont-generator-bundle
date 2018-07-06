@@ -16,7 +16,6 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
         'sql' => array(
             'keys' => array(
                 'id'                  => 'primary',
-                'name'                => 'index',
             ),
         ),
         'onsubmit_callback' => array(

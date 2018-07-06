@@ -194,7 +194,6 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array(
         'stretch'                     => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_fonts']['stretch'],
             'inputType'               => 'select',
-            'flag'                    => 1,
             'options'                 => array('normal', 'condensed', 'ultra-condensed', 'extra-condensed', 'semi-condensed', 'expanded', 'semi-expanded', 'extra-expanded', 'ultra-expanded'),
             'eval'                    => array('multiple' => false, 'mandatory' => true, 'tl_class' => 'w50'),
             'sql'                     => "VARCHAR(16) NOT NULL default ''",
@@ -202,7 +201,6 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array(
         'style'                       => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_fonts']['style'],
             'inputType'               => 'select',
-            'flag'                    => 1,
             'options'                 => array('normal', 'italic', 'oblique'),
             'eval'                    => array('multiple' => false, 'mandatory' => true, 'tl_class' => 'w50'),
             'sql'                     => "VARCHAR(8) NOT NULL default ''",
@@ -211,6 +209,7 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_fonts']['weight'],
             'inputType'               => 'select',
             'sorting'                 => true,
+            'search'                  => true,
             'options'                 => array(
                 'normal' => 'Default',
                 'bold'   => 'Bold',
