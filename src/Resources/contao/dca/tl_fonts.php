@@ -21,6 +21,9 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array(
         'onsubmit_callback' => array(
             array('SPoT\\WebfontGeneratorBundle\\FontFaces', 'updateFontFaces'),
         ),
+        'onload_callback'   => array(
+            array('tl_fonts', 'checkPermission'),
+        ),
     ),
     // List
     'list' => array(
@@ -296,6 +299,7 @@ class tl_fonts extends \Backend
         }
         if (!$this->User->hasAccess('delete', 'webfont_generator')) {
             $GLOBALS['TL_DCA']['tl_fonts']['config']['notDeletable'] = true;
+            unset($GLOBALS['TL_DCA']['tl_fonts']['list']['operations']['delete']);
         }
         switch (\Input::get('act')) {
             case 'delete':
