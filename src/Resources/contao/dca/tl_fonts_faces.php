@@ -29,7 +29,7 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
     'list' => array(
         'sorting' => array(
             'mode'                    => 2,
-            'fields'                  => array('name'),
+            'fields'                  => array('name ASC', 'name DESC'),
             'panelLayout'             => 'sort,search,limit',
             'child_record_callback'   => array('tl_fonts_faces', 'listFontVariants'),
         ),
@@ -92,6 +92,7 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
             'inputType'               => 'text',
             'search'                  => true,
             'sorting'                 => true,
+            'flag'                    => 1,
             'eval'                    => array(
                 'mandatory'           => true,
                 'unique'              => true,
