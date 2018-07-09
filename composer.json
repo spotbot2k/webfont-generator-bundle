@@ -3,7 +3,7 @@
     "description": "Contao bundle to load and manage local fonts as webfonts",
     "keywords":["contao","webfonts"],
     "type": "contao-bundle",
-    "version": "0.4.4",
+    "version": "0.4.5",
     "license": "LGPL-3.0+",
     "authors": [
         {
