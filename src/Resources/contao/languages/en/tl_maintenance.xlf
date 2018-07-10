@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <xliff version="1.1">
+        <file datatype="php" original="src/Resources/contao/languages/en/tl_maintenance.php" source-language="en">
+            <body>
+                <trans-unit id="tl_maintenance_jobs.webfont_generator.0">
+                    <source>Regenerate Webfonts</source>
+                </trans-unit>
+                <trans-unit id="tl_maintenance_jobs.webfont_generator.1">
+                    <source>Delete all saved webfont-CSS files and generate new ones</source>
+                </trans-unit>
+            </body>
+        </file>
+    </xliff>
