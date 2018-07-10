@@ -56,8 +56,6 @@ class FontFaces extends Backend
             $fontFace = $this->Database->prepare('SELECT name, fallback FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
             $fontPath = $this->generateFilePath($fontFace->name);
             if (file_exists("web/".$fontPath) && !$this->Files->is_writeable($fontPath)) {
-                VarDumper::dump(sprintf('%s not writable', "web/".$fontPath));
-
                 return;
             }
             $this->Files->delete("web/".$fontPath);

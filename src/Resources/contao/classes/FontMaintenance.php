@@ -3,7 +3,6 @@
 namespace SPoT\WebfontGeneratorBundle;
 
 use Contao\Backend;
-use Symfony\Component\VarDumper\VarDumper;
 
 class FontMaintenance extends Backend
 {
@@ -21,9 +20,8 @@ class FontMaintenance extends Backend
     private function purgeFiles()
     {
         foreach (scandir(TL_ROOT.'/web/bundles/spotwebfontgenerator/css/') as $file) {
-            VarDumper::dump(sprintf('purging %s', $file));
-            if (substr($file, -4) === '.php') {
-                $file = new \File('bundles/spotwebfontgenerator/css/'.$file);
+            if (substr($file, -4) === '.css') {
+                $file = new \File('web/bundles/spotwebfontgenerator/css/'.$file);
                 $file->delete();
             }
         }
