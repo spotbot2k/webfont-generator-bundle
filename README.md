@@ -34,8 +34,6 @@ Please use only free or properly licensed fonts.
 * Assign fonts to CSS selectors automaticly
 * Tested on Contao 4.3.11, 4.4.20, 4.5.10
 
-#### What does not
-* Maintenance module not implemented
-
 #### TODO
 * Translate (check german, add russian)
+* Find more reliable way to generate path
