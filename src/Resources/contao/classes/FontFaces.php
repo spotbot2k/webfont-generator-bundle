@@ -14,16 +14,12 @@ use Symfony\Component\VarDumper\VarDumper;
 
 class FontFaces extends Backend
 {
-    private $filePath;
-    private $rootDir;
-
     /**
      * Import back end user and filesystem controller
      */
     public function __construct()
     {
         parent::__construct();
-        $this->rootDir = \System::getContainer()->get('kernel')->getRootDir();
         $this->import('BackendUser', 'User');
         $this->import('Files');
     }
