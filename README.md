@@ -26,6 +26,7 @@ Please use only free or properly licensed fonts.
 #### Where to get fonts
 
 [fontsquirrel.com](https://www.fontsquirrel.com/)
+[fontlibrary.org](https://fontlibrary.org/)
 
 #### What does work
 * Generate and load font CSS
@@ -37,5 +38,4 @@ Please use only free or properly licensed fonts.
 * Maintenance module not implemented
 
 #### TODO
-* Test on Contao 4.4, 4.5
 * Translate (check german, add russian)
