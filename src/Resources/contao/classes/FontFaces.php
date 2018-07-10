@@ -60,7 +60,7 @@ class FontFaces extends Backend
 
                 return;
             }
-            $this->Files->delete($fontPath);
+            $this->Files->delete("web/".$fontPath);
 
             if ($fontFace->numRows && $fontFace->name) {
                 $fontFamily = sprintf("font-family:'%s'", $fontFace->name);
