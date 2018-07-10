@@ -7,5 +7,5 @@ $GLOBALS['TL_HOOKS']['generatePage'][] = array('SPoT\\WebfontGeneratorBundle\\Fo
 $GLOBALS['TL_PERMISSIONS'][] = 'webfont_generator';
 /* Maintenance */
 $GLOBALS['TL_PURGE']['custom']['webfont_generator'] = array(
-	'callback' => array('SPoT\\WebfontGeneratorBundle\\FontMaintenance', 'rebuildFontCSS'),
+    'callback' => array('SPoT\\WebfontGeneratorBundle\\FontMaintenance', 'rebuildFontCSS'),
 );
