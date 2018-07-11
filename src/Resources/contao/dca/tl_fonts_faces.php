@@ -67,6 +67,7 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['export'],
                 'icon'                => 'down.gif',
                 'href'                => 'act=export',
+                'button_callback'     => array('tl_fonts_faces', 'exportButtonCallback'),
             ),
             'delete' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['delete'],
@@ -178,5 +179,10 @@ class tl_fonts_faces extends Backend
 
     public function exportCSS($dc)
     {
+    }
+
+    public function exportButtonCallback($arrRow, $href, $label, $title, $icon, $attributes, $strTable, $arrRootIds, $arrChildRecordIds, $blnCircularReference, $strPrevious, $strNext)
+    {
+        return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ';
     }
 }
