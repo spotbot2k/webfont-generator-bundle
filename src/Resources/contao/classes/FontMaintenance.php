@@ -19,9 +19,9 @@ class FontMaintenance extends Backend
 
     private function purgeFiles()
     {
-        foreach (scandir(TL_ROOT.'/web/bundles/spotwebfontgenerator/css/') as $file) {
+        foreach (scandir(TL_ROOT.'/web/'.TL_WEBFONT_PATH) as $file) {
             if (substr($file, -4) === '.css') {
-                $file = new \File('web/bundles/spotwebfontgenerator/css/'.$file);
+                $file = new \File('web/'.TL_WEBFONT_PATH.$file);
                 $file->delete();
             }
         }
