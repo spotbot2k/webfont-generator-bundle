@@ -37,3 +37,4 @@ Please use only free or properly licensed fonts.
 #### TODO
 * Translate (check german, add russian)
 * Find more reliable way to generate path
+* Make exported CSS relative to allow import on a different installation
