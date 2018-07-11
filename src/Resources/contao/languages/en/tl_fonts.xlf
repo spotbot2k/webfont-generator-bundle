@@ -2,6 +2,36 @@
     <xliff version="1.1">
         <file datatype="php" original="src/Resources/contao/languages/en/tl_fonts.php" source-language="en">
             <body>
+                <trans-unit id="tl_fonts.edit.0">
+                    <source>Edit</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.edit.1">
+                    <source>Edit properties and sources</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.copy.0">
+                    <source>Copy</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.copy.1">
+                    <source>Duplicate this font</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.cut.0">
+                    <source>Cut</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.cut.1">
+                    <source>Move this font to another family</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.delete.0">
+                    <source>Delete</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.delete.1">
+                    <source>Delete this font</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.show.0">
+                    <source>Info</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts.show.1">
+                    <source>Display properties</source>
+                </trans-unit>
                 <trans-unit id="tl_fonts.new.0">
                     <source>New style</source>
                 </trans-unit>

@@ -2,6 +2,46 @@
     <xliff version="1.1">
         <file datatype="php" original="src/Resources/contao/languages/en/tl_fonts.php" source-language="en" target-language="de">
             <body>
+                <trans-unit id="tl_fonts.edit.0">
+                    <source>Edit</source>
+                    <target>Bearbeiten</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts.edit.1">
+                    <source>Edit properties and sources</source>
+                    <target>Eigenschaften anpassen</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts.copy.0">
+                    <source>Copy</source>
+                    <target>Kopieren</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts.copy.1">
+                    <source>Duplicate this font</source>
+                    <target>Eine Kopie erstellen</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts.cut.0">
+                    <source>Cut</source>
+                    <target>Verschieben</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts.cut.1">
+                    <source>Move this font to another family</source>
+                    <target>Diese Schrift verschieben</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts.delete.0">
+                    <source>Delete</source>
+                    <target>Löschen</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts.delete.1">
+                    <source>Delete this font</source>
+                    <target>Diese Schrift löschen</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts.show.0">
+                    <source>Info</source>
+                    <target>Eigenschaften</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts.show.1">
+                    <source>Display properties</source>
+                    <target>Eigenschaften anzeigen</target>
+                </trans-unit>
                 <trans-unit id="tl_fonts.new.0">
                     <source>New style</source>
                     <target>Neue Schriftstilvariante</target>

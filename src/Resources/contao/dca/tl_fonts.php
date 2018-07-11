@@ -50,29 +50,29 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array(
         ),
         'operations' => array(
             'edit' => array(
-                'label'               => &$GLOBALS['TL_LANG']['tl_style_sheet']['edit'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_fonts']['edit'],
                 'href'                => 'act=edit',
                 'icon'                => 'edit.gif',
             ),
             'copy' => array(
-                'label'               => &$GLOBALS['TL_LANG']['tl_style_sheet']['copy'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_fonts']['copy'],
                 'href'                => 'act=paste&amp;mode=copy',
                 'icon'                => 'copy.gif',
             ),
             'cut' => array(
-                'label'               => &$GLOBALS['TL_LANG']['tl_style_sheet']['cut'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_fonts']['cut'],
                 'href'                => 'act=paste&amp;mode=cut',
                 'icon'                => 'cut.gif',
                 'attributes'          => 'onclick="Backend.getScrollOffset()"',
             ),
             'delete' => array(
-                'label'               => &$GLOBALS['TL_LANG']['tl_style_sheet']['delete'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_fonts']['delete'],
                 'href'                => 'act=delete',
                 'icon'                => 'delete.gif',
                 'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"',
             ),
             'show' => array(
-                'label'               => &$GLOBALS['TL_LANG']['tl_style_sheet']['show'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_fonts']['show'],
                 'href'                => 'act=show',
                 'icon'                => 'show.gif',
             ),
