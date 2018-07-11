@@ -47,6 +47,12 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
             )
         ),
         'operations' => array(
+            'export' => array(
+                'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['export'],
+                'icon'                => 'down.gif',
+                'href'                => 'key=export',
+                'button_callback'     => array('tl_fonts_faces', 'exportButtonCallback'),
+            ),
             'edit' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['edit'],
                 'href'                => 'table=tl_fonts',
@@ -62,12 +68,6 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['copy'],
                 'href'                => 'act=copy',
                 'icon'                => 'copy.gif',
-            ),
-            'export' => array(
-                'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['export'],
-                'icon'                => 'down.gif',
-                'href'                => 'act=export',
-                'button_callback'     => array('tl_fonts_faces', 'exportButtonCallback'),
             ),
             'delete' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['delete'],
@@ -137,7 +137,7 @@ class tl_fonts_faces extends Backend
 
     public function switchAction($dc)
     {
-        if (\Input::get('act') === 'export') {
+        if (\Input::get('key') && \Input::get('key') === 'export') {
             $this->exportCSS($dc);
         }
     }
