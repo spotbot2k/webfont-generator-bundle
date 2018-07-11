@@ -3,6 +3,7 @@
 namespace SPoT\WebfontGeneratorBundle;
 
 use Contao\Backend;
+use Contao\System;
 
 class FontMaintenance extends Backend
 {

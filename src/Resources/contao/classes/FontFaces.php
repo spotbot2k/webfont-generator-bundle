@@ -47,7 +47,7 @@ class FontFaces extends Backend
      */
     public function saveFontFaces($value)
     {
-        $array = \StringUtil::deserialize($value);
+        $array = StringUtil::deserialize($value);
         $fontCss = '';
         $usageCss = '';
 
@@ -130,7 +130,7 @@ class FontFaces extends Backend
     public function generatePageHook(PageModel $page, LayoutModel $layout, PageRegular $pageRegular)
     {
         if (!empty($layout->fontfaces)) {
-            $array = \StringUtil::deserialize($layout->fontfaces);
+            $array = StringUtil::deserialize($layout->fontfaces);
 
             foreach ($array as $fontId) {
                 $fontName = $this->getFontFaceName($fontId);
@@ -166,7 +166,7 @@ class FontFaces extends Backend
      */
     private function generateFilePath($fontName)
     {
-        $slug = \StringUtil::generateAlias($fontName);
+        $slug = StringUtil::generateAlias($fontName);
 
         return sprintf("bundles/spotwebfontgenerator/css/webfont-%s.css", $slug);
     }
