@@ -10,18 +10,18 @@
                     <source>Setup a new font face</source>
                     <target>Neue Schriftfamilie hinzufügen</target>
                 </trans-unit>
-                <trans-unit id="tl_fonts_faces.editHeader.0">
+                <trans-unit id="tl_fonts_faces.editr.0">
                     <source>Edit font face styles</source>
                     <target>Schriftstilvarianten bearbeiten</target>
                 </trans-unit>
-                <trans-unit id="tl_fonts_faces.editHeader.1">
+                <trans-unit id="tl_fonts_faces.edit.1">
                     <source>Schriftstilvariante innerhalb dieser Schriftfamilie bearbeiten</source>
                 </trans-unit>
-                <trans-unit id="tl_fonts_faces.editHeader.0">
+                <trans-unit id="tl_fonts_faces.editheader.0">
                     <source>Edit font face</source>
                     <target>Schriftfamilie bearbeiten</target>
                 </trans-unit>
-                <trans-unit id="tl_fonts_faces.editHeader.1">
+                <trans-unit id="tl_fonts_faces.editheader.1">
                     <source>Change general font settings</source>
                     <target>Allgemeine Einstellungen</target>
                 </trans-unit>

@@ -8,16 +8,16 @@
                 <trans-unit id="tl_fonts_faces.new.1">
                     <source>Setup a new font face</source>
                 </trans-unit>
-                <trans-unit id="tl_fonts_faces.editHeader.0">
+                <trans-unit id="tl_fonts_faces.edit.0">
                     <source>Edit font face styles</source>
                 </trans-unit>
-                <trans-unit id="tl_fonts_faces.editHeader.1">
+                <trans-unit id="tl_fonts_faces.edit.1">
                     <source>Manage avelivable font sources and styles</source>
                 </trans-unit>
-                <trans-unit id="tl_fonts_faces.editHeader.0">
+                <trans-unit id="tl_fonts_faces.editheader.0">
                     <source>Edit font face</source>
                 </trans-unit>
-                <trans-unit id="tl_fonts_faces.editHeader.1">
+                <trans-unit id="tl_fonts_faces.editheader.1">
                     <source>Change general font settings</source>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.delete.0">
