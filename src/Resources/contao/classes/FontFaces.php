@@ -51,6 +51,10 @@ class FontFaces extends Backend
         $fontCss = '';
         $usageCss = '';
 
+        if (empty($array)) {
+            return;
+        }
+
         // Iterate selected fonts
         foreach ($array as $fontId) {
             $fontFace = $this->Database->prepare('SELECT name, fallback FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
