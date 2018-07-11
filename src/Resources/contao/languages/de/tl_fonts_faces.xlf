@@ -33,6 +33,14 @@
                     <source>Delete font face and all its styles</source>
                     <target>Schriftfamilie inclusieve der Varianten löschen</target>
                 </trans-unit>
+                <trans-unit id="tl_fonts_faces.export.0">
+                    <source>Export CSS</source>
+                    <target>CSS Exportieren</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.export.1">
+                    <source>Save generated CSS localy</source>
+                    <target>CSS lokal speichern</target>
+                </trans-unit>
                 <trans-unit id="tl_fonts_faces.copy.0">
                     <source>Copy font face</source>
                     <target>Schriftfamilie kopieren</target>

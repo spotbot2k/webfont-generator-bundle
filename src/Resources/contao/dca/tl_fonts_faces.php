@@ -62,6 +62,11 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
                 'href'                => 'act=copy',
                 'icon'                => 'copy.gif',
             ),
+            'export' => array(
+                'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['export'],
+                'icon'                => 'down.gif',
+                'button_callback'     => array('tl_fonts_faces', 'exportCSS'),
+            ),
             'delete' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['delete'],
                 'href'                => 'act=delete',
@@ -161,5 +166,9 @@ class tl_fonts_faces extends Backend
     public function editHeader($row, $href, $label, $title, $icon, $attributes)
     {
         return $this->User->canEditFieldsOf('tl_fonts_faces') ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ' : Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
+    }
+
+    public function exportCSS($arrRow, $href, $label, $title, $icon, $attributes, $strTable, $arrRootIds, $arrChildRecordIds, $blnCircularReference, $strPrevious, $strNex)
+    {
     }
 }
