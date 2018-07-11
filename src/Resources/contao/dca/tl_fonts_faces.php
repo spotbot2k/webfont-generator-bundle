@@ -138,7 +138,7 @@ class tl_fonts_faces extends Backend
     public function switchAction($dc)
     {
         if (\Input::get('key') && \Input::get('key') === 'export') {
-            $this->exportCSS($dc);
+            $this->exportCSS();
         }
     }
 
@@ -177,12 +177,14 @@ class tl_fonts_faces extends Backend
         return $this->User->canEditFieldsOf('tl_fonts_faces') ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ' : Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
     }
 
-    public function exportCSS($dc)
+    public function exportCSS()
     {
     }
 
     public function exportButtonCallback($arrRow, $href, $label, $title, $icon, $attributes, $strTable, $arrRootIds, $arrChildRecordIds, $blnCircularReference, $strPrevious, $strNext)
     {
+        $href .= sprintf("id=%s", $arrRow['id']);
+
         return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ';
     }
 }
