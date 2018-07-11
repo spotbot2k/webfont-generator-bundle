@@ -23,6 +23,7 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
         ),
         'onload_callback'   => array(
             array('tl_fonts_faces', 'checkPermission'),
+            array('tl_fonts_faces', 'switchAction'),
         ),
     ),
     // List
@@ -65,7 +66,7 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
             'export' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['export'],
                 'icon'                => 'down.gif',
-                'button_callback'     => array('tl_fonts_faces', 'exportCSS'),
+                'href'                => 'act=export',
             ),
             'delete' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['delete'],
@@ -133,6 +134,13 @@ class tl_fonts_faces extends Backend
         $this->import('BackendUser', 'User');
     }
 
+    public function switchAction($dc)
+    {
+        if (\Input::get('act') === 'export') {
+            $this->exportCSS($dc);
+        }
+    }
+
     public function checkPermission()
     {
         $container = \System::getContainer();
@@ -168,7 +176,7 @@ class tl_fonts_faces extends Backend
         return $this->User->canEditFieldsOf('tl_fonts_faces') ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ' : Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
     }
 
-    public function exportCSS($arrRow, $href, $label, $title, $icon, $attributes, $strTable, $arrRootIds, $arrChildRecordIds, $blnCircularReference, $strPrevious, $strNex)
+    public function exportCSS($dc)
     {
     }
 }
