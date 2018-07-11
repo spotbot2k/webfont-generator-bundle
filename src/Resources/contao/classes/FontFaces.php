@@ -55,10 +55,12 @@ class FontFaces extends Backend
         foreach ($array as $fontId) {
             $fontFace = $this->Database->prepare('SELECT name, fallback FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
             $fontPath = $this->generateFilePath($fontFace->name);
-            if (file_exists("web/".$fontPath) && !$this->Files->is_writeable($fontPath)) {
-                return;
+            if (file_exists("web/".$fontPath)) {
+                if (!$this->Files->is_writeable($fontPath)) {
+                    return;
+                }
+                $this->Files->delete("web/".$fontPath);
             }
-            $this->Files->delete("web/".$fontPath);
 
             if ($fontFace->numRows && $fontFace->name) {
                 $fontFamily = sprintf("font-family:'%s'", $fontFace->name);
