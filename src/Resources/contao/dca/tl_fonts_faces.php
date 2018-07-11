@@ -179,11 +179,24 @@ class tl_fonts_faces extends Backend
 
     public function exportCSS()
     {
+        if (!\Input::get('id')) {
+            return;
+        }
+        $id = \Input::get('id');
+        $this->import('SPoT\\WebfontGeneratorBundle\\FontFaces');
+        $fontName = $this->{'SPoT\\WebfontGeneratorBundle\\FontFaces'}->getFontFaceName($id);
+        $fontPath = $this->{'SPoT\\WebfontGeneratorBundle\\FontFaces'}->generateFilePath($fontName);
+        if (!file_exists("web/".$fontPath)) {
+            $this->{'SPoT\\WebfontGeneratorBundle\\FontFaces'}->saveFontFaces(array($id));
+        }
+        $objFile = new \File("web/".$fontPath);
+        $objFile->sendToBrowser();
+        $objFile->close();
     }
 
     public function exportButtonCallback($arrRow, $href, $label, $title, $icon, $attributes, $strTable, $arrRootIds, $arrChildRecordIds, $blnCircularReference, $strPrevious, $strNext)
     {
-        $href .= sprintf("id=%s", $arrRow['id']);
+        $href .= sprintf("&id=%s", $arrRow['id']);
 
         return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ';
     }

@@ -154,7 +154,7 @@ class FontFaces extends Backend
      * @param int $fontId
      * @return String
      */
-    private function getFontFaceName($fontId)
+    public function getFontFaceName($fontId)
     {
         $fontFace = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
         if ($fontFace->name) {
@@ -170,7 +170,7 @@ class FontFaces extends Backend
      * @param Strign $fontName
      * @return String
      */
-    private function generateFilePath($fontName)
+    public function generateFilePath($fontName)
     {
         $slug = StringUtil::generateAlias($fontName);
 
