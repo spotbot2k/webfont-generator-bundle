@@ -47,16 +47,16 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
             )
         ),
         'operations' => array(
+            'edit' => array(
+                'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['edit'],
+                'href'                => 'table=tl_fonts',
+                'icon'                => 'edit.gif',
+            ),
             'export' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['export'],
                 'icon'                => 'down.gif',
                 'href'                => 'key=export',
                 'button_callback'     => array('tl_fonts_faces', 'exportButtonCallback'),
-            ),
-            'edit' => array(
-                'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['edit'],
-                'href'                => 'table=tl_fonts',
-                'icon'                => 'edit.gif',
             ),
             'editheader' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['editheader'],
