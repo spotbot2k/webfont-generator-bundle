@@ -1,30 +1,28 @@
 {
     "name": "spotbot2k/webfont-generator-bundle",
     "description": "Contao bundle to load and manage local fonts as webfonts",
-    "keywords":["contao","webfonts"],
+    "keywords": ["contao", "webfonts"],
     "type": "contao-bundle",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "license": "LGPL-3.0+",
-    "authors": [
-        {
-            "name": "Alexander Schwirjow",
-            "email": "alexander@schwirjow.de",
-            "homepage": "https://www.schwirjow.de"
-        }
-    ],
+    "authors": [{
+        "name": "Alexander Schwirjow",
+        "email": "alexander@schwirjow.de",
+        "homepage": "https://www.schwirjow.de"
+    }],
     "require": {
         "php": ">=7.0",
         "contao/core-bundle": "^4.3.6"
     },
     "require-dev": {
-		"contao/manager-plugin": "^2.0"
+        "contao/manager-plugin": "^2.0"
     },
     "conflict": {
-		"contao/core": "*"
+        "contao/core": "*"
     },
-    "support":{
-		"issues":"https://github.com/spotbot2k/webfont-generator-bundle/issues",
-		"source":"https://github.com/spotbot2k/webfont-generator-bundle"
+    "support": {
+        "issues": "https://github.com/spotbot2k/webfont-generator-bundle/issues",
+        "source": "https://github.com/spotbot2k/webfont-generator-bundle"
     },
     "autoload": {
         "psr-4": {
