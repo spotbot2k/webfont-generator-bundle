@@ -104,6 +104,7 @@ class FontFaces extends Backend
                         if ($fontStyles->use_for != '') {
                             if ($fontFace->fallback) {
                                 $fontFamily .= sprintf(", '%s'", $fontFace->fallback);
+                                $fontFace->fallback = false;
                             }
                             $usageCss .= sprintf("%s{%s;%s}", $fontStyles->use_for, $fontFamily, $properties);
                         }
