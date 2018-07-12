@@ -90,13 +90,13 @@ class FontFaces extends Backend
                     if ($fontStyles->src_eot) {
                         $src[] = sprintf("url('%s%s') format('embedded-opentype')", \Environment::get('base'), $fontStyles->src_eot);
                     }
-                    if ($fontStyles->weight) {
+                    if ($fontStyles->weight && $fontStyles->weight !== 'normal') {
                         $properties .= sprintf("font-weight:%s;", $fontStyles->weight);
                     }
-                    if ($fontStyles->stretch) {
+                    if ($fontStyles->stretch && $fontStyles->stretch !== 'normal') {
                         $properties .= sprintf("font-stretch:%s;", $fontStyles->stretch);
                     }
-                    if ($fontStyles->style) {
+                    if ($fontStyles->style && $fontStyles->style !== 'normal') {
                         $properties .= sprintf("font-style:%s;", $fontStyles->style);
                     }
                     if (!empty($src)) {
