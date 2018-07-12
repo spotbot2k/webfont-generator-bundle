@@ -52,12 +52,6 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
                 'href'                => 'table=tl_fonts',
                 'icon'                => 'edit.gif',
             ),
-            'export' => array(
-                'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['export'],
-                'icon'                => 'down.gif',
-                'href'                => 'key=export',
-                'button_callback'     => array('tl_fonts_faces', 'exportButtonCallback'),
-            ),
             'editheader' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['editheader'],
                 'href'                => 'table=tl_fonts_faces&amp;act=edit',
@@ -79,6 +73,12 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['show'],
                 'href'                => 'act=show',
                 'icon'                => 'show.gif',
+            ),
+            'export' => array(
+                'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['export'],
+                'icon'                => 'down.gif',
+                'href'                => 'key=export',
+                'button_callback'     => array('tl_fonts_faces', 'exportButtonCallback'),
             ),
         )
     ),
