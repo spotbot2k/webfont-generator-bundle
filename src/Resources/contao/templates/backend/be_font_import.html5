@@ -10,17 +10,17 @@
         <input type="hidden" name="MAX_FILE_SIZE" value="<?= \Config::get('maxFileSize'); ?>">
         <div class="tl_tbox">
             <div class="widget">
-                <h3><?= $GLOBALS['TL_LANG']['tl_fonts']['source'][0]; ?></h3>
+                <h3><?= $GLOBALS['TL_LANG']['tl_fonts_faces']['source'][0]; ?></h3>
                 <?= $this->uploader->generateMarkup(); ?>
-                <?php if (isset($GLOBALS['TL_LANG']['tl_fonts']['source'][1])): ?>
-                    <p class="tl_help tl_tip"><?= $GLOBALS['TL_LANG']['tl_fonts']['source'][1]; ?></p>
+                <?php if (isset($GLOBALS['TL_LANG']['tl_fonts_faces']['source'][1])): ?>
+                    <p class="tl_help tl_tip"><?= $GLOBALS['TL_LANG']['tl_fonts_faces']['source'][1]; ?></p>
                 <?php endif; ?>
             </div>
         </div>
     </div>
     <div class="tl_formbody_submit">
         <div class="tl_submit_container">
-            <button type="submit" name="save" id="save" class="tl_submit" accesskey="s"><?= $GLOBALS['TL_LANG']['tl_fonts']['import'][0]; ?></button>
+            <button type="submit" name="save" id="save" class="tl_submit" accesskey="s"><?= $GLOBALS['TL_LANG']['tl_fonts_faces']['import'][0]; ?></button>
         </div>
     </div>
 </form>

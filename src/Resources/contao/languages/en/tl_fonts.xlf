@@ -104,18 +104,6 @@
                 <trans-unit id="tl_fonts.custom_legend">
                     <source>General font settings</source>
                 </trans-unit>
-                <trans-unit id="tl_fonts.source.0">
-                    <source>Source files</source>
-                </trans-unit>
-                <trans-unit id="tl_fonts.source.1">
-                    <source>Here you can upload one or more .css files to be imported.</source>
-                </trans-unit>
-                <trans-unit id="tl_fonts.import.0">
-                    <source>CSS import</source>
-                </trans-unit>
-                <trans-unit id="tl_fonts.import.1">
-                    <source>Import existing CSS files</source>
-                </trans-unit>
             </body>
         </file>
     </xliff>
