@@ -58,13 +58,13 @@ class FontImport extends \Backend
                     );
                 }
 
-                if (is_array($fontFaces[0])) {
+                if (isset($fontFaces[0])) {
                     $fontName = $this->parseRule($fontFaces[0], 'font\-family');
-                    $this->Database->prepare('UPDATE tl_fonts_faces SET name = ? WHERE id = ?')->execute($fontName, $parentRecord->insertId);
+                    $this->Database->prepare('UPDATE `tl_fonts_faces` SET `name` = ? WHERE `id` = ?')->execute($fontName, $parentRecord->insertId);
                 }
 
                 // Create a parent record to bind new fonts to
-                $parentRecord = $this->Database->prepare('INSERT INTO tl_fonts_faces(tstamp,name) VALUES (?,?) ON DUPLICATE KEY UPDATE tstamp = ?')->execute(time(), $fontName, time());
+                $parentRecord = $this->Database->prepare('INSERT INTO `tl_fonts_faces`(`tstamp`, `name`) VALUES (?,?)')->execute(time(), $fontName);
 
                 if (!$parentRecord->insertId) {
                     \Message::addError($GLOBALS['TL_LANG']['tl_fonts_faces']['parent_record_error']);
