@@ -11,7 +11,7 @@
         <div class="tl_tbox">
             <div class="widget">
                 <h3><?= $GLOBALS['TL_LANG']['tl_fonts']['source'][0]; ?></h3>
-                <?= $objUploader->generateMarkup(); ?>
+                <?= $this->uploader->generateMarkup(); ?>
                 <?php if (isset($GLOBALS['TL_LANG']['tl_fonts']['source'][1])): ?>
                     <p class="tl_help tl_tip"><?= $GLOBALS['TL_LANG']['tl_fonts']['source'][1]; ?></p>
                 <?php endif; ?>

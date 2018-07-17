@@ -24,6 +24,8 @@ class FontImport extends \Backend
         }
 
         $template = new \BackendTemplate($this->strTemplate);
+        $template->uploader = $objUploader;
+
         return \Message::generate().$template->parse();
     }
 }
