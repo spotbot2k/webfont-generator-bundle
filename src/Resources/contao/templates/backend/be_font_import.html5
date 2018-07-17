@@ -1,1 +1,26 @@
-HELLO WORLD
+<div id="tl_buttons">
+    <a href="<?= ampersand(str_replace('&key=import', '', \Environment::get('request'))); ?>" class="header_back" title="<?= \StringUtil::specialchars($GLOBALS['TL_LANG']['MSC']['backBTTitle']); ?>" accesskey="b">
+        <?= $GLOBALS['TL_LANG']['MSC']['backBT']; ?>
+    </a>
+</div>
+<form action="<?= ampersand(\Environment::get('request'), true); ?>" id="tl_font_import" class="tl_form tl_edit_form" method="post" enctype="multipart/form-data">
+    <div class="tl_formbody_edit">
+        <input type="hidden" name="FORM_SUBMIT" value="tl_font_import">
+        <input type="hidden" name="REQUEST_TOKEN" value="<?= REQUEST_TOKEN; ?>">
+        <input type="hidden" name="MAX_FILE_SIZE" value="<?= \Config::get('maxFileSize'); ?>">
+        <div class="tl_tbox">
+            <div class="widget">
+                <h3><?= $GLOBALS['TL_LANG']['tl_fonts']['source'][0]; ?></h3>
+                <?= $objUploader->generateMarkup(); ?>
+                <?php if (isset($GLOBALS['TL_LANG']['tl_fonts']['source'][1])): ?>
+                    <p class="tl_help tl_tip"><?= $GLOBALS['TL_LANG']['tl_fonts']['source'][1]; ?></p>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+    <div class="tl_formbody_submit">
+        <div class="tl_submit_container">
+            <button type="submit" name="save" id="save" class="tl_submit" accesskey="s"><?= $GLOBALS['TL_LANG']['tl_fonts']['import'][0]; ?></button>
+        </div>
+    </div>
+</form>
