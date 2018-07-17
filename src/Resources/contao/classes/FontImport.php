@@ -44,10 +44,10 @@ class FontImport extends \Backend
                 // Parse CSS to font
                 $strFile = $objFile->getContent();
                 $strFile = str_replace("\r", '', $strFile);
-
+                $fontFaces = parseFontFaces($strFile);
                 $fontData = array();
 
-                foreach ($strFile as $font) {
+                foreach ($fontFaces as $font) {
                     $fontData[] = array(
                         'name'   => $this->parseRule($font, 'font\-family'),
                         'weight' => $this->parseRule($font, 'font\-weight'),
