@@ -56,7 +56,7 @@ class FontImport extends \Backend
                     );
                 }
 
-                foreach ($output as $font) {
+                foreach ($fontData as $font) {
                     $query = 'INSERT INTO tl_fonts (%s) VALUES (?)';
                     $keys = array();
                     $values = array();
