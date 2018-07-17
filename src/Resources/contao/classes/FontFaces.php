@@ -73,22 +73,22 @@ class FontFaces extends Backend
                     $src = array();
                     $properties = '';
                     if ($fontStyles->src_ttf) {
-                        $src[] = sprintf("url('%s%s') format('truetype')", \Environment::get('base'), $fontStyles->src_ttf);
+                        $src[] = sprintf("url('%s') format('truetype')", $this->pathToUrl($fontStyles->src_ttf));
                     }
                     if ($fontStyles->src_otf) {
-                        $src[] = sprintf("url('%s%s') format('opentype')", \Environment::get('base'), $fontStyles->src_otf);
+                        $src[] = sprintf("url('%s') format('opentype')", $this->pathToUrl($fontStyles->src_otf));
                     }
                     if ($fontStyles->src_woff) {
-                        $src[] = sprintf("url('%s%s') format('woff')", \Environment::get('base'), $fontStyles->src_woff);
+                        $src[] = sprintf("url('%s') format('woff')", $this->pathToUrl($fontStyles->src_woff));
                     }
                     if ($fontStyle['src_woff_two']) {
-                        $src[] = sprintf("url('%s%s') format('woff2')", \Environment::get('base'), $fontStyles->src_woff_two);
+                        $src[] = sprintf("url('%s') format('woff2')", $this->pathToUrl($fontStyles->src_woff_two));
                     }
                     if ($fontStyles->src_svg) {
-                        $src[] = sprintf("url('%s%s') format('svg')", \Environment::get('base'), $fontStyles->src_svg);
+                        $src[] = sprintf("url('%s') format('svg')", $this->pathToUrl($fontStyles->src_svg));
                     }
                     if ($fontStyles->src_eot) {
-                        $src[] = sprintf("url('%s%s') format('embedded-opentype')", \Environment::get('base'), $fontStyles->src_eot);
+                        $src[] = sprintf("url('%s') format('embedded-opentype')", $this->pathToUrl($fontStyles->src_eot));
                     }
                     if ($fontStyles->weight && $fontStyles->weight !== 'normal') {
                         $properties .= sprintf("font-weight:%s;", $fontStyles->weight);
@@ -176,5 +176,14 @@ class FontFaces extends Backend
         $slug = StringUtil::generateAlias($fontName);
 
         return sprintf("bundles/spotwebfontgenerator/css/webfont-%s.css", $slug);
+    }
+
+    private function pathToUrl($strPath)
+    {
+        if (filter_var($strPath, FILTER_VALIDATE_URL)) {
+            return $strPath;
+        }
+
+        return \Environment::get('base').$strPath;
     }
 }
