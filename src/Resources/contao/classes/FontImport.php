@@ -64,18 +64,26 @@ class FontImport extends \Backend
                 }
 
                 // Create a parent record to bind new fonts to
-                $parentRecord = $this->Database->prepare('INSERT INTO `tl_fonts_faces`(`tstamp`, `name`) VALUES (?,?)')->execute(time(), $fontName);
-
-                if (!$parentRecord->insertId) {
+                $parentId = false;
+                $parentRecord = $this->Database->prepare('SELECT `id` FROM `tl_fonts_faces` WHERE `name` = ? LIMIT 1')->execute($fontName)->fetchRow();
+                if (!$parentRecord->id) {
+                    $parentRecord = $this->Database->prepare('INSERT INTO `tl_fonts_faces`(`tstamp`, `name`) VALUES (?,?)')->execute(time(), $fontName);
+                    $parentId = $parentRecord->insertId;
+                } else {
+                    $parentId = $parentRecord->id;
+                }
+            
+                if (!$parentId) {
                     \Message::addError($GLOBALS['TL_LANG']['tl_fonts_faces']['parent_record_error']);
-                    VarDumper::dump($parentRecord);
                     continue;
                 }
+
+                VarDumper::dump($fontData);
 
                 foreach ($fontData as $font) {
                     $query = 'INSERT INTO tl_fonts %s';
                     $arrParams = array(
-                        'pid'    => $parentRecord->insertId,
+                        'pid'    => $parentId,
                         'tstamp' => time(),
                     );
 
@@ -117,9 +125,6 @@ class FontImport extends \Backend
                     }
 
                     $result = $this->Database->prepare($query)->set($arrParams)->execute();
-
-                    VarDumper::dump($arrParams);
-                    VarDumper::dump($result);
                 }
 
                 \Message::addConfirmation(sprintf($GLOBALS['TL_LANG']['tl_fonts_faces']['font_created'], $fontName));
