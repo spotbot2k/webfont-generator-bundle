@@ -57,50 +57,38 @@ class FontImport extends \Backend
                 }
 
                 foreach ($fontData as $font) {
-                    $query = 'INSERT INTO tl_fonts (%s) VALUES (?)';
-                    $keys = array();
-                    $values = array();
+                    $query = 'INSERT INTO tl_fonts %s';
+                    $arrParams = array();
 
                     if ($font['name']) {
-                        $keys[] = 'name';
-                        $values[] = $font['name'];
+                        $arrParams['name'] = $font['name'];
                     }
                     if ($font['weight']) {
-                        $keys[] = 'weight';
-                        $values[] = $font['weight'];
+                        $arrParams['weight'] = $font['weight'];
                     }
                     if ($font['style']) {
-                        $keys[] = 'style';
-                        $values[] = $font['style'];
+                        $arrParams['style'] = $font['style'];
                     }
                     if ($font['src']['truetype']) {
-                        $keys[] = 'src_ttf';
-                        $values[] = $font['src']['truetype'];
+                        $arrParams['src_ttf'] = $font['src']['truetype'];
                     }
                     if ($font['src']['opentype']) {
-                        $keys[] = 'src_otf';
-                        $values[] = $font['src']['opentype'];
+                        $arrParams['src_otf'] = $font['src']['opentype'];
                     }
                     if ($font['src']['woff']) {
-                        $keys[] = 'src_woff';
-                        $values[] = $font['src']['woff'];
+                        $arrParams['src_woff'] = $font['src']['woff'];
                     }
                     if ($font['src']['woff2']) {
-                        $keys[] = 'src_woff_two';
-                        $values[] = $font['src']['woff2'];
+                        $arrParams['src_woff_two'] = $font['src']['woff2'];
                     }
                     if ($font['src']['svg']) {
-                        $keys[] = 'src_svg';
-                        $values[] = $font['src']['svg'];
+                        $arrParams['src_svg'] = $font['src']['svg'];
                     }
                     if ($font['src']['embedded-opentype']) {
-                        $keys[] = 'src_eot';
-                        $values[] = $font['src']['embedded-opentype'];
+                        $arrParams['src_eot'] = $font['src']['embedded-opentype'];
                     }
 
-                    $query = sprintf($query, implode(',', $keys));
-
-                    $result = $this->Database->prepare($query)->execute(implode("\', \'", $values));
+                    $result = $this->Database->prepare($query)->set($arrParams)->execute();
 
                     if ($result->id) {
                         $fontIds[] = $result->id;
@@ -152,5 +140,9 @@ class FontImport extends \Backend
         }
 
         return $sources;
+    }
+
+    private function sanitizeArray($arrData)
+    {
     }
 }
