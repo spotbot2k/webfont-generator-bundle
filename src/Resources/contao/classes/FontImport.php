@@ -30,7 +30,7 @@ class FontImport extends \Backend
 
             foreach ($arrUploaded as $strCssFile) {
                 // Folders cannot be imported
-                if (is_dir(TL_ROOT . '/' . $strCssFile)) {
+                if (is_dir(\System::getContainer()->getParameter('kernel.project_dir').'/'.$strCssFile)) {
                     \Message::addError(sprintf($GLOBALS['TL_LANG']['ERR']['importFolder'], basename($strCssFile)));
                     continue;
                 }
