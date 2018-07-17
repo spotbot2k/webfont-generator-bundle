@@ -65,7 +65,7 @@
                 <trans-unit id="tl_fonts_faces.source.0">
                     <source>Source files</source>
                 </trans-unit>
-                <trans-unit id="tl_fonts_facess.source.1">
+                <trans-unit id="tl_fonts_faces.source.1">
                     <source>Here you can upload one or more .css files to be imported.</source>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.import.0">

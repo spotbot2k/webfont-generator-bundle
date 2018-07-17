@@ -89,6 +89,22 @@
                     <source>Import existing CSS files</source>
                     <target>Schriften aus einer CSS-Datei einlesen</target>
                 </trans-unit>
+                <trans-unit id="tl_fonts_faces.source.0">
+                    <source>Source files</source>
+                    <target>CSS-DAteien</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.source.1">
+                    <source>Here you can upload one or more .css files to be imported.</source>
+                    <target>Hier können Sie eines oder mehrere CSS-Dateien hochladen.</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.font_created">
+                    <source>%s created successfully</source>
+                    <target>Die Schrift %s wurde aktualisiert</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.parent_record_error">
+                    <source>Parent record can not be created</source>
+                    <target>Elternelement konnte nicht erstellt werden</target>
+                </trans-unit>
             </body>
         </file>
     </xliff>
