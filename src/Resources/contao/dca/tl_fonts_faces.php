@@ -46,7 +46,7 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
                 'attributes'          => 'onclick="Backend.getScrollOffset()" accesskey="e"',
             ),
             'import' => array(
-                'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['import'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_fonts']['import'],
                 'href'                => 'key=import',
                 'icon'                => 'up.svg',
             )
