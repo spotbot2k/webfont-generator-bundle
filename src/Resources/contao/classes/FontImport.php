@@ -4,6 +4,9 @@ namespace SPoT\WebfontGeneratorBundle;
 
 class FontImport extends \Backend
 {
+    /**
+     * Import the database class and set default template
+     */
     public function __construct()
     {
         parent::__construct();
@@ -11,6 +14,9 @@ class FontImport extends \Backend
         $this->import('Database');
     }
 
+    /**
+     * Either show the upload form or handle the data
+     */
     public function importFont()
     {
         if (\Input::get('key') != 'import') {
@@ -137,6 +143,12 @@ class FontImport extends \Backend
         return \Message::generate().$template->parse();
     }
 
+    /**
+     * Parse @font-family rules from a CSS file
+     *
+     * @param string $strCSS
+     * @return array
+     */
     private function parseFontFaces($strCSS)
     {
         $regEx = '/@font\-face\s*{[^}]+}/m';
@@ -146,6 +158,14 @@ class FontImport extends \Backend
         }
     }
 
+    /**
+     * Parse a CSS rule using regex
+     *
+     * @param string $strCSS
+     * @param string $rule
+     * @param string $default
+     * @return string
+     */
     private function parseRule($strCSS, $rule, $default = '')
     {
         $regEx = sprintf('/%s:[\'"\s]*([^;\'"]+)[\'"]*/m', $rule);
@@ -157,6 +177,12 @@ class FontImport extends \Backend
         return $default;
     }
 
+    /**
+     * Parse font source rules using regex
+     *
+     * @param string $strCSS
+     * @return array
+     */
     private function parseFontSources($strCSS)
     {
         $regEx = '/url\s*[(\'"]*([^\'"\s)]+)[\')\s]*format\s*[(\'"]*([^\'"]+)[\')\s]*[;,]/m';
@@ -169,9 +195,5 @@ class FontImport extends \Backend
         }
 
         return $sources;
-    }
-
-    private function sanitizeArray($arrData)
-    {
     }
 }
