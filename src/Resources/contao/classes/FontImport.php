@@ -60,9 +60,6 @@ class FontImport extends \Backend
                     $query = 'INSERT INTO tl_fonts %s';
                     $arrParams = array();
 
-                    if ($font['name']) {
-                        $arrParams['name'] = $font['name'];
-                    }
                     if ($font['weight']) {
                         $arrParams['weight'] = $font['weight'];
                     }
