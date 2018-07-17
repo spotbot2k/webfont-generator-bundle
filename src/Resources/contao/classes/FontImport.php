@@ -2,8 +2,6 @@
 
 namespace SPoT\WebfontGeneratorBundle;
 
-use Symfony\Component\VarDumper\VarDumper;
-
 class FontImport extends \Backend
 {
     public function __construct()
