@@ -2,6 +2,8 @@
 
 namespace SPoT\WebfontGeneratorBundle;
 
+use Symfony\Component\VarDumper\VarDumper;
+
 class FontImport extends \Backend
 {
     public function __construct()
@@ -86,6 +88,9 @@ class FontImport extends \Backend
                     }
 
                     $result = $this->Database->prepare($query)->set($arrParams)->execute();
+
+                    VarDumper::dump($arrParams);
+                    VarDumper::dump($result);
 
                     if ($result->id) {
                         $fontIds[] = $result->id;
