@@ -74,8 +74,11 @@
                 <trans-unit id="tl_fonts_faces.import.1">
                     <source>Import existing CSS files</source>
                 </trans-unit>
-                <trans-unit id="tl_fonts_faces.css_imported">
-                    <source>CSS imported successfully: </source>
+                <trans-unit id="tl_fonts_faces.font_created">
+                    <source>%s created successfully</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.parent_record_error">
+                    <source>Parent record can not be created</source>
                 </trans-unit>
             </body>
         </file>

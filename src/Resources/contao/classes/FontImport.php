@@ -22,7 +22,6 @@ class FontImport extends \Backend
 
         if (\Input::post('FORM_SUBMIT') == 'tl_font_import') {
             $arrUploaded = $objUploader->uploadTo('system/tmp');
-            $fontIds = array();
 
             if (empty($arrUploaded)) {
                 \Message::addError($GLOBALS['TL_LANG']['ERR']['all_fields']);
@@ -46,7 +45,7 @@ class FontImport extends \Backend
                 // Create a parent record to bind new fonts to
                 $parentRecord = $this->Database->prepare('INSERT INTO tl_fonts_faces(tstamp,name) VALUES (?,?)')->execute(time(), basename($strCssFile));
                 if (!$parentRecord->insertId) {
-                    \Message::addError(sprintf('Can not create the parent record'));
+                    \Message::addError($GLOBALS['TL_LANG']['tl_fonts_faces']['parent_record_error']);
                     VarDumper::dump($parentRecord);
                     continue;
                 }
@@ -114,13 +113,9 @@ class FontImport extends \Backend
 
                     VarDumper::dump($arrParams);
                     VarDumper::dump($result);
-
-                    if ($result->insertId) {
-                        $fontIds[] = $result->insertId;
-                    }
                 }
 
-                \Message::addConfirmation(sprintf($GLOBALS['TL_LANG']['tl_fonts_faces']['css_imported'], implode(',', $fontIds).'.css'));
+                \Message::addConfirmation(sprintf($GLOBALS['TL_LANG']['tl_fonts_faces']['font_created'], $fontName));
             }
 
             \System::setCookie('BE_PAGE_OFFSET', 0, 0);
