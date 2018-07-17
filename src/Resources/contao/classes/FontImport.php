@@ -58,8 +58,8 @@ class FontImport extends \Backend
                     );
                 }
 
-                if (is_array($fontData[0])) {
-                    $fontName = $this->parseRule($fontData[0], 'font\-family');
+                if (is_array($fontFaces[0])) {
+                    $fontName = $this->parseRule($fontFaces[0], 'font\-family');
                     $this->Database->prepare('UPDATE tl_fonts_faces SET name = ? WHERE id = ?')->execute($fontName, $parentRecord->insertId);
                 }
 
