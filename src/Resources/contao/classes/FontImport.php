@@ -100,7 +100,7 @@ class FontImport extends \Backend
 
                     $query = sprintf($query, implode(',', $keys));
 
-                    $result = $this->Database->prepare($query)->execute(implode(",", $values));
+                    $result = $this->Database->prepare($query)->execute(implode("\', \'", $values));
 
                     if ($result->id) {
                         $fontIds[] = $result->id;
