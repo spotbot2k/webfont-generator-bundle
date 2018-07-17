@@ -52,29 +52,29 @@ $GLOBALS['TL_DCA']['tl_fonts'] = array(
             'edit' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts']['edit'],
                 'href'                => 'act=edit',
-                'icon'                => 'edit.gif',
+                'icon'                => 'edit.svg',
             ),
             'copy' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts']['copy'],
                 'href'                => 'act=paste&amp;mode=copy',
-                'icon'                => 'copy.gif',
+                'icon'                => 'copy.svg',
             ),
             'cut' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts']['cut'],
                 'href'                => 'act=paste&amp;mode=cut',
-                'icon'                => 'cut.gif',
+                'icon'                => 'cut.svg',
                 'attributes'          => 'onclick="Backend.getScrollOffset()"',
             ),
             'delete' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts']['delete'],
                 'href'                => 'act=delete',
-                'icon'                => 'delete.gif',
+                'icon'                => 'delete.svg',
                 'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"',
             ),
             'show' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts']['show'],
                 'href'                => 'act=show',
-                'icon'                => 'show.gif',
+                'icon'                => 'show.svg',
             ),
         )
     ),
