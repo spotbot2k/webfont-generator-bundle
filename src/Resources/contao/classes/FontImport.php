@@ -47,6 +47,7 @@ class FontImport extends \Backend
                 $parentRecord = $this->Database->prepare('INSERT INTO tl_fonts_faces(tstamp,name) VALUES (?,?)')->execute(time(), basename($strCssFile));
                 if (!$parentRecord->id) {
                     \Message::addError(sprintf('Can not create the parent record'));
+                    VarDumper::dump($parentRecord);
                     continue;
                 }
 
