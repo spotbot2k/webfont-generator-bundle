@@ -33,6 +33,7 @@ class FontImport extends \BackendModule
 
         $template->uploader = $uploader->generateMarkup();
         $template->fileMaxSize = $config->get('maxFileSize');
+        $template->formId = time();
         $template->backBTTitle = $this->translator->trans('MSC.backBTTitle', [], 'contao_default');
         $template->backBT = $this->translator->trans('MSC.backBT', [], 'contao_default');
         $template->submitLabel = $this->translator->trans('MSC.apply', [], 'contao_default');

@@ -2,3 +2,4 @@ src/Resources/contao/.DS_Store
 src/Resources/.DS_Store
 .php_cs.cache
 .vscode/settings.json
+src/Resources/contao/templates/.DS_Store
