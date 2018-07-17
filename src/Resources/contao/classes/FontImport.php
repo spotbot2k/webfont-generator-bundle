@@ -65,7 +65,7 @@ class FontImport extends \Backend
 
                 // Create a parent record to bind new fonts to
                 $parentId = false;
-                $parentRecord = $this->Database->prepare('SELECT `id` FROM `tl_fonts_faces` WHERE `name` = ? LIMIT 1')->execute($fontName)->fetchRow();
+                $parentRecord = $this->Database->prepare('SELECT `id` FROM `tl_fonts_faces` WHERE `name` = ? LIMIT 1')->execute($fontName);
                 if (!$parentRecord->id) {
                     $parentRecord = $this->Database->prepare('INSERT INTO `tl_fonts_faces`(`tstamp`, `name`) VALUES (?,?)')->execute(time(), $fontName);
                     $parentId = $parentRecord->insertId;
@@ -78,9 +78,11 @@ class FontImport extends \Backend
                     continue;
                 }
 
-                VarDumper::dump($fontData);
-
                 foreach ($fontData as $font) {
+                    if (!array_key_exists('src', $font)) {
+                        continue;
+                    }
+
                     $query = 'INSERT INTO tl_fonts %s';
                     $arrParams = array(
                         'pid'    => $parentId,
@@ -101,9 +103,6 @@ class FontImport extends \Backend
                         $arrParams['stretch'] = $font['stretch'];
                     } else {
                         $arrParams['stretch'] = 'normal';
-                    }
-                    if (!array_key_exists('src', $font)) {
-                        continue;
                     }
                     if (array_key_exists('truetype', $font['src'])) {
                         $arrParams['src_ttf'] = $font['src']['truetype'];
