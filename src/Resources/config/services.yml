@@ -1,9 +1,0 @@
-services:
-  webfont_generator.controller.backend_font_import:
-    class: 'SPoT\WebfontGeneratorBundle\Controller\FontImportController'
-    arguments:
-      - "@contao.framework"
-      - "@database_connection"
-      - "@request_stack"
-      - "@translator"
-      - "%kernel.project_dir%"
