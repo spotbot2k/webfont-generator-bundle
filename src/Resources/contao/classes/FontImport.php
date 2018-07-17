@@ -59,9 +59,10 @@ class FontImport extends \Backend
 
                 foreach ($fontFaces as $font) {
                     $fontData[] = array(
-                        'weight' => $this->parseRule($font, 'font\-weight'),
-                        'style'  => $this->parseRule($font, 'font\-style'),
-                        'src'    => $this->parseFontSources($font),
+                        'weight'  => $this->parseRule($font, 'font\-weight'),
+                        'style'   => $this->parseRule($font, 'font\-style'),
+                        'stretch' => $this->parseRule($font, 'font\-strech'),
+                        'src'     => $this->parseFontSources($font),
                     );
                 }
 
@@ -74,9 +75,18 @@ class FontImport extends \Backend
 
                     if ($font['weight']) {
                         $arrParams['weight'] = $font['weight'];
+                    } else {
+                        $arrParams['weight'] = 'normal';
                     }
                     if ($font['style']) {
                         $arrParams['style'] = $font['style'];
+                    } else {
+                        $arrParams['style'] = 'normal';
+                    }
+                    if ($font['stretch']) {
+                        $arrParams['stretch'] = $font['stretch'];
+                    } else {
+                        $arrParams['stretch'] = 'normal';
                     }
                     if (!array_key_exists('src', $font)) {
                         continue;
