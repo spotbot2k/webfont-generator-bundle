@@ -2,7 +2,6 @@
 /* Backend module */
 $GLOBALS['BE_MOD']['design']['fonts'] = array(
     'tables' => array('tl_fonts_faces', 'tl_fonts'),
-    'import' => array('SPoT\\WebfontGeneratorBundle\\FontImport', 'generate'),
 );
 /* Global Hook */
 $GLOBALS['TL_HOOKS']['generatePage'][] = array('SPoT\\WebfontGeneratorBundle\\FontFaces', 'generatePageHook');
