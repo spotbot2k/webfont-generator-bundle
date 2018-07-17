@@ -81,6 +81,30 @@
                     <source>Access denied</source>
                     <target>Zugriff verweigert</target>
                 </trans-unit>
+                <trans-unit id="tl_fonts_faces.source.0">
+                    <source>Source files</source>
+                    <target>CSS-Dateien</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts_facess.source.1">
+                    <source>Here you can upload one or more .css files to be imported.</source>
+                    <target>Laden Sie eines oder mehrere CSS-Dateien hoch.</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.import.0">
+                    <source>CSS import</source>
+                    <target>CSS importieren</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.import.1">
+                    <source>Import existing CSS files</source>
+                    <target>Schrift aus einer CSS-Detei importieren</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.font_created">
+                    <source>%s created successfully</source>
+                    <target>Die Schrift %s wurde erstellt</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.parent_record_error">
+                    <source>Parent record can not be created</source>
+                    <target>Elternelement konnte nicht erstellt werden</target>
+                </trans-unit>
             </body>
         </file>
     </xliff>
