@@ -45,7 +45,7 @@ class FontImport extends \Backend
 
                 // Create a parent record to bind new fonts to
                 $parentRecord = $this->Database->prepare('INSERT INTO tl_fonts_faces(tstamp,name) VALUES (?,?)')->execute(time(), basename($strCssFile));
-                if (!$parentRecord->id) {
+                if (!$parentRecord->insertId) {
                     \Message::addError(sprintf('Can not create the parent record'));
                     VarDumper::dump($parentRecord);
                     continue;
@@ -68,7 +68,7 @@ class FontImport extends \Backend
                 foreach ($fontData as $font) {
                     $query = 'INSERT INTO tl_fonts %s';
                     $arrParams = array(
-                        'pid'    => $parentRecord->id,
+                        'pid'    => $parentRecord->insertId,
                         'tstamp' => time(),
                     );
 
@@ -100,14 +100,13 @@ class FontImport extends \Backend
                         $arrParams['src_eot'] = $font['src']['embedded-opentype'];
                     }
 
-                    $result = $this->Database->prepare($query)->set($arrParams);
-                    $result = $result->execute();
+                    $result = $this->Database->prepare($query)->set($arrParams)->execute();
 
                     VarDumper::dump($arrParams);
                     VarDumper::dump($result);
 
-                    if ($result->id) {
-                        $fontIds[] = $result->id;
+                    if ($result->insertId) {
+                        $fontIds[] = $result->insertId;
                     }
                 }
 
