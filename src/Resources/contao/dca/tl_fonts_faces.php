@@ -44,39 +44,44 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
                 'href'                => 'act=select',
                 'class'               => 'header_edit_all',
                 'attributes'          => 'onclick="Backend.getScrollOffset()" accesskey="e"',
+            ),
+            'import' => array(
+                'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['import'],
+                'href'                => 'key=import',
+                'icon'                => 'up.svg',
             )
         ),
         'operations' => array(
             'edit' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['edit'],
                 'href'                => 'table=tl_fonts',
-                'icon'                => 'edit.gif',
+                'icon'                => 'edit.svg',
             ),
             'editheader' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['editheader'],
                 'href'                => 'table=tl_fonts_faces&amp;act=edit',
-                'icon'                => 'header.gif',
+                'icon'                => 'header.svg',
                 'button_callback'     => array('tl_fonts_faces', 'editHeader'),
             ),
             'copy'       => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['copy'],
                 'href'                => 'act=copy',
-                'icon'                => 'copy.gif',
+                'icon'                => 'copy.svg',
             ),
             'delete' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['delete'],
                 'href'                => 'act=delete',
-                'icon'                => 'delete.gif',
+                'icon'                => 'delete.svg',
                 'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"',
             ),
             'show' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['show'],
                 'href'                => 'act=show',
-                'icon'                => 'show.gif',
+                'icon'                => 'show.svg',
             ),
             'export' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_fonts_faces']['export'],
-                'icon'                => 'down.gif',
+                'icon'                => 'down.svg',
                 'href'                => 'key=export',
                 'button_callback'     => array('tl_fonts_faces', 'exportButtonCallback'),
             ),
