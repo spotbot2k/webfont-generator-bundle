@@ -42,15 +42,8 @@ class FontImport extends \Backend
                     continue;
                 }
 
-                // Create a parent record to bind new fonts to
-                $parentRecord = $this->Database->prepare('INSERT INTO tl_fonts_faces(tstamp,name) VALUES (?,?)')->execute(time(), basename($strCssFile));
-                if (!$parentRecord->insertId) {
-                    \Message::addError($GLOBALS['TL_LANG']['tl_fonts_faces']['parent_record_error']);
-                    VarDumper::dump($parentRecord);
-                    continue;
-                }
-
                 // Parse CSS to font
+                $fontName = basename($strCssFile);
                 $strFile = $objFile->getContent();
                 $strFile = str_replace("\r", '', $strFile);
                 $fontFaces = $this->parseFontFaces($strFile);
@@ -63,6 +56,20 @@ class FontImport extends \Backend
                         'stretch' => $this->parseRule($font, 'font\-strech'),
                         'src'     => $this->parseFontSources($font),
                     );
+                }
+
+                if (is_array($fontData[0])) {
+                    $fontName = $this->parseRule($fontData[0], 'font\-family');
+                    $this->Database->prepare('UPDATE tl_fonts_faces SET name = ? WHERE id = ?')->execute($fontName, $parentRecord->insertId);
+                }
+
+                // Create a parent record to bind new fonts to
+                $parentRecord = $this->Database->prepare('INSERT INTO tl_fonts_faces(tstamp,name) VALUES (?,?) ON DUPLICATE KEY UPDATE tstamp = ?')->execute(time(), $fontName, time());
+
+                if (!$parentRecord->insertId) {
+                    \Message::addError($GLOBALS['TL_LANG']['tl_fonts_faces']['parent_record_error']);
+                    VarDumper::dump($parentRecord);
+                    continue;
                 }
 
                 foreach ($fontData as $font) {
