@@ -43,6 +43,13 @@ class FontImport extends \Backend
                     continue;
                 }
 
+                // Create a parent record to bind new fonts to
+                $parentRecord = $this->Database->prepare('INSERT INTO tl_fonts_faces(tstamp,name) VALUES (?,?)')->execute(time(), basename($strCssFile));
+                if (!$parentRecord->id) {
+                    \Message::addError(sprintf('Can not create the parent record'));
+                    continue;
+                }
+
                 // Parse CSS to font
                 $strFile = $objFile->getContent();
                 $strFile = str_replace("\r", '', $strFile);
@@ -51,7 +58,6 @@ class FontImport extends \Backend
 
                 foreach ($fontFaces as $font) {
                     $fontData[] = array(
-                        'name'   => $this->parseRule($font, 'font\-family'),
                         'weight' => $this->parseRule($font, 'font\-weight'),
                         'style'  => $this->parseRule($font, 'font\-style'),
                         'src'    => $this->parseFontSources($font),
@@ -60,7 +66,10 @@ class FontImport extends \Backend
 
                 foreach ($fontData as $font) {
                     $query = 'INSERT INTO tl_fonts %s';
-                    $arrParams = array();
+                    $arrParams = array(
+                        'pid'    => $parentRecord->id,
+                        'tstamp' => time(),
+                    );
 
                     if ($font['weight']) {
                         $arrParams['weight'] = $font['weight'];
@@ -68,26 +77,30 @@ class FontImport extends \Backend
                     if ($font['style']) {
                         $arrParams['style'] = $font['style'];
                     }
-                    if ($font['src']['truetype']) {
+                    if (!array_key_exists('src', $font)) {
+                        continue;
+                    }
+                    if (array_key_exists('truetype', $font['src'])) {
                         $arrParams['src_ttf'] = $font['src']['truetype'];
                     }
-                    if ($font['src']['opentype']) {
+                    if (array_key_exists('opentype', $font['src'])) {
                         $arrParams['src_otf'] = $font['src']['opentype'];
                     }
-                    if ($font['src']['woff']) {
+                    if (array_key_exists('woff', $font['src'])) {
                         $arrParams['src_woff'] = $font['src']['woff'];
                     }
-                    if ($font['src']['woff2']) {
+                    if (array_key_exists('woff2', $font['src'])) {
                         $arrParams['src_woff_two'] = $font['src']['woff2'];
                     }
-                    if ($font['src']['svg']) {
+                    if (array_key_exists('svg', $font['src'])) {
                         $arrParams['src_svg'] = $font['src']['svg'];
                     }
-                    if ($font['src']['embedded-opentype']) {
+                    if (array_key_exists('embedded-opentype', $font['src'])) {
                         $arrParams['src_eot'] = $font['src']['embedded-opentype'];
                     }
 
-                    $result = $this->Database->prepare($query)->set($arrParams)->execute();
+                    $result = $this->Database->prepare($query)->set($arrParams);
+                    $result = $result->execute();
 
                     VarDumper::dump($arrParams);
                     VarDumper::dump($result);
