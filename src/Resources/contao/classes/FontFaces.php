@@ -57,7 +57,7 @@ class FontFaces extends Backend
 
         // Iterate selected fonts
         foreach ($array as $fontId) {
-            $fontFace = $this->Database->prepare('SELECT name, fallback FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
+            $fontFace = $this->Database->prepare('SELECT `name`, `fallback` FROM `tl_fonts_faces` WHERE `id` = ? LIMIT 1')->execute($fontId);
             $fontPath = $this->generateFilePath($fontFace->name);
             if (file_exists("web/".$fontPath)) {
                 if (!$this->Files->is_writeable($fontPath)) {
@@ -68,7 +68,7 @@ class FontFaces extends Backend
 
             if ($fontFace->numRows && $fontFace->name) {
                 $fontFamily = sprintf("font-family:'%s'", $fontFace->name);
-                $fontStyles = $this->Database->prepare('SELECT * FROM tl_fonts WHERE pid = ?')->execute($fontId);
+                $fontStyles = $this->Database->prepare('SELECT * FROM `tl_fonts` WHERE `pid` = ?')->execute($fontId);
                 while ($fontStyles->next()) {
                     $src = array();
                     $properties = '';
@@ -157,7 +157,7 @@ class FontFaces extends Backend
      */
     public function getFontFaceName($fontId)
     {
-        $fontFace = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);
+        $fontFace = $this->Database->prepare('SELECT `name` FROM `tl_fonts_faces` WHERE `id` = ? LIMIT 1')->execute($fontId);
         if ($fontFace->name) {
             return ' '.$fontFace->name;
         }

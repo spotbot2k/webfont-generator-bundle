@@ -9,3 +9,7 @@
 
 - ADD: CSS import
 - FIX: Prepend host multiple times
+
+#### 0.6.1
+
+- FIX: Standatrize SQL syntax

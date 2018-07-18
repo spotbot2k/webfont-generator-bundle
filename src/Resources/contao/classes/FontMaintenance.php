@@ -12,7 +12,7 @@ class FontMaintenance extends Backend
         $this->import('Database');
         $this->purgeFiles();
         $this->import('SPoT\\WebfontGeneratorBundle\\FontFaces');
-        $result = $this->Database->prepare("SELECT fontfaces FROM tl_layout WHERE fontfaces != ''")->execute();
+        $result = $this->Database->prepare("SELECT `fontfaces` FROM `tl_layout` WHERE `fontfaces` != ''")->execute();
         while ($result->next()) {
             $this->{'SPoT\\WebfontGeneratorBundle\\FontFaces'}->saveFontFaces($result->fontfaces);
         }
