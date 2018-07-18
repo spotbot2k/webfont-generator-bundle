@@ -8,7 +8,7 @@
                 <trans-unit id="tl_user_group.webfont_generator.1">
                     <source>Manage webfont generator premissions</source>
                 </trans-unit>
-                <trans-unit id="tl_user_group.webfont_legend">
+                <trans-unit id="tl_user_group.webfont_legend.0">
                     <source>Webfont Premissions</source>
                 </trans-unit>
             </body>
