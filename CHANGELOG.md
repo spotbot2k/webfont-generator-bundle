@@ -13,3 +13,4 @@
 #### 0.6.1
 
 - FIX: Standatrize SQL syntax
+- FIX: ondelete_callback implemented
