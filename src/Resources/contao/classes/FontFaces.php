@@ -40,6 +40,18 @@ class FontFaces extends Backend
         }
     }
 
+    public function deleteFontFace($dc)
+    {
+        $fontName = $dc->activeRecord->name;
+        if (!$fontName) {
+            return;
+        }
+        $fontPath = $this->generateFilePath($fontName);
+        if (file_exists("web/".$fontPath) && $this->Files->is_writeable($fontPath)) {
+            $this->Files->delete("web/".$fontPath);
+        }
+    }
+
     /**
      * Collect data from the database and generate a new CSS file
      * @param  mixed $value

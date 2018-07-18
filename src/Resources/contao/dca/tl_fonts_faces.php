@@ -25,6 +25,9 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
             array('tl_fonts_faces', 'checkPermission'),
             array('tl_fonts_faces', 'switchAction'),
         ),
+        'ondelete_callback' => array(
+            array('SPoT\\WebfontGeneratorBundle\\FontFaces', 'deleteFontFace'),
+        )
     ),
     // List
     'list' => array(
