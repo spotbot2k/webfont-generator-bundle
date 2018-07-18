@@ -10,7 +10,7 @@
                     <source>Manage webfont generator premissions</source>
                     <target>Hier können Sie die Schriften-Rechte festlegen.</target>
                 </trans-unit>
-                <trans-unit id="tl_user_group.webfont_legend.0">
+                <trans-unit id="tl_user_group.webfont_legend">
                     <source>Webfont Premissions</source>
                     <target>Schriften</target>
                 </trans-unit>
