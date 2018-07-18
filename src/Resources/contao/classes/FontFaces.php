@@ -40,6 +40,11 @@ class FontFaces extends Backend
         }
     }
 
+    /**
+     * Delete file while purging the font out of the database
+     *
+     * @param DataContainer $dc
+     */
     public function deleteFontFace($dc)
     {
         $fontName = $dc->activeRecord->name;
@@ -190,6 +195,13 @@ class FontFaces extends Backend
         return sprintf("bundles/spotwebfontgenerator/css/webfont-%s.css", $slug);
     }
 
+    /**
+     * Determine if a string is a relative path and if so
+     * convert it into a full URL
+     *
+     * @param string $strPath
+     * @return string
+     */
     private function pathToUrl($strPath)
     {
         if (filter_var($strPath, FILTER_VALIDATE_URL)) {

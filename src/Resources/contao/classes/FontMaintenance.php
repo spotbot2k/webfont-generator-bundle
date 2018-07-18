@@ -7,6 +7,9 @@ use Contao\System;
 
 class FontMaintenance extends Backend
 {
+    /**
+     * Generate files only active fonts
+     */
     public function rebuildFontCSS()
     {
         $this->import('Database');
@@ -18,6 +21,9 @@ class FontMaintenance extends Backend
         }
     }
 
+    /**
+     * Delete generated CSS files
+     */
     private function purgeFiles()
     {
         foreach (scandir(System::getContainer()->getParameter('kernel.project_dir').'/web/bundles/spotwebfontgenerator/css/') as $file) {
