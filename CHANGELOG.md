@@ -14,3 +14,7 @@
 
 - FIX: Standatrize SQL syntax
 - FIX: ondelete_callback implemented
+
+#### 0.6.2
+
+- FIX: Missing labels
