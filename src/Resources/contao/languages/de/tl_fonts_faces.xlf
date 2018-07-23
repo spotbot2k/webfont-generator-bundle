@@ -77,7 +77,7 @@
                     <source>General font settings</source>
                     <target>Allgemeine Einstellungen</target>
                 </trans-unit>
-                <trans-unit id="tl_fonts_faces.noPremission">
+                <trans-unit id="tl_fonts_faces.noPermission">
                     <source>Access denied</source>
                     <target>Zugriff verweigert</target>
                 </trans-unit>

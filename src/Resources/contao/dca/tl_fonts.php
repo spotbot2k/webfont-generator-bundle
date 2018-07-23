@@ -247,6 +247,13 @@ class tl_fonts extends \Backend
         $this->import('BackendUser', 'User');
     }
 
+    /**
+     * COmbine all font properties into a label
+     *
+     * @param array $row
+     * @param string $label
+     * @return string
+     */
     public function renderStyleLabel($row, $label = false)
     {
         if (!$label) {
@@ -293,6 +300,9 @@ class tl_fonts extends \Backend
         return $label;
     }
 
+    /**
+     * Turn some functions and UI elements on and off, depending on user permissions
+     */
     public function checkPermission()
     {
         $container = \System::getContainer();
@@ -311,13 +321,19 @@ class tl_fonts extends \Backend
             case 'delete':
             case 'deleteAll':
                 if (!$this->User->hasAccess('delete', 'webfont_generator')) {
-                    \System::log($GLOBALS['TL_LANG']['tl_fonts_faces']['noPremission'], __METHOD__, TL_ERROR);
+                    \System::log($GLOBALS['TL_LANG']['tl_fonts_faces']['noPermission'], __METHOD__, TL_ERROR);
                     \Controller::redirect('contao/main.php?act=error');
                 }
             break;
         }
     }
 
+    /**
+     * Retrive name of a font by its id
+     *
+     * @param int $fontId
+     * @return string
+     */
     private function getFontFaceName($fontId)
     {
         $fontFace = $this->Database->prepare('SELECT name FROM tl_fonts_faces WHERE id = ? LIMIT 1')->execute($fontId);

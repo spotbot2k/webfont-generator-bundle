@@ -150,6 +150,9 @@ class tl_fonts_faces extends Backend
         }
     }
 
+    /**
+     * Turn some functions and UI elements on and off, depending on user permissions
+     */
     public function checkPermission()
     {
         $container = \System::getContainer();
@@ -168,7 +171,7 @@ class tl_fonts_faces extends Backend
             case 'delete':
             case 'deleteAll':
                 if (!$this->User->hasAccess('delete', 'webfont_generator')) {
-                    \System::log($GLOBALS['TL_LANG']['tl_fonts_faces']['noPremission'], __METHOD__, TL_ERROR);
+                    \System::log($GLOBALS['TL_LANG']['tl_fonts_faces']['noPermission'], __METHOD__, TL_ERROR);
                     \Controller::redirect('contao/main.php?act=error');
                 }
             break;
@@ -185,6 +188,9 @@ class tl_fonts_faces extends Backend
         return $this->User->canEditFieldsOf('tl_fonts_faces') ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ' : Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
     }
 
+    /**
+     * Send the generated CSS file to browser
+     */
     public function exportCSS()
     {
         if (!\Input::get('id')) {

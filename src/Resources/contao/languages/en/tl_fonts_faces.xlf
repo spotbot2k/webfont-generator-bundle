@@ -59,7 +59,7 @@
                 <trans-unit id="tl_fonts_faces.title_legend">
                     <source>General font settings</source>
                 </trans-unit>
-                <trans-unit id="tl_fonts_faces.noPremission">
+                <trans-unit id="tl_fonts_faces.noPermission">
                     <source>Access denied</source>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.source.0">
