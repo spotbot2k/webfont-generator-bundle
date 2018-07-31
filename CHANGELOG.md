@@ -18,3 +18,7 @@
 #### 0.6.2
 
 - FIX: Missing labels
+
+#### 0.6.3
+
+- FIX: Less strict regex in dca (thx to squidi)
