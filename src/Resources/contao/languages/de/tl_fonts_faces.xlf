@@ -97,6 +97,18 @@
                     <source>Here you can upload one or more .css files to be imported.</source>
                     <target>Hier können Sie eines oder mehrere CSS-Dateien hochladen.</target>
                 </trans-unit>
+                <trans-unit id="tl_fonts_faces.overwrite.0">
+                    <source>Overwrite font</source>
+                    <target>Schrift überschreiben</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.overwrite.1">
+                    <source>Delete present font meta before import (will not affect files)</source>
+                    <target>Vorhandene Datensätze löschen (löscht nicht die Dateien)</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.font_import_legend">
+                    <source>Import CSS file</source>
+                    <target>CSS Importieren</target>
+                </trans-unit>
                 <trans-unit id="tl_fonts_faces.font_created">
                     <source>%s created successfully</source>
                     <target>Die Schrift %s wurde aktualisiert</target>
