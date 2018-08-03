@@ -91,7 +91,7 @@
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.source.0">
                     <source>Source files</source>
-                    <target>CSS-DAteien</target>
+                    <target>CSS-Dateien</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.source.1">
                     <source>Here you can upload one or more .css files to be imported.</source>
