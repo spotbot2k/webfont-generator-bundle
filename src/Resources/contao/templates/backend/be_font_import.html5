@@ -19,10 +19,8 @@
             </div>
             <div class="widget w50">
                 <h3><?= $GLOBALS['TL_LANG']['tl_fonts_faces']['overwrite'][0]; ?></h3>
-                <input type="checkbox" name="overwrite_font">
-                <?php if (isset($GLOBALS['TL_LANG']['tl_fonts_faces']['overwrite'][1])): ?>
-                    <p class="tl_help tl_tip"><?= $GLOBALS['TL_LANG']['tl_fonts_faces']['overwrite'][1]; ?></p>
-                <?php endif; ?>
+                <input type="checkbox" name="ctl_overwrite_font">
+                <label for="ctl_overwrite_font"><?= $GLOBALS['TL_LANG']['tl_fonts_faces']['overwrite'][1]; ?></label>
             </div>
         </fieldset>
     </div>
