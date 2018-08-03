@@ -24,7 +24,7 @@ composer require spotbot2k/webfont-generator-bundle
 
 #### Things to be aware of
 
-File picker will notwork in contao 4.3. It is about time to upgrae anyway.
+File picker will not work in contao 4.3. It is about time to upgrae anyway.
 
 Please use only free or properly licensed fonts.
 
