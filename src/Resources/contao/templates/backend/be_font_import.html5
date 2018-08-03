@@ -8,7 +8,7 @@
         <input type="hidden" name="FORM_SUBMIT" value="tl_font_import">
         <input type="hidden" name="REQUEST_TOKEN" value="<?= REQUEST_TOKEN; ?>">
         <input type="hidden" name="MAX_FILE_SIZE" value="<?= \Config::get('maxFileSize'); ?>">
-        <div class="tl_tbox">
+        <fieldset class="tl_tbox">
             <div class="widget w50">
                 <h3><?= $GLOBALS['TL_LANG']['tl_fonts_faces']['source'][0]; ?></h3>
                 <?= $this->uploader->generateMarkup(); ?>
@@ -23,7 +23,7 @@
                     <p class="tl_help tl_tip"><?= $GLOBALS['TL_LANG']['tl_fonts_faces']['overwrite'][1]; ?></p>
                 <?php endif; ?>
             </div>
-        </div>
+        </fieldset>
     </div>
     <div class="tl_formbody_submit">
         <div class="tl_submit_container">
