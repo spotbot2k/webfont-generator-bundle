@@ -9,6 +9,7 @@
         <input type="hidden" name="REQUEST_TOKEN" value="<?= REQUEST_TOKEN; ?>">
         <input type="hidden" name="MAX_FILE_SIZE" value="<?= \Config::get('maxFileSize'); ?>">
         <fieldset class="tl_tbox">
+            <legend><?= $GLOBALS['TL_LANG']['tl_fonts_faces']['font_import_legend']; ?></legend>
             <div class="widget w50">
                 <h3><?= $GLOBALS['TL_LANG']['tl_fonts_faces']['source'][0]; ?></h3>
                 <?= $this->uploader->generateMarkup(); ?>

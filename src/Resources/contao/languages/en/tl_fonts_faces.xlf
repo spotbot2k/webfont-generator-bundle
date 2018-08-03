@@ -74,6 +74,9 @@
                 <trans-unit id="tl_fonts_faces.overwrite.1">
                     <source>Delete present font meta before import (will not affect files)</source>
                 </trans-unit>
+                <trans-unit id="tl_fonts_faces.font_import_legend">
+                    <source>Import CSS file</source>
+                </trans-unit>
                 <trans-unit id="tl_fonts_faces.import.0">
                     <source>CSS import</source>
                 </trans-unit>
