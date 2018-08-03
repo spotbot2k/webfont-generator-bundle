@@ -81,6 +81,10 @@ class FontImport extends \Backend
                     $parentId = $parentRecord->insertId;
                 } else {
                     $parentId = $parentRecord->id;
+                    // Delete meta if set so
+                    if (\Input::post('ctl_overwrite_font') === 'on') {
+                        $this->Database->prepare('DELETE FROM `tl_fonts` WHERE `pid` = ?')->execute($parentId);
+                    }
                 }
             
                 if (!$parentId) {
