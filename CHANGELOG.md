@@ -22,3 +22,8 @@
 #### 0.6.3
 
 - FIX: Less strict regex in dca (thx to squidi)
+
+#### 0.7.0
+
+- FIX: minor typo fixes
+- ADD: Overwrite font on import to avoid duplicates
