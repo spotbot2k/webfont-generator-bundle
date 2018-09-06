@@ -27,3 +27,7 @@
 
 - FIX: minor typo fixes
 - ADD: Overwrite font on import to avoid duplicates
+
+#### 0.7.1
+
+- FIX: minor typo and code quality fixes

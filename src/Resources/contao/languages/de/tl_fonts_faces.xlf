@@ -83,7 +83,7 @@
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.import.0">
                     <source>CSS import</source>
-                    <target>CSS importieren</target>
+                    <target>CSS-Import</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.import.1">
                     <source>Import existing CSS files</source>
@@ -91,11 +91,11 @@
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.source.0">
                     <source>Source files</source>
-                    <target>CSS-Dateien</target>
+                    <target>Quelldateien</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.source.1">
                     <source>Here you can upload one or more .css files to be imported.</source>
-                    <target>Hier können Sie eines oder mehrere CSS-Dateien hochladen.</target>
+                    <target>Hier können Sie eine oder mehrere .css-Dateien für den Import hochladen.</target>
                 </trans-unit>
                 <trans-unit id="tl_fonts_faces.overwrite.0">
                     <source>Overwrite font</source>
