@@ -7,7 +7,8 @@
                     <target>Schriftencache leeren</target>
                 </trans-unit>
                 <trans-unit id="tl_maintenance_jobs.webfont_generator.1">
-                    <source>Löscht die gespeicherten CSS-Dateien und generiert die aktiven Schrifen neu.</source>
+                    <source>Delete all saved webfont-CSS files and generate new ones</source>
+                    <target>Löscht die gespeicherten CSS-Dateien und generiert die aktiven Schrifen neu.</target>
                 </trans-unit>
             </body>
         </file>
