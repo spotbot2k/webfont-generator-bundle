@@ -143,6 +143,12 @@ class tl_fonts_faces extends Backend
         $this->import('BackendUser', 'User');
     }
 
+    /**
+     * Handle the import action if action has been called via GET parameter
+     *
+     * @param DataContainer $dc
+     * @return string
+     */
     public function switchAction($dc)
     {
         if (\Input::get('key') && \Input::get('key') === 'export') {
@@ -178,11 +184,28 @@ class tl_fonts_faces extends Backend
         }
     }
 
+    /**
+     * Return HTML-formated name of the font
+     *
+     * @param  array $row
+     * @return string
+     */
     public function listFontVariants($row)
     {
         return '<div class="tl_content_left">'.$row['name']."</div>\n";
     }
 
+    /**
+     * Generates an edit icon if the backend user is allowed to edit
+     *
+     * @param array $row
+     * @param string $href
+     * @param string $label
+     * @param string $title
+     * @param string $icon
+     * @param string $attributes
+     * @return string
+     */
     public function editHeader($row, $href, $label, $title, $icon, $attributes)
     {
         return $this->User->canEditFieldsOf('tl_fonts_faces') ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ' : Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
@@ -208,9 +231,26 @@ class tl_fonts_faces extends Backend
         $objFile->close();
     }
 
-    public function exportButtonCallback($arrRow, $href, $label, $title, $icon, $attributes, $strTable, $arrRootIds, $arrChildRecordIds, $blnCircularReference, $strPrevious, $strNext)
+    /**
+     * Append custom button to the header to allow import
+     *
+     * @param array $row
+     * @param string $href
+     * @param string $label
+     * @param string $title
+     * @param string $icon
+     * @param array $attributes
+     * @param string $strTable
+     * @param array $arrRootIds
+     * @param array $arrChildRecordIds
+     * @param boolean $blnCircularReference
+     * @param string $strPrevious
+     * @param string $strNext
+     * @return string
+     */
+    public function exportButtonCallback($row, $href, $label, $title, $icon, $attributes, $strTable, $arrRootIds, $arrChildRecordIds, $blnCircularReference, $strPrevious, $strNext)
     {
-        $href .= sprintf("&id=%s", $arrRow['id']);
+        $href .= sprintf("&id=%s", $row['id']);
 
         return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ';
     }

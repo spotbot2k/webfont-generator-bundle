@@ -31,3 +31,8 @@
 #### 0.7.1
 
 - FIX: minor typo and code quality fixes
+
+#### 0.7.3
+
+- FIX: minor translation fixes
+- ADD: More comments in code

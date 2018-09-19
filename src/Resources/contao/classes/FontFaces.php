@@ -176,7 +176,7 @@ class FontFaces extends Backend
      * Fetch the name of the font by its id
      *
      * @param int $fontId
-     * @return String
+     * @return string
      */
     public function getFontFaceName($fontId)
     {
@@ -191,8 +191,8 @@ class FontFaces extends Backend
     /**
      * Generate unique font path
      *
-     * @param Strign $fontName
-     * @return String
+     * @param string $fontName
+     * @return string
      */
     public function generateFilePath($fontName)
     {

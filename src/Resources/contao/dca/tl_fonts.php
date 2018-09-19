@@ -248,7 +248,7 @@ class tl_fonts extends \Backend
     }
 
     /**
-     * COmbine all font properties into a label
+     * Combine all font properties into a label
      *
      * @param array $row
      * @param string $label
