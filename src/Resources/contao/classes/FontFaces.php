@@ -80,7 +80,7 @@ class FontFaces extends Backend
 
         // Iterate selected fonts
         foreach ($array as $fontId) {
-            $fontFace = $this->Database->prepare('SELECT `name`, `fallback` FROM `tl_fonts_faces` WHERE `id` = ? LIMIT 1')->execute($fontId);
+            $fontFace = $this->Database->prepare('SELECT `name`, `fallback`, `forceDownload` FROM `tl_fonts_faces` WHERE `id` = ? LIMIT 1')->execute($fontId);
             $fontPath = $this->generateFilePath($fontFace->name);
             if (file_exists("web/".$fontPath)) {
                 if (!$this->Files->is_writeable($fontPath)) {
@@ -95,6 +95,9 @@ class FontFaces extends Backend
                 while ($fontStyles->next()) {
                     $src = array();
                     $properties = '';
+                    if ($fontFace->forceDownload) {
+                        $src[] = "local('☺︎')";
+                    }
                     if ($fontStyles->src_ttf) {
                         $src[] = sprintf("url('%s') format('truetype')", $this->pathToUrl($fontStyles->src_ttf));
                     }

@@ -73,6 +73,14 @@
                     <source>What to use if this font is not avelivable</source>
                     <target>Schrift oder Schriftart, die alternativ verwendet werden soll</target>
                 </trans-unit>
+                <trans-unit id="tl_fonts_faces.forceDownload.0">
+                    <source>Force download</source>
+                    <target>Download erzwingen</target>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.forceDownload.1">
+                    <source>Ignore locally installed version</source>
+                    <target>Die lokal installierte Version ignorieren</target>
+                </trans-unit>
                 <trans-unit id="tl_fonts_faces.title_legend">
                     <source>General font settings</source>
                     <target>Allgemeine Einstellungen</target>

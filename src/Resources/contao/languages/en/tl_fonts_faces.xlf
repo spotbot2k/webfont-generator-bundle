@@ -56,6 +56,12 @@
                 <trans-unit id="tl_fonts_faces.fallback.1">
                     <source>What to use if this font is not avelivable</source>
                 </trans-unit>
+                <trans-unit id="tl_fonts_faces.forceDownload.0">
+                    <source>Force download</source>
+                </trans-unit>
+                <trans-unit id="tl_fonts_faces.forceDownload.1">
+                    <source>Ignore locally installed version</source>
+                </trans-unit>
                 <trans-unit id="tl_fonts_faces.title_legend">
                     <source>General font settings</source>
                 </trans-unit>
