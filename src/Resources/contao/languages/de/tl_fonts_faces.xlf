@@ -125,6 +125,10 @@
                     <source>Parent record can not be created</source>
                     <target>Elternelement konnte nicht erstellt werden</target>
                 </trans-unit>
+                <trans-unit id="tl_fonts_faces.database_version_error">
+                    <source>Invalid database structure. Please update using Contao Installtool.</source>
+                    <target>Datenbankstruktur scheint nicht aktuell zu sein, die Aktion konnte nicht ausgeführt werden.</target>
+                </trans-unit>
             </body>
         </file>
     </xliff>

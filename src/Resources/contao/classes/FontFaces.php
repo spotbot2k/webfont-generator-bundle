@@ -80,7 +80,13 @@ class FontFaces extends Backend
 
         // Iterate selected fonts
         foreach ($array as $fontId) {
-            $fontFace = $this->Database->prepare('SELECT `name`, `fallback`, `forceDownload` FROM `tl_fonts_faces` WHERE `id` = ? LIMIT 1')->execute($fontId);
+            try {
+                $fontFace = $this->Database->prepare('SELECT `name`, `fallback`, `forceDownload` FROM `tl_fonts_faces` WHERE `id` = ? LIMIT 1')->execute($fontId);
+            } catch (\Exception $e) {
+                \Message::addError($GLOBALS['TL_LANG']['tl_fonts_faces']['database_version_error']);
+                return;
+            }
+            
             $fontPath = $this->generateFilePath($fontFace->name);
             if (file_exists("web/".$fontPath)) {
                 if (!$this->Files->is_writeable($fontPath)) {
