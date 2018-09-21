@@ -92,7 +92,7 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
     ),
     // Palettes
     'palettes' => array(
-        'default'                     => '{title_legend},name,fallback'
+        'default'                     => '{title_legend},name,fallback,forceDownload'
     ),
     // Fields
     'fields' => array(
@@ -126,7 +126,7 @@ $GLOBALS['TL_DCA']['tl_fonts_faces'] = array(
         'forceDownload' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_fonts_faces']['forceDownload'],
             'inputType'               => 'checkbox',
-            'eval'                    => array('mandatory' => false),
+            'eval'                    => array('mandatory' => false, 'tl_class' => 'w50'),
             'sql'                     => "char(1) NOT NULL default ''"
         ),
     )
