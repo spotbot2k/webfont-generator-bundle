@@ -103,6 +103,8 @@ class FontFaces extends Backend
                     $properties = '';
                     if ($fontFace->forceDownload) {
                         $src[] = "local('☺︎')";
+                    } else {
+                        $src[] = sprintf("local(%s)", $fontFace->name);
                     }
                     if ($fontStyles->src_ttf) {
                         $src[] = sprintf("url('%s') format('truetype')", $this->pathToUrl($fontStyles->src_ttf));
