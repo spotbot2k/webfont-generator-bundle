@@ -83,7 +83,7 @@ class FontFaces extends Backend
             try {
                 $fontFace = $this->Database->prepare('SELECT `name`, `fallback`, `forceDownload` FROM `tl_fonts_faces` WHERE `id` = ? LIMIT 1')->execute($fontId);
             } catch (\Exception $e) {
-                \System::log($GLOBALS['TL_LANG']['tl_fonts_faces']['database_version_error'], __METHOD__, TL_GENERAL);
+                \System::log('Database structure is not up to date, fonts can not be generated', __METHOD__, TL_GENERAL);
                 return;
             }
             

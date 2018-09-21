@@ -95,9 +95,6 @@
                 <trans-unit id="tl_fonts_faces.parent_record_error">
                     <source>Parent record can not be created</source>
                 </trans-unit>
-                <trans-unit id="tl_fonts_faces.database_version_error">
-                    <source>Invalid database structure. Please update using Contao Installtool.</source>
-                </trans-unit>
             </body>
         </file>
     </xliff>
