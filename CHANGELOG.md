@@ -36,3 +36,6 @@
 
 - FIX: minor translation fixes
 - ADD: More comments in code
+
+#### 0.8.0
+- ADD: Localfallback option, see https://www.paulirish.com/2009/bulletproof-font-face-implementation-syntax/ for details
