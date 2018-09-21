@@ -38,7 +38,7 @@ Please use only free or properly licensed fonts.
 - Generate and load font CSS
 - Manage font styles (bold, italic etc.)
 - Assign fonts to CSS selectors automaticly
-- Tested on Contao 4.3.11, 4.4.20 - 4.4.24, 4.5.10, 4.6.3
+- Tested on Contao 4.3.11, 4.4.20 - 4.4.26, 4.5.10, 4.6.3
 
 #### TODO
 
