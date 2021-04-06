@@ -86,7 +86,7 @@ class FontImport extends \Backend
                         $this->Database->prepare('DELETE FROM `tl_fonts` WHERE `pid` = ?')->execute($parentId);
                     }
                 }
-            
+
                 if (!$parentId) {
                     \Message::addError($GLOBALS['TL_LANG']['tl_fonts_faces']['parent_record_error']);
                     continue;

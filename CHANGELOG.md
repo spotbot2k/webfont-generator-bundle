@@ -39,3 +39,7 @@
 
 #### 0.8.0
 - ADD: Localfallback option, see https://www.paulirish.com/2009/bulletproof-font-face-implementation-syntax/ for details
+
+#### 1.0.0
+- Apply PSR12 fixes only, KISS
+- Contao 4.11 Support

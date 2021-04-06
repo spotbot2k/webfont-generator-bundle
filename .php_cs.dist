@@ -5,26 +5,4 @@ This file is part of Contao Webfont Generator Bundle
 @license LGPL-3.0-or-later
 EOF;
 return PhpCsFixer\Config::create()
-    ->setRules([
-        //'@Symfony' => true,
-        '@PSR2' => true,
-        '@PHP71Migration' => true,
-        'align_multiline_comment' => true,
-        'combine_consecutive_issets' => true,
-        'combine_consecutive_unsets' => true,
-        'compact_nullable_typehint' => true,
-        'linebreak_after_opening_tag' => true,
-        'no_null_property_initialization' => true,
-        'no_superfluous_elseif' => true,
-        'no_useless_else' => true,
-        'no_useless_return' => true,
-        'ordered_class_elements' => true,
-        'ordered_imports' => true,
-        'phpdoc_add_missing_param_annotation' => true,
-        'phpdoc_order' => true,
-        'phpdoc_types_order' => [
-            'null_adjustment' => 'always_last',
-            'sort_algorithm' => 'none',
-        ],
-    ])
-;
+    ->setRules(['@PSR12' => true]);

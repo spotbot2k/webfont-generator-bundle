@@ -86,7 +86,7 @@ class FontFaces extends Backend
                 \System::log('Database structure is not up to date, fonts can not be generated', __METHOD__, TL_GENERAL);
                 return;
             }
-            
+
             $fontPath = $this->generateFilePath($fontFace->name);
             if (file_exists("web/".$fontPath)) {
                 if (!$this->Files->is_writeable($fontPath)) {
